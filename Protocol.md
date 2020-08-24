@@ -159,31 +159,43 @@ The actual Bluetooth transmissions speed is 1Mbit gross but a message transmissi
 
 The transmission speed should be aligned to a maximum of 40% of the total bandwidth. However, in any case there must not be any higher utilization then 60% of the overall bandwidth. In the case of fair message distribution with many nodes and many sporadic messages, the limit should be the 40% utilization. In cases with many permanent messages the limit may be set to 60%. The 40% utilization for CAN2.0 with bit stuffing is calculated as follows:
 
-$U = \frac{m·79+ \sum_{m=0}^{m} \left( 8·p_m + \lfloor{p_m·\frac{8}{5}} \rfloor \right)}{B}$
+$$
+U = \frac{m·79+ \sum_{m=0}^{m} \left( 8·p_m + \lfloor{p_m·\frac{8}{5}} \rfloor \right)}{B}
+$$
 
 Where B is the gross bandwidth per second (e.g. 1Mbit/s), m is the overall number of send messages per second, $p_m$ the payload length in Bytes for each message and the overall Utilization U.
 
 The 60% utilization without bit stuff is calculated as follows:
 
-$U = \frac{m·67+ \sum_{m=0}^{m} \left( 8·p_m \right)}{B}$
+$$
+U = \frac{m·67+ \sum_{m=0}^{m} \left( 8·p_m \right)}{B}
+$$
 
 The 40% utilization for CAN-FD with bit stuffing is calculated as follows:
 
-$U = \frac{m·79}{B_{ID}} + \frac{\sum{m=0}^{m} \left( 8·p_m + \lfloor{p_m·\frac{8}{5}} \rfloor \right)}{B_p}$
+$$
+U = \frac{m·79}{B_{ID}} + \frac{\sum{m=0}^{m} \left( 8·p_m + \lfloor{p_m·\frac{8}{5}} \rfloor \right)}{B_p}
+$$
 
 Where $B_ID$ is the gross identifier bandwidth per second (e.g. 1Mbit/s) and B_p is the gross payload bandwidth per second (e.g. 8Mbit/s).
 
 The 60% utilization for CAN-FD without bit stuffing is calculated as follows:
 
-$U = \frac{m·67}{B_{ID}}+ \frac{\sum_{m=0}^{m} \left( 8·p_m \right)}{B_p}$
+$$
+U = \frac{m·67}{B_{ID}}+ \frac{\sum_{m=0}^{m} \left( 8·p_m \right)}{B_p}
+$$
 
 Thus the bandwidth consumption for a streaming message (64Bytes payload each 1ms) calculates as follows at 1Mbit/8Mbit:
 
-$U_{Stuff} = \frac{1000·79}{1000000} + \frac{1000·(512 + 102)}{8000000} = 0.079 + 0.07675 = 0.15575 (15.6\%)$
+$$
+U_{Stuff} = \frac{1000·79}{1000000} + \frac{1000·(512 + 102)}{8000000} = 0.079 + 0.07675 = 0.15575 (15.6\%)
+$$
 
 and
 
-$U = \frac{1000·67}{1000000} + \frac{1000·512)}{8000000} = 0.067 + 0.064 = 0.131 (13.1\%)$
+$$
+U = \frac{1000·67}{1000000} + \frac{1000·512)}{8000000} = 0.067 + 0.064 = 0.131 (13.1\%)
+$$
 
 Alarm messages (They will be periodically repeated until muted or alarm off event occurs e.g. temperature drops under a certain limit after reaching certain alarm limit) and streaming messages are periodic messages. Furthermore, sporadic messages triggers on demand e.g. setting a program status word requires a request and an acknowledgement. The acknowledgement and the request are sporadic messages. Sporadic messages should have a reserved bandwidth of at least 10% (in an alarm shower case, the alarm messages will be prioritized). Furthermore, an overload case must be handled at the application level e.g. turn off all streaming messages and go to a graceful degradation state or a fail-save state. Note that a time triggered communication eliminates such cases because each message transmission is pre-scheduled.
 
