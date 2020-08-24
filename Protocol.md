@@ -2,19 +2,19 @@
 
 This document defines the MyTooliT network protocol. The MyTooliT network protocol exchanges information over data link layers like Bluetooth or Controller Area Network (CAN).
 
-CAN (2.0) logically splits into a message into
+CAN (2.0) logically splits a message into
 
 - a payload, and
 - an identifier.
 
 The identifier contains
 
-- a sender field to define the node origin of each message,
+- a sender field to define the node of origin of each message,
 - a receiver field to define a message receiver, and
 - the command number to
   - specify actions,
   - answers to actions,
-  - or errors.
+  - or specify errors.
 
 Each command, defined by its number, will be acknowledge via the same command number.
 
