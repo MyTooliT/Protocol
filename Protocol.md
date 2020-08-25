@@ -23,10 +23,9 @@ Each command, defined by its number, will be acknowledge via the same command nu
 
 Please note that errors must not requested.
 
-The MyTooliT communication protocol may also exchange information via Bluetooth. Therefore CAN messages fits into the payload of a Data Link Layer like a Bluetooth Data Link Layer. The identifier field is handled via a 4 byte header and the payload by additional payload that follows each message header. Note that a message may have a larger payload than 8 bytes (up to 64 Bytes per message as defined by the CAN-FD specification) but the length is limited to CAN 2.0 if CAN 2.0 is used in the transport chain.
+The MyTooliT communication protocol may also exchange information via Bluetooth. For that purpose CAN messages will be stored into the payload of a data link layer like Bluetooth. The identifier field is handled via a 4 byte header and the payload by an additional payload that follows each message header. Note that a message may have a larger payload than 8 bytes (up to 64 Bytes per message as defined by the CAN-FD specification) but the length is limited to 8 bytes, if CAN 2.0 is used in the transport chain.
 
-Furthermore, it is possible to use other data link layer formats like CAN-FD. CAN-FD is a prepared feature of the actual version.
-Furthermore, MyTooliT is capable for IP application because it is an end-to-end based network protocol. The end subscriber negotiate the traffic and a Gateway may transform e.g. IPv6 messages into MyTooliT communication by simple taking part of the payload or vice versa return requested information by requesting a look up table(LUT) that collects IPv6 requested and matches incoming and outgoing traffic.
+The MyTooliT protocol can also use other data link layer formats like CAN-FD. For example, you can use the protocol for IP application because it is an end-to-end based network protocol.
 
 ## Definitions
 
