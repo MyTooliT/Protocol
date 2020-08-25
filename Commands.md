@@ -20,18 +20,18 @@
 
 The “Data Sets” bits used in the sections below can have the following values:
 
-| Value | Data Amount                                  |
-| ----- | -------------------------------------------- |
-| 0     | Stop (stream)                                |
-| 1     | 1 data set (x, y, z, x-y-z, x-y, x-z or y-z) |
-| 2     | 3 data sets                                  |
-| 3     | 6 data sets                                  |
-| 4     | 10 data sets                                 |
-| 5     | 15 data sets                                 |
-| 6     | 20 data sets                                 |
-| 7     | 30 data sets (x, y, or z)                    |
+| Value | Data Amount   | Possible Data                                                                                                                                              |
+| ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Stop (stream) | • value 1 <br> • value 2 <br> • value 3 <br> • value 1 / value 2 / value 3 <br> • value 1 / value 2 <br> • value 1 / value 3 <br> • value 2 / value 3 <br> |
+| 1     | 1 data set    |                                                                                                                                                            |
+| 2     | 3 data sets   |                                                                                                                                                            |
+| 3     | 6 data sets   |                                                                                                                                                            |
+| 4     | 10 data sets  |                                                                                                                                                            |
+| 5     | 15 data sets  |                                                                                                                                                            |
+| 6     | 20 data sets  |                                                                                                                                                            |
+| 7     | 30 data sets  | • value 1 <br> • value 2 <br> • value 3                                                                                                                    |
 
-The chronological order starts with the oldest value (BP) and continues with newer values (BP + t), where t is the time point.
+The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
 
 ### Command `Acceleration`
 
