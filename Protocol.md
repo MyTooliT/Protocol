@@ -42,15 +42,6 @@ List of Acronyms
 - **CAN**: Controller Area Network
 - **CAN-FD**: CAN Flexible Data Rate
 - **CSMA/CR**: Carrier Sense Multiple Access/Collision Resolution
-- **CSMA/CA**: Carrier Sense Multiple Access/Collision Avoidance
-- **LSB**: Least Significant Bit
-- **MSB**: Most Significant Bit
-- **NOK**: Not OK
-- **NA**: Not Available
-- **NV**: Not Valid
-- **HW**: Hardware
-- **SW**: Software
-- **TBD**: To Be Defined
 
 ## Introduction
 
