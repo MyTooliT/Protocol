@@ -134,11 +134,11 @@ The transport of messages over a data link layer (except CAN 2.0) are fulfilled 
 
 ### Addressing
 
-A network consists of two or more subscribers and each subscriber owns a unique number (1 – 30; 0= Broadcast with ACK and 31=Broadcast without ACK) called address. The address targets a specific subscriber (or all). Note that the send number is important to acknowledge.
+A network consists of two or more subscribers and each subscriber use a unique number (1 – 30; 0 = Broadcast with ACK; 31 = Broadcast without ACK) called address. The address targets a specific subscriber (or all subscribers). Note that the send number is important for the acknowledgement.
 
-Furthermore, the addressing scheme yields to an end-to-end management of the communication state i.e. the internal states of elements inside the end-to-end subscribers does not influence the logical communication state. Thus, only a single channel must be supported for a MyTooliT information exchange i.e. an incoming message that does not address the subscriber is discarded or forwarded. Thus, the MyTooliT commands transmits via other communication protocols like BlueTooth. Note that the simultaneously transport via CAN20 may not possible due to replicating the send and receiver (and the command) at the data link layer.
+This addressing scheme yields an end-to-end management of the communication state i.e. the internal states of elements inside the end-to-end subscribers do not influence the logical communication state. Thus, only a single channel must be supported for a MyTooliT information exchange i.e. an incoming message that does not address the subscriber is discarded or forwarded. This means the MyTooliT commands can be used over other communication protocols like Bluetooth. Note that the simultaneous transport via CAN 2.0 may not possible due to the replication of the sender and receiver (and the command) at the data link layer.
 
-Furthermore, the subscribers manage the error handling e.g. re-request something after a time out is done only by the sender or other counter measurements must be fulfilled.
+In the MyTooliT protocol the subscribers manage the error handling e.g. re-request something after a timeout. If that is not the case, then other counter measurements must be fulfilled.
 
 The following figure shows the overall idea of network addressing.
 
