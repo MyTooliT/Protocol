@@ -117,18 +117,20 @@ The following table describes the command field.
 
 ### Abstracted CAN Messages
 
-As mentioned in the Introduction the MyTooliT protocol derives the priorities message concept from CAN20. Therefore, the CAN-Header (Identifier and DLC) gets abstracted by a 4Byte header as follows (The DLC0 Bit is at position 0 and the command resided in the 2 Bytes at the highest addresses):
+As mentioned in the introduction the MyTooliT protocol derives the priorities message concept from CAN 2.0. Therefore, the CAN header (identifier and DLC) are abstracted by a 4 byte header as described in the table below.
 
-| Bit   | Name                  | Description                                               |
-| ----- | --------------------- | --------------------------------------------------------- |
-| 0-3   | Data Length Code(DLC) | Length of message as described by the CAN-FD standard.    |
-| 4-8   | Receiver              | End subscriber to be addressed as described in table1.    |
-| 9     | Reserved              | Reserved                                                  |
-| 10-14 | Sender                | End subscriber that sends message as described in table 1 |
-| 15    | Reserved              | Reserved                                                  |
-| 16-31 | Command               | Command as described in table 2.                          |
+Note: The `DLC0` bit is at position 0 and the command resides in the 2 bytes at the highest addresses.
 
-Furthermore, the transport of messages over a data link layer (except CAN20) are fulfilled by putting messages consisting of header and payload in a row up to the length of the data link layer payload. Each node manage the prioritization of messages in each send queue by a prioritised message queue .
+| Bit     | Name                   | Description                                                                |
+| ------- | ---------------------- | -------------------------------------------------------------------------- |
+| 0 – 3   | Data Length Code (DLC) | Length of message as described by the CAN-FD standard                      |
+| 4 – 8   | Receiver               | End subscriber to be addressed as described in the Section “Identifier”    |
+| 9       | Reserved               | Reserved                                                                   |
+| 10 – 14 | Sender                 | End subscriber that sends message as described in the Section “Identifier” |
+| 15      | Reserved               | Reserved                                                                   |
+| 16 – 31 | Command                | Command as described in Section “Command Field”                            |
+
+The transport of messages over a data link layer (except CAN 2.0) are fulfilled by putting messages consisting of header and payload in a row up to the length of the data link layer payload. Each node manage the prioritization of messages in each send queue by a prioritized message queue.
 
 ### Addressing
 
