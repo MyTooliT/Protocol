@@ -1,5 +1,10 @@
 # Commands
 
+## Akronyms
+
+**BP**: Byte Position
+**MSB**: Most Significant Byte
+
 ## Blocks
 
 | Block  | Short Description | Extended Description                                                                                                                           |
@@ -26,7 +31,23 @@ The “Data Sets” bits used in the sections below can have the following value
 | 6     | 20 data sets                                 |
 | 7     | 30 data sets (x, y, or z)                    |
 
+The chronological order starts with the oldest value (BP) and continues with newer values (BP + t), where t is the time point.
+
 ### Acceleration
+
+- Access: Event Message
+- Permanently Stored: –
+
+#### Notes
+
+- Requesting while streaming is possible
+- Only single stream allowed
+- Requesting stream in different format stops last stream
+- Tuple format (depending on active axis, see payload):
+  - x/y/z
+  - x/y
+  - x/z
+  - y/z
 
 #### Payload
 
@@ -44,3 +65,27 @@ The “Data Sets” bits used in the sections below can have the following value
 | Byte 2           |
 | ---------------- |
 | Sequence Counter |
+
+##### 2 Byte Format
+
+| Byte 3   |
+| -------- |
+| MSB (BP) |
+
+| Byte 4       |
+| ------------ |
+| LSB (BP + 1) |
+
+##### 3 Byte Format
+
+| Byte 3   |
+| -------- |
+| MSB (BP) |
+
+| Byte 4   |
+| -------- |
+| (BP + 1) |
+
+| Byte 5       |
+| ------------ |
+| LSB (BP + 2) |
