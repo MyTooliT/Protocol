@@ -163,7 +163,9 @@ The transmission speed depends of the supported data link layer formats.
 
 ### Bluetooth
 
-The actual Bluetooth transmissions speed is 1Mbit gross but a message transmission delays due to CSMA/CD. CSMA/CD prevents transmitting if an ongoing transport is in process (radio energy at all counts!) in the corresponding transport frequency interval and each prevent delays the transport time exponentially. Note that simultaneously sending or any radio interference may destroy any radio frame and the actual Bluetooth configuration avoids re-requests at the protocol stack level (Application must do this). Furthermore, Bluetooth supports a net bandwidth of about 700kBit if each frame is 255Bytes long. However, applicatory Bluetooth supports a maximum net bandwidth of about 420kbit/s.
+The actual Bluetooth transmissions speed is 1 MBit gross. However, a message transmission might be delayed due to CSMA/CD. CSMA/CD prevents transmission, if an ongoing transport is in process in the corresponding transport frequency interval. Each collision delays the transport time exponentially. Note that simultaneously sending or any radio interference may destroy any radio frame and the actual Bluetooth configuration avoids re-requests at the protocol stack level (application must do this).
+
+Bluetooth supports a net bandwidth of about 700 kBit if each frame is 255 bytes long. However, Bluetooth applications supports a maximum net bandwidth of about 420 kbit/s.
 
 ### CAN20
 
