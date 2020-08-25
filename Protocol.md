@@ -29,11 +29,11 @@ The MyTooliT protocol can also use other data link layer formats like CAN-FD. Fo
 
 ## Definitions
 
-- **Header**: Supplemental data placed at the beginning of a block.
-- **Jitter**: Difference between best-case time and worst-case time.
+- **Header**: Supplemental data placed at the beginning of a block
+- **Jitter**: Difference between best-case time and worst-case time
 - **Node**: Self-contained unit that interacts with other nodes via the MyToolIt communication protocol
-- **Payload**: transmitted user data.
-- **Trailer**: Terminating part of a message. May support check functionality.
+- **Payload**: Transmitted user data
+- **Trailer**: Terminating part of a message; May support check functionality
 
 ## Acronyms
 
