@@ -10,10 +10,10 @@
 
 #### Payload
 
-| Byte 1                             |                                       |               |               |               |           |
-| ---------------------------------- | ------------------------------------- | ------------- | ------------- | ------------- | --------- |
-| Bit 7                              | Bit 6                                 | Bit 5         | Bit 4         | Bit 3         | Bit 2 – 0 |
-| 0: Stream <br /> 1: Single Request | 0: 2 Bytes/Axis <br /> 1: 3 Byte/Axis | X-Axis Active | Y-Axis Active | Z-Axis Active | Data Sets |
+| Byte 1                                   |                                             |               |               |               |           |
+| ---------------------------------------- | ------------------------------------------- | ------------- | ------------- | ------------- | --------- |
+| Bit 7                                    | Bit 6                                       | Bit 5         | Bit 4         | Bit 3         | Bit 2 – 0 |
+| • `0`: Stream <br> • `1`: Single Request | • `0`: 2 Bytes/Axis <br> • `1`: 3 Byte/Axis | X-Axis Active | Y-Axis Active | Z-Axis Active | Data Sets |
 
 ##### Data Sets
 
