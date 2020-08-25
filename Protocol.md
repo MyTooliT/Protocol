@@ -46,7 +46,7 @@ List of Acronyms
 - **LSB**: Least Significant Bit
 - **MSB**: Most Significant Bit
 - **NOK**: Not OK
-- **NA**: Not available
+- **NA**: Not Available
 - **NV**: Not Valid
 - **HW**: Hardware
 - **SW**: Software
