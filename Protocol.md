@@ -147,15 +147,15 @@ The following figure shows the overall idea of network addressing.
 
 ### DLC
 
-DLC as described the CAN-FD standard. The DLC must transfer over other protocols in the same format. Thus the DLC gets limited by the Data Link Layer i.e. Requesting a command via CAN20 and Bluetooth yields into a limit of 8 Bytes in the DLC.
+The MyTooliT protocol uses the DLC as described the CAN-FD standard. The DLC must transfer over other protocols in the same format. Thus the DLC is limited by the data link layer i.e. requesting a command via CAN 2.0 and Bluetooth yields a limit of 8 bytes.
 
 ### Payload
 
-The payload transports user data and/or subpayloads.
+The payload transports user data and/or sub-payloads.
 
-### Startup an backup strategy
+### Startup an Backup Strategy
 
-Actually, not implemented. CAN transmits at 1Mbit gross and Bluetooth transmits the payload at 1Mbit net. Note, that Bluetooth is a CSMA/CD protocol that will yield into jitter without taking any other actions and also reduces the total bandwidth.
+This is currently not implemented. CAN transmits at 1 MBit gross and Bluetooth transmits the payload at 1Mbit net. Note, that Bluetooth is a CSMA/CD protocol that will cause jitter without taking any other actions. Collisions also reduce the total bandwidth.
 
 ### Transmission Speed
 
