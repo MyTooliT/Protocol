@@ -1,6 +1,13 @@
-# Command Groups
+# Commands
 
-## Streaming
+## Blocks
+
+| Block  | Short Description | Extended Description                                                                                                                           |
+| ------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `0x00` | System            | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)        |
+| `0x04` | Streaming         | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
+
+## `Streaming`
 
 | Number | Command      |
 | ------ | ------------ |
