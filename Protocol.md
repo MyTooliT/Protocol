@@ -66,45 +66,54 @@ The priority-based concept of messages is a key feature of the MyTooliT network 
 
 ## Protocol Specification
 
-Each CAN20 frame consists of an identifier, a payload, a Data Length Code and physical transport bits. The following figure shows the essential parts of an extended CAN20 frame:
+Each CAN 2.0 frame consists of
 
-| Identifier     | DLC | Payload         |
-| -------------- | --- | --------------- |
-| Bit 0 – Bit 29 |     | Byte 0 – Byte 7 |
+- an identifier,
+- a payload,
+- a data length code (DLC), and
+- physical transport bits.
 
-The Identifier describes the message, the Data Length Code the Length of the payload (CAN 2.0: 0 - 8 Byte, CAN-FD 0-64Bytes) and the payload holds information.
+The following figure shows the essential parts of an extended CAN 2.0 frame:
+
+| Identifier | DLC    | Payload     |
+| ---------- | ------ | ----------- |
+| 29 Bits    | 4 Bits | 0 – 7 Bytes |
+
+The
+
+- identifier describes the message,
+- the data length code stores the length of the payload (CAN 2.0: 0 – 8 Byte, CAN-FD 0 – 64 bytes), and
+- the payload stores message data.
 
 ### Identifier
 
-| V   | Command | R1  | Sender  | R2  | Receiver |
-| --- | ------- | --- | ------- | --- | -------- |
-| 0   | 1 – 16  | 17  | 18 – 22 | 23  | 24 – 28  |
+|     | V   | Command | R1  | Sender  | R2  | Receiver |
+| --- | --- | ------- | --- | ------- | --- | -------- |
+| Bit | 0   | 1 – 16  | 17  | 18 – 22 | 23  | 24 – 28  |
 
 The following table describes the identifier field.
 
-| Field    | Purpose                                                                                                                                                         |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| V        | Version Number. Must be 0. Otherwise frame will be discarded.                                                                                                   |
-| Command  | Command to be executed or acknowledged.                                                                                                                         |
-| R        | Reserved                                                                                                                                                        |
-| Sender   | Number of the original sender (Frames may hop). 0 Not allowed.                                                                                                  |
-| Receiver | Number of the target receiver (Frames may hop). 0 broadcasts at field d bus(local network) with ack. 0x1F broadcasts at field d bus(local network) without ack. |
+| Field    | Purpose                                                                                                                                                                       |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| V        | Version number <br> • Must be `0` or the frame will be discarded                                                                                                              |
+| Command  | Command to be executed or acknowledged                                                                                                                                        |
+| R1/R2    | Reserved                                                                                                                                                                      |
+| Sender   | Number of the original sender (frames may hop) <br> • `0` Not allowed                                                                                                         |
+| Receiver | Number of the target receiver (frames may hop) <br> • `0` broadcasts at field bus (local network) with ACK <br> • `0x1F` broadcasts at field d bus(local network) without ACK |
 
 ### Command Field
 
-The following figure describes the command field.
-
-| Number         | A   | E               |
-| -------------- | --- | --------------- |
-| Bit 0 – Bit 29 |     | Byte 0 – Byte 7 |
+| Number | A     | E          |
+| ------ | ----- | ---------- |
+| 29 Bit | 1 Bit | 0 – 7 Byte |
 
 The following table describes the command field.
 
-| Field  | Purpose                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Number | 64 Command Groups and a command group supports up to 256 commands (1 – 16383, 0 not valid). The command are described in the CommandGroups.xls document.                                                                                                                                                                                                                                        |
-| A      | Acknowledge field, 1 if it’s a request and 0 if it’s an acknowledge. Note that a single command may trigger multiple acknowledges (See Streaming Bit S).                                                                                                                                                                                                                                        |
-| E      | Error Bit that indicates an error. An error code is supported via the payload. 0 if it is an error and 1 if it’s not an error. The error format is 8 Byte long where the first Bytes describes the error number and the following 7 Bytes a sub error description. Furthermore, there are general errors (1-255) that are followed by 0 and specific errors that are followed by variable bits. |
+| Field  | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Number | • 64 Command Groups <br> • A command group supports up to 256 commands (1 – 16383, 0 not valid) <br> • Command are described [here](Commands.md)                                                                                                                                                                                                                                                                                     |
+| A      | Acknowledge field <br> • `1` for a request <br> • `0` for an acknowledgement <br> Note that a single command may trigger multiple acknowledges (streaming).                                                                                                                                                                                                                                                                          |
+| E      | Error Bit <br> • Indicates an error <br> • `0` if it is an error <br> • `1` if it is not an error <br> • An error code is supported via the payload <br> • The error format is b bytes long. The first byte describes the error number and the following 7 bytes are used for an error description. Furthermore, there are general errors (1 – 255) that are followed by `0` and specific errors that are followed by variable bits. |
 
 ### Abstracted CAN Messages
 
