@@ -44,17 +44,24 @@ The MyTooliT protocol can also use other data link layer formats like CAN-FD. Fo
 
 ## Introduction
 
-CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange short real time messages between Electronic Control Units (ECU). Each ECU may act as a master i.e. send frames and thus each ECU may control the system by inserting error frames, acknowledging, send information or process information. Furthermore, a standard base format and an extended format exists and the MyTooliT communication protocol bases at the extended format. The following figure describes the extended format:
+CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange short real time messages between Electronic Control Units (ECU). Each ECU may act as a master i.e. send frames and thus each ECU may control the system
+
+- by inserting error frames,
+- acknowledging frames,
+- sending information or
+- processing information.
+
+A standard base format (11 bit identifier) and an extended format (29 bit identifier) exist. The MyTooliT communication protocol is based on the extended format. The following figure describes the extended format:
 
 ![CAN Frame](Figures/CAN%20Frame.png)
 
-The available literature e.g. Wikipedia, Master Thesis: Experimental Evaluation of Performance in Controller Area Network by Walther Operenyi, etc. supports further information.
+For more information, please take a look at the [Wikipedia article about CAN](https://en.wikipedia.org/wiki/CAN_bus) or other available literature (e.g. [Experimental Framework for Controller Area Network based on a Multi-Processor-System-on-a- Chip](https://repositum.tuwien.at/retrieve/27430)).
 
-A main feature of CAN are prioritized messages i.e. if two or more senders try to send messages simultaneously, the message with the highest priority (lowest identifier) transports instantly and the remaining afterwards (CSMA/CR).
+A main feature of CAN are prioritized messages i.e. if two or more senders try to send messages simultaneously, the message with the highest priority (lowest identifier) will be sent instantly and the remaining ones afterwards (CSMA/CR).
 
-Consequential, each message identifier must be unique (each sender has a set of messages) and subscribers must queue messages to be send by their priority.
+This design requires that each message identifier must be unique (each sender has a set of messages) and subscribers must queue messages according to their priority.
 
-The priority-based concept of messages is a key feature of the MyTooliT network protocol. This protocol uses CAN20, Bluetooth and other data link layer protocols to transport messages between end nodes. Thus, MyTooliT transport messages between end nodes over diverse data link protocols. The flow control is managed by the prioritization of messages, the end-to-end-communication and by limiting the overall traffic to 40%/60% of the total bandwidth.
+The priority-based concept of messages is a key feature of the MyTooliT network protocol. The protocol uses CAN 2.0, Bluetooth and other data link layer protocols to transport messages between end nodes. Thus, MyTooliT transport messages between end nodes over diverse data link protocols. The flow control is managed by the prioritization of messages, the end-to-end-communication and by limiting the overall traffic to 40%/60% of the total bandwidth.
 
 Furthermore, CAN-FD is the extension of CAN2.0 and the main difference is the speed up in the payload field (DLC and CRC are extended too). Thus, the net bandwidth increases by multiplicating the payload field and speeding it up simultaneously (64Bytes takes approximately the same time to transport as 8Bytes if the transmission speed gets increases by 10). Thus transporting the same amount of messages yields into transporting more payload data. Note that MyTooliT actually does not support CAN-FD and CAN-FD will be used as a data link layer that transports abstracted CAN-messages.
 
