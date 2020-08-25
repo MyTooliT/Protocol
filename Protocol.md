@@ -16,9 +16,12 @@ The identifier contains
   - answers to actions,
   - or specify errors.
 
-Each command, defined by its number, will be acknowledge via the same command number.
+Each command, defined by its number, will be acknowledge via the same command number. A
 
-A request bit defines request (acknowledgement) commands and an error bit defines error. Please note that errors must not requested.
+- request bit defines request (acknowledgement) commands, and
+- an error bit defines error.
+
+Please note that errors must not requested.
 
 The MyTooliT communication protocol may also exchange information via Bluetooth. Therefore CAN messages fits into the payload of a Data Link Layer like a Bluetooth Data Link Layer. The identifier field is handled via a 4 byte header and the payload by additional payload that follows each message header. Note that a message may have a larger payload than 8 bytes (up to 64 Bytes per message as defined by the CAN-FD specification) but the length is limited to CAN 2.0 if CAN 2.0 is used in the transport chain.
 
