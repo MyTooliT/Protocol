@@ -12,7 +12,7 @@
 | `0x00` | System            | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)        |
 | `0x04` | Streaming         | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
 
-## `Streaming`
+## Block `Streaming`
 
 | Number | Command      |
 | ------ | ------------ |
@@ -33,7 +33,7 @@ The “Data Sets” bits used in the sections below can have the following value
 
 The chronological order starts with the oldest value (BP) and continues with newer values (BP + t), where t is the time point.
 
-### Acceleration
+### Command `Acceleration`
 
 - Access: Event Message
 - Permanently Stored: –
