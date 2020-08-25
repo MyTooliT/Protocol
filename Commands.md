@@ -16,7 +16,8 @@
 
 | Number | Command      |
 | ------ | ------------ |
-| 1      | Acceleration |
+| `0x1`  | Acceleration |
+| `0x20` | Voltage      |
 
 The “Data Sets” bits used in the sections below can have the following values:
 
@@ -89,3 +90,24 @@ The chronological order starts with the oldest set (BP) and continues with newer
 | Byte 5       |
 | ------------ |
 | LSB (BP + 2) |
+
+### Command `Voltage`
+
+- Access: Event Message
+- Permanently Stored: –
+
+#### Notes
+
+- Highest voltage sampling rate determines bit stream rate
+- Requesting while streaming is possible
+
+#### Payload
+
+| Byte 1                                   |                                              |                  |                  |                  |           |
+| ---------------------------------------- | -------------------------------------------- | ---------------- | ---------------- | ---------------- | --------- |
+| Bit 7                                    | Bit 6                                        | Bit 5            | Bit 4            | Bit 3            | Bit 2 – 0 |
+| • `0`: Stream <br> • `1`: Single Request | • `0`: 2 Bytes Data <br> • `1`: 3 Bytes data | Voltage 1 Active | Voltage 2 Active | Voltage 3 Active | Data Sets |
+
+#### Acknowledgment Payload
+
+The command uses the same format as the “Acknowledgment Payload” of the `Acceleration` command.
