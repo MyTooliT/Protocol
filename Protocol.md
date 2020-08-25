@@ -19,7 +19,7 @@ The identifier contains
 Each command, defined by its number, will be acknowledge via the same command number. A
 
 - request bit defines request (acknowledgement) commands, and
-- an error bit defines error.
+- an error bit defines errors.
 
 Please note that errors must not requested.
 
