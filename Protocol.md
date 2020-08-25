@@ -104,9 +104,9 @@ The following table describes the identifier field.
 
 ### Command Field
 
-| Number | A     | E          |
-| ------ | ----- | ---------- |
-| 29 Bit | 1 Bit | 0 – 7 Byte |
+|     | Number | A   | E   |
+| --- | ------ | --- | --- |
+| Bit | 0 – 13 | 14  | 15  |
 
 The following table describes the command field.
 
