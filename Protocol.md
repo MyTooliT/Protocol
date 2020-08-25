@@ -31,7 +31,7 @@ The MyTooliT protocol can also use other data link layer formats like CAN-FD. Fo
 
 - **Header**: Supplemental data placed at the beginning of a block
 - **Jitter**: Difference between best-case time and worst-case time
-- **Node**: Self-contained unit that interacts with other nodes via the MyToolIt communication protocol
+- **Node**: Self-contained unit that interacts with other nodes via the MyTooliT communication protocol
 - **Payload**: Transmitted user data
 - **Trailer**: Terminating part of a message; May support check functionality
 
@@ -44,7 +44,7 @@ The MyTooliT protocol can also use other data link layer formats like CAN-FD. Fo
 
 ## Introduction
 
-CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange short real time messages between Electronic Control Units (ECU). Each ECU may act as a master i.e. send frames and thus each ECU may control the system by inserting error frames, acknowledging, send information or process information. Furthermore, a standard base format and an extended format exists and the MyToolIt communication protocol bases at the extended format. The following figure describes the extended format:
+CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange short real time messages between Electronic Control Units (ECU). Each ECU may act as a master i.e. send frames and thus each ECU may control the system by inserting error frames, acknowledging, send information or process information. Furthermore, a standard base format and an extended format exists and the MyTooliT communication protocol bases at the extended format. The following figure describes the extended format:
 
 ![CAN Frame](Figures/CAN%20Frame.png)
 
@@ -54,9 +54,9 @@ A main feature of CAN are prioritized messages i.e. if two or more senders try t
 
 Consequential, each message identifier must be unique (each sender has a set of messages) and subscribers must queue messages to be send by their priority.
 
-The priority-based concept of messages is a key feature of the MyToolIt network protocol. This protocol uses CAN20, Bluetooth and other data link layer protocols to transport messages between end nodes. Thus, MyToolIt transport messages between end nodes over diverse data link protocols. The flow control is managed by the prioritization of messages, the end-to-end-communication and by limiting the overall traffic to 40%/60% of the total bandwidth.
+The priority-based concept of messages is a key feature of the MyTooliT network protocol. This protocol uses CAN20, Bluetooth and other data link layer protocols to transport messages between end nodes. Thus, MyTooliT transport messages between end nodes over diverse data link protocols. The flow control is managed by the prioritization of messages, the end-to-end-communication and by limiting the overall traffic to 40%/60% of the total bandwidth.
 
-Furthermore, CAN-FD is the extension of CAN2.0 and the main difference is the speed up in the payload field (DLC and CRC are extended too). Thus, the net bandwidth increases by multiplicating the payload field and speeding it up simultaneously (64Bytes takes approximately the same time to transport as 8Bytes if the transmission speed gets increases by 10). Thus transporting the same amount of messages yields into transporting more payload data. Note that MyToolIt actually does not support CAN-FD and CAN-FD will be used as a data link layer that transports abstracted CAN-messages.
+Furthermore, CAN-FD is the extension of CAN2.0 and the main difference is the speed up in the payload field (DLC and CRC are extended too). Thus, the net bandwidth increases by multiplicating the payload field and speeding it up simultaneously (64Bytes takes approximately the same time to transport as 8Bytes if the transmission speed gets increases by 10). Thus transporting the same amount of messages yields into transporting more payload data. Note that MyTooliT actually does not support CAN-FD and CAN-FD will be used as a data link layer that transports abstracted CAN-messages.
 
 ## Protocol Specification
 
@@ -102,7 +102,7 @@ The following table describes the command field.
 
 ### Abstracted CAN Messages
 
-As mentioned in the Introduction the MyToolIt protocol derives the priorities message concept from CAN20. Therefore, the CAN-Header (Identifier and DLC) gets abstracted by a 4Byte header as follows (The DLC0 Bit is at position 0 and the command resided in the 2 Bytes at the highest addresses):
+As mentioned in the Introduction the MyTooliT protocol derives the priorities message concept from CAN20. Therefore, the CAN-Header (Identifier and DLC) gets abstracted by a 4Byte header as follows (The DLC0 Bit is at position 0 and the command resided in the 2 Bytes at the highest addresses):
 
 | Bit   | Name                  | Description                                               |
 | ----- | --------------------- | --------------------------------------------------------- |
@@ -119,7 +119,7 @@ Furthermore, the transport of messages over a data link layer (except CAN20) are
 
 A network consists of two or more subscribers and each subscriber owns a unique number (1 – 30; 0= Broadcast with ACK and 31=Broadcast without ACK) called address. The address targets a specific subscriber (or all). Note that the send number is important to acknowledge.
 
-Furthermore, the addressing scheme yields to an end-to-end management of the communication state i.e. the internal states of elements inside the end-to-end subscribers does not influence the logical communication state. Thus, only a single channel must be supported for a MyToolIt information exchange i.e. an incoming message that does not address the subscriber is discarded or forwarded. Thus, the MyToolIt commands transmits via other communication protocols like BlueTooth. Note that the simultaneously transport via CAN20 may not possible due to replicating the send and receiver (and the command) at the data link layer.
+Furthermore, the addressing scheme yields to an end-to-end management of the communication state i.e. the internal states of elements inside the end-to-end subscribers does not influence the logical communication state. Thus, only a single channel must be supported for a MyTooliT information exchange i.e. an incoming message that does not address the subscriber is discarded or forwarded. Thus, the MyTooliT commands transmits via other communication protocols like BlueTooth. Note that the simultaneously transport via CAN20 may not possible due to replicating the send and receiver (and the command) at the data link layer.
 
 Furthermore, the subscribers manage the error handling e.g. re-request something after a time out is done only by the sender or other counter measurements must be fulfilled.
 
