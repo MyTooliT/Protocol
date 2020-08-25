@@ -37,6 +37,7 @@ The MyTooliT protocol can also use other data link layer formats like CAN-FD. Fo
 
 ## Acronyms
 
+- **DLC**: Data Length Code
 - **CAN**: Controller Area Network
 - **CAN-FD**: CAN Flexible Data Rate
 - **CSMA/CR**: Carrier Sense Multiple Access/Collision Resolution
