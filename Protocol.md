@@ -63,8 +63,6 @@ This design requires that each message identifier must be unique (each sender ha
 
 The priority-based concept of messages is a key feature of the MyTooliT network protocol. The protocol uses CAN 2.0, Bluetooth and other data link layer protocols to transport messages between end nodes. Thus, MyTooliT transport messages between end nodes over diverse data link protocols. The flow control is managed by the prioritization of messages, the end-to-end-communication and by limiting the overall traffic to 40%/60% of the total bandwidth.
 
-Furthermore, CAN-FD is the extension of CAN2.0 and the main difference is the speed up in the payload field (DLC and CRC are extended too). Thus, the net bandwidth increases by multiplicating the payload field and speeding it up simultaneously (64Bytes takes approximately the same time to transport as 8Bytes if the transmission speed gets increases by 10). Thus transporting the same amount of messages yields into transporting more payload data. Note that MyTooliT actually does not support CAN-FD and CAN-FD will be used as a data link layer that transports abstracted CAN-messages.
-
 ## Protocol Specification
 
 Each CAN20 frame consists of an identifier, a payload, a Data Length Code and physical transport bits. The following figure shows the essential parts of an extended CAN20 frame:
