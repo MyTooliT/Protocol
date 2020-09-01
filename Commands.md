@@ -16,6 +16,9 @@
 | `0x00` | System                        | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)           |
 | `0x04` | Streaming                     | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block.    |
 | `0x08` | Statistical Data and Quantity | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
+| `0x08` | Statistical Data and Quantity | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
+| `0x28` | Configuration                 | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here).                              |
+| `0x3D` | EEPROM                        | Used for writing and reading EEPROM data directly                                                                                                 |
 
 ## Block `System`
 
