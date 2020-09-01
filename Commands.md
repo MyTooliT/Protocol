@@ -19,10 +19,11 @@
 
 ## Block `System`
 
-| Number | Command  | Access | Permanently Stored |
-| ------ | -------- | ------ | ------------------ |
-| `0x00` | Verboten | –      | –                  |
-| `0x01` | Reset    | Event  | –                  |
+| Number | Command       | Access     | Permanently Stored |
+| ------ | ------------- | ---------- | ------------------ |
+| `0x00` | Verboten      | –          | –                  |
+| `0x01` | Reset         | Event      | –                  |
+| `0x02` | Get/Set State | Read/Write | –                  |
 
 ### Command `Verboten`
 
@@ -33,6 +34,33 @@ This command is mainly used for initialization purposes
 <!-- Since the note field in the Excel documentation was empty, the following text should be taken with a grain of salt. -->
 
 Reset the whole ICOtronic system
+
+### Command `Get/Set State`
+
+#### Notes
+
+- Not fully implemented
+- Startup state determines operating state
+- Standby state works
+
+#### Payload
+
+| Byte 1                                 |          |                                                                                      |          |                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------- | -------- | ------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Bit 7                                  | Bit 6    | Bit 5 – 4                                                                            | Bit 3    | Bit 2 – 0                                                                                                                                                                                                                                                                                                    |
+| • `0`: Get State <br> • `1`: Set State | Reserved | • `0`: No Change <br> • `1`: Bootloader <br> • `2`: Application <br> • `3`: Reserved | Reserved | • `0`: Failure (No acknowledgement will be sent; Only power on resets this state) <br> • `1`: Error (No active communication) <br> • `2`: Turn Off/Standby <br> • `3`: Graceful degradation level 2 <br> • `4`: Graceful degradation level 1 <br> • `5`: Operating <br> • `6`: Startup <br> • `7`: No change |
+
+#### Acknowledgment Payload
+
+| Byte 1 |
+| ------ |
+| `0x08` |
+
+##### Error Payload
+
+| Byte 2                                                                                                 |
+| ------------------------------------------------------------------------------------------------------ |
+| • `1`: Set state not available <br> • `2`: Wrong subscriber (e.g. accessing application as bootloader) |
 
 ## Block `Streaming`
 
