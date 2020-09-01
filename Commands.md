@@ -5,6 +5,10 @@
 **BP**: Byte Position
 **MSB**: Most Significant Byte
 
+## Terms
+
+**Event (Message)**: Even messages transport information about signals and events/states
+
 ## Blocks
 
 | Block  | Short Description | Extended Description                                                                                                                           |
