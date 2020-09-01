@@ -16,6 +16,23 @@
 | `0x00` | System            | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)        |
 | `0x04` | Streaming         | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
 
+## Block `System`
+
+| Number | Command  | Access | Permanently Stored |
+| ------ | -------- | ------ | ------------------ |
+| `0x00` | Verboten | –      | –                  |
+| `0x01` | Reset    | Event  | –                  |
+
+### Command `Verboten`
+
+This command is mainly used for initialization purposes
+
+### Command `Reset`
+
+<!-- Since the note field in the Excel documentation was empty, the following text should be taken with a grain of salt. -->
+
+Reset the whole ICOtronic system
+
 ## Block `Streaming`
 
 | Number | Command      | Access | Permanently Stored |
