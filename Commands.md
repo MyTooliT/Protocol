@@ -18,10 +18,10 @@
 
 ## Block `Streaming`
 
-| Number | Command      |
-| ------ | ------------ |
-| `0x1`  | Acceleration |
-| `0x20` | Voltage      |
+| Number | Command      | Access | Permanently Stored |
+| ------ | ------------ | ------ | ------------------ |
+| `0x1`  | Acceleration | Event  | –                  |
+| `0x20` | Voltage      | Event  | –                  |
 
 The “Data Sets” bits used in the sections below can have the following values:
 
@@ -39,9 +39,6 @@ The “Data Sets” bits used in the sections below can have the following value
 The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
 
 ### Command `Acceleration`
-
-- Access: Event Message
-- Permanently Stored: –
 
 #### Notes
 
@@ -96,9 +93,6 @@ The chronological order starts with the oldest set (BP) and continues with newer
 | LSB (BP + 2) |
 
 ### Command `Voltage`
-
-- Access: Event Message
-- Permanently Stored: –
 
 #### Notes
 
