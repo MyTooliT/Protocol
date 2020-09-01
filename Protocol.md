@@ -102,17 +102,23 @@ The following table describes the identifier field.
 | Sender   | Number of the original sender (frames may hop) <br> • `0` Not allowed                                                                                                         |
 | Receiver | Number of the target receiver (frames may hop) <br> • `0` broadcasts at field bus (local network) with ACK <br> • `0x1F` broadcasts at field d bus(local network) without ACK |
 
-### Command Field
+### Command
 
-|     | Number | A   | E   |
-| --- | ------ | --- | --- |
-| Bit | 0 – 13 | 14  | 15  |
+|     | Command Number | A   | E   |
+| --- | -------------- | --- | --- |
+| Bit | 0 – 13         | 14  | 15  |
 
-The following table describes the command field.
+The command number contains the command block and the block command:
+
+| Block | Block Command |
+| ----- | ------------- |
+| 0 – 5 | 6 – 13        |
+
+The following table describes the whole command field.
 
 | Field  | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Number | • 64 command groups (6 Bit) <br> • A command group supports up to 256 (8 Bit) commands <br> • Values: 1 – 16383 (14 bit), `0` is not valid <br> • Commands are described [here](Commands.md)                                                                                                                                                                                                                                         |
+| Number | • 64 command blocks (6 Bit) <br> • A command block supports up to 256 (8 Bit) block commands <br> • Values: 1 – 16383 (14 bit), `0` is not valid <br> • Commands are described [here](Commands.md)                                                                                                                                                                                                                                   |
 | A      | Acknowledge field <br> • `1` for a request <br> • `0` for an acknowledgement <br> Note that a single command may trigger multiple acknowledges (streaming).                                                                                                                                                                                                                                                                          |
 | E      | Error Bit <br> • Indicates an error <br> • `0` if it is an error <br> • `1` if it is not an error <br> • An error code is supported via the payload <br> • The error format is b bytes long. The first byte describes the error number and the following 7 bytes are used for an error description. Furthermore, there are general errors (1 – 255) that are followed by `0` and specific errors that are followed by variable bits. |
 
