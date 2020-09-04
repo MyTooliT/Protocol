@@ -29,6 +29,7 @@
 | `0x00` | Verboten      | –          | –                  |
 | `0x01` | Reset         | Event      | –                  |
 | `0x02` | Get/Set State | Read/Write | –                  |
+| `0x05` | Get Status 1  | Read/Write | –                  |
 
 ### Command `Verboten`
 
@@ -66,6 +67,66 @@ Reset the whole ICOtronic system
 | Byte 2                                                                                                 |
 | ------------------------------------------------------------------------------------------------------ |
 | • `1`: Set state not available <br> • `2`: Wrong subscriber (e.g. accessing application as bootloader) |
+
+### Command `Get Status 1`
+
+#### Notes
+
+- Note that the state may not be set instantly. This is the node state status word:
+
+  ```c
+  typedef union
+  {
+   struct
+   {
+    uint32_t bError :1; /**< Error or healthy */
+    uint32_t u3NetworkState :3; /**< Which state has node in the network */
+    uint32_t Reserved :28; /**< Reserved */
+   };
+   uint32_t u32Word;
+   uint8_t au8Bytes[4U];
+  } NodeStatusWord_t;
+  ```
+
+#### Payload
+
+- Setting the value `0` for the status word mask means that we request the status word
+
+| Byte 1      |
+| ----------- |
+| Status Word |
+
+| Byte 2      |
+| ----------- |
+| Status Word |
+
+| Byte 3      |
+| ----------- |
+| Status Word |
+
+| Byte 4      |
+| ----------- |
+| Status Word |
+
+| Byte 5           |
+| ---------------- |
+| Status Word Mask |
+
+| Byte 6           |
+| ---------------- |
+| Status Word Mask |
+
+| Byte 7           |
+| ---------------- |
+| Status Word Mask |
+
+| Byte 8           |
+| ---------------- |
+| Status Word Mask |
+
+#### Acknowledgement Payload
+
+- Same structure as payload
 
 ## Block `Streaming`
 
