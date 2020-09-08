@@ -24,12 +24,12 @@
 
 ## Block `System`
 
-| Number | Command       | Access     | Permanently Stored |
-| ------ | ------------- | ---------- | ------------------ |
-| `0x00` | Verboten      | –          | –                  |
-| `0x01` | Reset         | Event      | –                  |
-| `0x02` | Get/Set State | Read/Write | –                  |
-| `0x05` | Get Status 1  | Read/Write | –                  |
+| Number | Command           | Access     | Permanently Stored |
+| ------ | ----------------- | ---------- | ------------------ |
+| `0x00` | Verboten          | –          | –                  |
+| `0x01` | Reset             | Event      | –                  |
+| `0x02` | Get/Set State     | Read/Write | –                  |
+| `0x05` | Get Status Word 1 | Read/Write | –                  |
 
 ### Command `Verboten`
 
@@ -66,7 +66,7 @@ Reset the specified receiver
 | ------------------------------------------------------------------------------------------------------ |
 | • `1`: Set state not available <br> • `2`: Wrong subscriber (e.g. accessing application as bootloader) |
 
-### Command `Get Status 1`
+### Command `Get Status Word 1`
 
 #### Notes
 
@@ -86,25 +86,46 @@ Reset the specified receiver
   } NodeStatusWord_t;
   ```
 
+- Possible error bit values:
+
+  | Value | Meaning  |
+  | ----- | -------- |
+  | `0`   | No Error |
+  | `1`   | Error    |
+
+- Possible network state values:
+
+  | Value | Meaning                |
+  | ----- | ---------------------- |
+  | `0`   | Failure                |
+  | `1`   | Error                  |
+  | `2`   | Standby                |
+  | `3`   | Graceful Degradation 2 |
+  | `4`   | Graceful Degradation 1 |
+  | `5`   | Operating              |
+  | `6`   | Startup                |
+  | `7`   | NoChange               |
+
 #### Payload
 
 - Setting the value `0` for the status word mask means that we request the status word
+- Currently the only supported payload should be 8 null (`0x00`) bytes
 
-| Byte 1      |
-| ----------- |
-| Status Word |
+| Bit 7 – 4 | Bit 3 – 1     | Bit 0     |
+| --------- | ------------- | --------- |
+| Reserved  | Network State | Error Bit |
 
-| Byte 2      |
-| ----------- |
-| Status Word |
+| Byte 2   |
+| -------- |
+| Reserved |
 
-| Byte 3      |
-| ----------- |
-| Status Word |
+| Byte 3   |
+| -------- |
+| Reserved |
 
-| Byte 4      |
-| ----------- |
-| Status Word |
+| Byte 4   |
+| -------- |
+| Reserved |
 
 | Byte 5           |
 | ---------------- |
@@ -125,6 +146,34 @@ Reset the specified receiver
 #### Acknowledgement Payload
 
 - Same structure as payload
+
+#### Error Payload
+
+- The (possibly incorrect) length of the status word (5 instead of 4 bytes) was taken from the original documentation.
+
+| Byte 1                |
+| --------------------- |
+| Mask Used Not Allowed |
+
+| Byte 4      |
+| ----------- |
+| Status Word |
+
+| Byte 5      |
+| ----------- |
+| Status Word |
+
+| Byte 6      |
+| ----------- |
+| Status Word |
+
+| Byte 7      |
+| ----------- |
+| Status Word |
+
+| Byte 8      |
+| ----------- |
+| Status Word |
 
 ## Block `Streaming`
 
