@@ -37,9 +37,7 @@ This command is mainly used for initialization purposes
 
 ### Command `Reset`
 
-<!-- Since the note field in the Excel documentation was empty, the following text should be taken with a grain of salt. -->
-
-Reset the whole ICOtronic system
+Reset the specified receiver
 
 ### Command `Get/Set State`
 
