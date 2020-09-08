@@ -104,7 +104,7 @@ Reset the specified receiver
   | `4`   | Graceful Degradation 1 |
   | `5`   | Operating              |
   | `6`   | Startup                |
-  | `7`   | NoChange               |
+  | `7`   | No Change              |
 
 #### Payload
 
