@@ -1,12 +1,5 @@
 # Commands
 
-## Akronyms
-
-**GD1**: Graceful Degradation Level 1
-**GD2**: Graceful Degradation Level 2
-**BP**: Byte Position
-**MSB**: Most Significant Byte
-
 ## Terms
 
 **Event (Message)**: Even messages transport information about signals and events/states

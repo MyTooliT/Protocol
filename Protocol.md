@@ -35,15 +35,6 @@ The MyTooliT protocol can also use other data link layer formats like CAN-FD. Fo
 - **Payload**: Transmitted user data
 - **Trailer**: Terminating part of a message; May support check functionality
 
-## Acronyms
-
-- **DLC**: Data Length Code
-- **CAN**: Controller Area Network
-- **CAN-FD**: CAN Flexible Data Rate
-- **CSMA/CD**: Carrier Sense Multiple Access/Collision Detection
-- **CSMA/CR**: Carrier Sense Multiple Access/Collision Resolution
-- **ECU**: Electronic Control Units
-
 ## Introduction
 
 CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange short real time messages between Electronic Control Units (ECU). Each ECU may act as a master i.e. send frames and thus each ECU may control the system
