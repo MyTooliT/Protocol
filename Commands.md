@@ -29,7 +29,7 @@
 | `0x00` | Verboten          | –          | –                  |
 | `0x01` | Reset             | Event      | –                  |
 | `0x02` | Get/Set State     | Read/Write | –                  |
-| `0x05` | Get Status Word 1 | Read/Write | –                  |
+| `0x05` | Get Status Word 0 | Read/Write | –                  |
 
 ### Command `Verboten`
 
@@ -66,7 +66,7 @@ Reset the specified receiver
 | ------------------------------------------------------------------------------------------------------ |
 | • `1`: Set state not available <br> • `2`: Wrong subscriber (e.g. accessing application as bootloader) |
 
-### Command `Get Status Word 1`
+### Command `Get Status Word 0`
 
 #### Notes
 
