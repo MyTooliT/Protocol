@@ -1,4 +1,4 @@
-## Akronyms
+# Akronyms
 
 - **BP**: Byte Position
 - **CAN**: Controller Area Network
@@ -10,3 +10,6 @@
 - **GD1**: Graceful Degradation Level 1
 - **GD2**: Graceful Degradation Level 2
 - **MSB**: Most Significant Byte
+- **SHA**: Sensory Holder Assembly
+- **STH**: Sensory Tool Holder
+- **STU**: Stationary Transceiver Unit
