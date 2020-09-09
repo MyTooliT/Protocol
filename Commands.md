@@ -68,9 +68,9 @@ Reset the specified receiver
 
 ### Command `Get Status Word 0`
 
-#### Notes
-
-- Note that the state may not be set instantly. This is the node state status word:
+- Note that the state may not be set instantly.
+- The status word is defined differently for STH and STU
+- STH status word:
 
   ```c
   typedef union
@@ -83,6 +83,23 @@ Reset the specified receiver
    };
    uint32_t u32Word;
    uint8_t au8Bytes[4U];
+  } NodeStatusWord_t;
+  ```
+
+- STU staus word:
+
+  ```c
+    struct
+    {
+      uint32_t bError :1; /**< Indicates an overall Error */
+      uint32_t u3NetworkState :3; /**< Which state has node in the network */
+      uint32_t bEnabledRadio :1; /**< Radio port enabled(1) or disabled(0) */
+      uint32_t bEnabledCan :1; /**< CAN port enabled(1) or disabled(0) */
+      uint32_t bRadioActive :1; /**< Radio Active(Connected to Bluetooth) or not */
+      uint32_t Reserved :25; /**< Reserved */
+    };
+    uint32_t u32Word;
+    uint8_t au8Bytes[4U];
   } NodeStatusWord_t;
   ```
 
@@ -106,14 +123,45 @@ Reset the specified receiver
   | `6`   | Startup                |
   | `7`   | No Change              |
 
+- Radio port bit values:
+
+  | Value | Meaning             |
+  | ----- | ------------------- |
+  | `0`   | Radio Port Disabled |
+  | `1`   | Radio Port Enabled  |
+
+- CAN port bit values:
+
+  | Value | Meaning           |
+  | ----- | ----------------- |
+  | `0`   | CAN Port Disabled |
+  | `1`   | CAN Port Enabled  |
+
+- Radio activity bit values
+
+  | Value | Meaning                     |
+  | ----- | --------------------------- |
+  | `0`   | Disconnected from Bluetooth |
+  | `1`   | Connected to Bluetooth      |
+
 #### Payload
 
 - Setting the value `0` for the status word mask means that we request the status word
 - Currently the only supported payload should be 8 null (`0x00`) bytes
 
+##### STH
+
 | Bit 7 – 4 | Bit 3 – 1     | Bit 0     |
 | --------- | ------------- | --------- |
 | Reserved  | Network State | Error Bit |
+
+##### STU
+
+| Bit 7    | Bit 6           | Bit 5            | Bit 4              | Bit 3 – 1     | Bit 0     |
+| -------- | --------------- | ---------------- | ------------------ | ------------- | --------- |
+| Reserved | Radio Connected | CAN Port Enabled | Radio Port Enabled | Network State | Error Bit |
+
+##### STH & STU
 
 | Byte 2   |
 | -------- |
