@@ -27,14 +27,6 @@ The MyTooliT communication protocol may also exchange information via Bluetooth.
 
 The MyTooliT protocol can also use other data link layer formats like CAN-FD. For example, you can use the protocol for IP application because it is an end-to-end based network protocol.
 
-## Definitions
-
-- **Header**: Supplemental data placed at the beginning of a block
-- **Jitter**: Difference between best-case time and worst-case time
-- **Node**: Self-contained unit that interacts with other nodes via the MyTooliT communication protocol
-- **Payload**: Transmitted user data
-- **Trailer**: Terminating part of a message; May support check functionality
-
 ## Introduction
 
 CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange short real time messages between Electronic Control Units (ECU). Each ECU may act as a master i.e. send frames and thus each ECU may control the system
