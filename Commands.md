@@ -19,6 +19,7 @@
 | `0x01` | Reset             | Event      | –                  |
 | `0x02` | Get/Set State     | Read/Write | –                  |
 | `0x05` | Get Status Word 0 | Read/Write | –                  |
+| `0x06` | Get Status Word 1 | Read/Write | –                  |
 
 ### Command `Verboten`
 
@@ -211,6 +212,108 @@ Reset the specified receiver
 | Byte 8      |
 | ----------- |
 | Status Word |
+
+### Command `Get Status Word 1`
+
+- STH definition:
+
+  ```c
+  typedef union
+  {
+   struct
+   {
+    uint32_t bTxBluetoothFail :1; /**< Tx Fail Counter for Bluetooth (non single set) */
+    uint32_t bAdcOverRun :1;  /**< Determines ADC over run (not able to shuffle data in time) */
+    uint32_t Reserved :30;
+   };
+   uint32_t u32Word;
+   uint8_t au8Bytes[4U];
+  } ErrorStatusWord_t;
+  ```
+
+- STU definition:
+
+  ```c
+  typedef union
+  {
+  	struct
+  	{
+  		uint32_t bTxCanFail :1; /**< Tx Fail Counter for CAN (non single set) */
+  		uint32_t Reserved :31; /**< DAC was not fed */
+  	};
+  	uint32_t u32Word;
+  	uint8_t au8Bytes[4U];
+  } ErrorStatusWord_t;
+  ```
+
+- Transmission failure bit (Bluetooth for STH, CAN for STU):
+
+  | Value | Meaning                 |
+  | ----- | ----------------------- |
+  | `0`   | No Transmission Failure |
+  | `1`   | Transmission Failure    |
+
+- ADC overrun:
+
+  | Value | Meaning              |
+  | ----- | -------------------- |
+  | `0`   | No ADC Overrun Error |
+  | `1`   | ADC Overrun Error    |
+
+#### Payload
+
+- Setting the value `0` for the status word mask means that we request the status word
+- Currently the only supported payload should be 8 null (`0x00`) bytes
+
+##### STH
+
+| Bit 7 – 2 | Bit 1       | Bit 0                          |
+| --------- | ----------- | ------------------------------ |
+| Reserved  | ADC Overrun | Bluetooth Transmission Failure |
+
+##### STU
+
+| Bit 7 – 2 | Bit 0                    |
+| --------- | ------------------------ |
+| Reserved  | CAN Transmission Failure |
+
+##### STH & STU
+
+| Byte 2   |
+| -------- |
+| Reserved |
+
+| Byte 3   |
+| -------- |
+| Reserved |
+
+| Byte 4   |
+| -------- |
+| Reserved |
+
+| Byte 5           |
+| ---------------- |
+| Status Word Mask |
+
+| Byte 6           |
+| ---------------- |
+| Status Word Mask |
+
+| Byte 7           |
+| ---------------- |
+| Status Word Mask |
+
+| Byte 8           |
+| ---------------- |
+| Status Word Mask |
+
+#### Acknowledgement Payload
+
+- Same structure as payload
+
+#### Error Payload
+
+- Same structure as error payload for status word 0
 
 ## Block `Streaming`
 
