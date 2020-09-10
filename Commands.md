@@ -13,13 +13,13 @@
 
 ## Block `System`
 
-| Number | Command           | Access     | Permanently Stored |
-| ------ | ----------------- | ---------- | ------------------ |
-| `0x00` | Verboten          | –          | –                  |
-| `0x01` | Reset             | Event      | –                  |
-| `0x02` | Get/Set State     | Read/Write | –                  |
-| `0x05` | Get Node Status   | Read/Write | –                  |
-| `0x06` | Get Status Word 1 | Read/Write | –                  |
+| Number | Command          | Access     | Permanently Stored |
+| ------ | ---------------- | ---------- | ------------------ |
+| `0x00` | Verboten         | –          | –                  |
+| `0x01` | Reset            | Event      | –                  |
+| `0x02` | Get/Set State    | Read/Write | –                  |
+| `0x05` | Get Node Status  | Read/Write | –                  |
+| `0x06` | Get Error Status | Read/Write | –                  |
 
 ### Command `Verboten`
 
@@ -213,7 +213,7 @@ Reset the specified receiver
 | ----------- |
 | Status Word |
 
-### Command `Get Status Word 1`
+### Command `Get Error Status`
 
 - STH definition:
 
@@ -262,7 +262,7 @@ Reset the specified receiver
 
 #### Payload
 
-- Setting the value `0` for the status word mask means that we request the status word
+- Setting the value `0` for the status word mask means that we request the error status word
 - Currently the only supported payload should be 8 null (`0x00`) bytes
 
 ##### STH
