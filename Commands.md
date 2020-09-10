@@ -18,7 +18,7 @@
 | `0x00` | Verboten          | –          | –                  |
 | `0x01` | Reset             | Event      | –                  |
 | `0x02` | Get/Set State     | Read/Write | –                  |
-| `0x05` | Get Status Word 0 | Read/Write | –                  |
+| `0x05` | Get Node Status   | Read/Write | –                  |
 | `0x06` | Get Status Word 1 | Read/Write | –                  |
 
 ### Command `Verboten`
@@ -56,11 +56,11 @@ Reset the specified receiver
 | ------------------------------------------------------------------------------------------------------ |
 | • `1`: Set state not available <br> • `2`: Wrong subscriber (e.g. accessing application as bootloader) |
 
-### Command `Get Status Word 0`
+### Command `Get Node Status`
 
 - Note that the state may not be set instantly.
-- The status word is defined differently for STH and STU
-- STH status word:
+- The node status word is defined differently for STH and STU
+- STH node status word:
 
   ```c
   typedef union
@@ -76,7 +76,7 @@ Reset the specified receiver
   } NodeStatusWord_t;
   ```
 
-- STU staus word:
+- STU node staus word:
 
   ```c
     struct
@@ -136,7 +136,7 @@ Reset the specified receiver
 
 #### Payload
 
-- Setting the value `0` for the status word mask means that we request the status word
+- Setting the value `0` for the node status word mask means that we request the status word
 - Currently the only supported payload should be 8 null (`0x00`) bytes
 
 ##### STH
@@ -313,7 +313,7 @@ Reset the specified receiver
 
 #### Error Payload
 
-- Same structure as error payload for status word 0
+- Same structure as error payload for node status command
 
 ## Block `Streaming`
 
