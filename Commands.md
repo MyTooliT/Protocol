@@ -177,14 +177,16 @@ Reset the specified receiver. This command has no payload.
 
 ##### STH
 
-| Bit 7 – 4 | Bit 3 – 1     | Bit 0     |
+| Byte 1    |               |           |
 | --------- | ------------- | --------- |
+| Bit 7 – 4 | Bit 3 – 1     | Bit 0     |
 | Reserved  | Network State | Error Bit |
 
 ##### STU
 
-| Bit 7    | Bit 6           | Bit 5            | Bit 4              | Bit 3 – 1     | Bit 0     |
+| Byte 1   |                 |                  |                    |               |           |
 | -------- | --------------- | ---------------- | ------------------ | ------------- | --------- |
+| Bit 7    | Bit 6           | Bit 5            | Bit 4              | Bit 3 – 1     | Bit 0     |
 | Reserved | Radio Connected | CAN Port Enabled | Radio Port Enabled | Network State | Error Bit |
 
 ##### STH & STU
@@ -303,14 +305,16 @@ Reset the specified receiver. This command has no payload.
 
 ##### STH
 
-| Bit 7 – 2 | Bit 1       | Bit 0                          |
+| Byte 1    |             |                                |
 | --------- | ----------- | ------------------------------ |
+| Bit 7 – 2 | Bit 1       | Bit 0                          |
 | Reserved  | ADC Overrun | Bluetooth Transmission Failure |
 
 ##### STU
 
-| Bit 7 – 2 | Bit 0                    |
+| Byte 1    |                          |
 | --------- | ------------------------ |
+| Bit 7 – 2 | Bit 0                    |
 | Reserved  | CAN Transmission Failure |
 
 ##### STH & STU
