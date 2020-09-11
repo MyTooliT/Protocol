@@ -27,7 +27,7 @@ This command is mainly used for initialization purposes
 
 ### Command `Reset`
 
-Reset the specified receiver
+Reset the specified receiver. This command has no payload.
 
 ### Command `Get/Set State`
 
