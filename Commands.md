@@ -13,7 +13,7 @@
 
 ## Block `System`
 
-| Number | Command          | Access     | Permanently Stored |
+| Number | Block Command    | Access     | Permanently Stored |
 | ------ | ---------------- | ---------- | ------------------ |
 | `0x00` | Verboten         | –          | –                  |
 | `0x01` | Reset            | Event      | –                  |
@@ -353,10 +353,10 @@ Reset the specified receiver. This command has no payload.
 
 ## Block `Streaming`
 
-| Number | Command      | Access | Permanently Stored |
-| ------ | ------------ | ------ | ------------------ |
-| `0x1`  | Acceleration | Event  | –                  |
-| `0x20` | Voltage      | Event  | –                  |
+| Number | Block Command | Access | Permanently Stored |
+| ------ | ------------- | ------ | ------------------ |
+| `0x1`  | Acceleration  | Event  | –                  |
+| `0x20` | Voltage       | Event  | –                  |
 
 The “Data Sets” bits used in the sections below can have the following values:
 
