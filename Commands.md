@@ -31,18 +31,54 @@ Reset the specified receiver
 
 ### Command `Get/Set State`
 
-#### Notes
-
 - Not fully implemented
 - Startup state determines operating state
 - Standby state works
 
+#### Values
+
+- Get/Set state values:
+
+  | Value | Meaning   |
+  | ----- | --------- |
+  | `0`   | Get State |
+  | `1`   | Set State |
+
+- Location values
+
+  | Value | Meaning     |
+  | ----- | ----------- |
+  | `0`   | No Change   |
+  | `1`   | Bootloader  |
+  | `2`   | Application |
+  | `3`   | Reserved    |
+
+- State values
+
+  | Value | Meaning                                                                         |
+  | ----- | ------------------------------------------------------------------------------- |
+  | `0`   | Failure (No acknowledgement will be sent; <br> Only power on resets this state) |
+  | `1`   | Error (No active communication)                                                 |
+  | `2`   | Turn Off/Standby                                                                |
+  | `3`   | Graceful degradation level 2                                                    |
+  | `4`   | Graceful degradation level 1                                                    |
+  | `5`   | Operating                                                                       |
+  | `6`   | Startup                                                                         |
+  | `7`   | No change                                                                       |
+
+- Error reason values
+
+  | Value | Meaning                                                     |
+  | ----- | ----------------------------------------------------------- |
+  | `1`   | Set state not available                                     |
+  | `2`   | Wrong subscriber (e.g. accessing application as bootloader) |
+
 #### Payload
 
-| Byte 1                                 |          |                                                                                      |          |                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------- | -------- | ------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Bit 7                                  | Bit 6    | Bit 5 – 4                                                                            | Bit 3    | Bit 2 – 0                                                                                                                                                                                                                                                                                                    |
-| • `0`: Get State <br> • `1`: Set State | Reserved | • `0`: No Change <br> • `1`: Bootloader <br> • `2`: Application <br> • `3`: Reserved | Reserved | • `0`: Failure (No acknowledgement will be sent; Only power on resets this state) <br> • `1`: Error (No active communication) <br> • `2`: Turn Off/Standby <br> • `3`: Graceful degradation level 2 <br> • `4`: Graceful degradation level 1 <br> • `5`: Operating <br> • `6`: Startup <br> • `7`: No change |
+| Byte 1        |          |           |          |           |
+| ------------- | -------- | --------- | -------- | --------- |
+| Bit 7         | Bit 6    | Bit 5 – 4 | Bit 3    | Bit 2 – 0 |
+| Get/Set State | Reserved | Location  | Reserved | State     |
 
 #### Acknowledgment Payload
 
@@ -52,9 +88,9 @@ Reset the specified receiver
 
 #### Error Payload
 
-| Byte 2                                                                                                 |
-| ------------------------------------------------------------------------------------------------------ |
-| • `1`: Set state not available <br> • `2`: Wrong subscriber (e.g. accessing application as bootloader) |
+| Byte 2       |
+| ------------ |
+| Error Reason |
 
 ### Command `Get Node Status`
 
