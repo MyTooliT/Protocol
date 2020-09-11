@@ -362,24 +362,45 @@ Reset the specified receiver. This command has no payload.
 | `0x01` | Acceleration  | Event  | –                  |
 | `0x20` | Voltage       | Event  | –                  |
 
-The “Data Sets” bits used in the sections below can have the following values:
+### Values
 
-| Value | Data Amount   | Possible Data                                                                                                                                              |
-| ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Stop (stream) | • value 1 <br> • value 2 <br> • value 3 <br> • value 1 / value 2 / value 3 <br> • value 1 / value 2 <br> • value 1 / value 3 <br> • value 2 / value 3 <br> |
-| 1     | 1 data set    |                                                                                                                                                            |
-| 2     | 3 data sets   |                                                                                                                                                            |
-| 3     | 6 data sets   |                                                                                                                                                            |
-| 4     | 10 data sets  |                                                                                                                                                            |
-| 5     | 15 data sets  |                                                                                                                                                            |
-| 6     | 20 data sets  |                                                                                                                                                            |
-| 7     | 30 data sets  | • value 1 <br> • value 2 <br> • value 3                                                                                                                    |
+- The “Data Sets” bits used in the sections below can have the following values:
 
-The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
+  | Value | Data Amount   | Possible Data                                                                                                                                              |
+  | ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | 0     | Stop (stream) | • value 1 <br> • value 2 <br> • value 3 <br> • value 1 / value 2 / value 3 <br> • value 1 / value 2 <br> • value 1 / value 3 <br> • value 2 / value 3 <br> |
+  | 1     | 1 data set    |                                                                                                                                                            |
+  | 2     | 3 data sets   |                                                                                                                                                            |
+  | 3     | 6 data sets   |                                                                                                                                                            |
+  | 4     | 10 data sets  |                                                                                                                                                            |
+  | 5     | 15 data sets  |                                                                                                                                                            |
+  | 6     | 20 data sets  |                                                                                                                                                            |
+  | 7     | 30 data sets  | • value 1 <br> • value 2 <br> • value 3                                                                                                                    |
+
+  The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
+
+- Request values:
+
+  | Value | Meaning        |
+  | ----- | -------------- |
+  | `0`   | Stream         |
+  | `1`   | Single Request |
+
+- Bytes values:
+
+  | Value | Meaning                     |
+  | ----- | --------------------------- |
+  | `0`   | 2 Bytes for each data point |
+  | `1`   | 3 Byte for data point       |
+
+- Active bit values
+
+  | Value | Meaning                                                 |
+  | ----- | ------------------------------------------------------- |
+  | `0`   | Data for specified data point will not be measured/sent |
+  | `1`   | Data for specified data point will be measured/sent     |
 
 ### Command `Acceleration`
-
-#### Notes
 
 - Requesting while streaming is possible
 - Only single stream allowed
@@ -392,10 +413,10 @@ The chronological order starts with the oldest set (BP) and continues with newer
 
 #### Payload
 
-| Byte 1                                   |                                             |               |               |               |           |
-| ---------------------------------------- | ------------------------------------------- | ------------- | ------------- | ------------- | --------- |
-| Bit 7                                    | Bit 6                                       | Bit 5         | Bit 4         | Bit 3         | Bit 2 – 0 |
-| • `0`: Stream <br> • `1`: Single Request | • `0`: 2 Bytes/Axis <br> • `1`: 3 Byte/Axis | X-Axis Active | Y-Axis Active | Z-Axis Active | Data Sets |
+| Byte 1  |             |               |               |               |           |
+| ------- | ----------- | ------------- | ------------- | ------------- | --------- |
+| Bit 7   | Bit 6       | Bit 5         | Bit 4         | Bit 3         | Bit 2 – 0 |
+| Request | Byte Amount | X-Axis Active | Y-Axis Active | Z-Axis Active | Data Sets |
 
 #### Acknowledgment Payload
 
@@ -440,10 +461,10 @@ The chronological order starts with the oldest set (BP) and continues with newer
 
 #### Payload
 
-| Byte 1                                   |                                              |                  |                  |                  |           |
-| ---------------------------------------- | -------------------------------------------- | ---------------- | ---------------- | ---------------- | --------- |
-| Bit 7                                    | Bit 6                                        | Bit 5            | Bit 4            | Bit 3            | Bit 2 – 0 |
-| • `0`: Stream <br> • `1`: Single Request | • `0`: 2 Bytes Data <br> • `1`: 3 Bytes data | Voltage 1 Active | Voltage 2 Active | Voltage 3 Active | Data Sets |
+| Byte 1  |             |                  |                  |                  |           |
+| ------- | ----------- | ---------------- | ---------------- | ---------------- | --------- |
+| Bit 7   | Bit 6       | Bit 5            | Bit 4            | Bit 3            | Bit 2 – 0 |
+| Request | Byte Amount | Voltage 1 Active | Voltage 2 Active | Voltage 3 Active | Data Sets |
 
 #### Acknowledgment Payload
 
