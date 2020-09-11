@@ -14,23 +14,29 @@
 ## Block `System`
 </a>
 
-| Number | Block Command    | Access     | Permanently Stored |
-| ------ | ---------------- | ---------- | ------------------ |
-| `0x00` | Verboten         | –          | –                  |
-| `0x01` | Reset            | Event      | –                  |
-| `0x02` | Get/Set State    | Read/Write | –                  |
-| `0x05` | Get Node Status  | Read/Write | –                  |
-| `0x06` | Get Error Status | Read/Write | –                  |
+| Number | Block Command                         | Access     | Permanently Stored |
+| ------ | ------------------------------------- | ---------- | ------------------ |
+| `0x00` | [Verboten](#verboten)                 | –          | –                  |
+| `0x01` | [Reset](#reset)                       | Event      | –                  |
+| `0x02` | [Get/Set State](#get-set-state)       | Read/Write | –                  |
+| `0x05` | [Get Node Status](#get-node-status)   | Read/Write | –                  |
+| `0x06` | [Get Error Status](#get-error-status) | Read/Write | –                  |
 
+<a name="verboten">
 ### Command `Verboten`
+</a>
 
 This command is mainly used for initialization purposes
 
+<a name="reset">
 ### Command `Reset`
+</a>
 
 Reset the specified receiver. This command has no payload.
 
+<a name="get-set-state">
 ### Command `Get/Set State`
+</a>
 
 - Not fully implemented
 - Startup state determines operating state
@@ -93,7 +99,9 @@ Reset the specified receiver. This command has no payload.
 | ------------ |
 | Error Reason |
 
+<a name="get-node-status">
 ### Command `Get Node Status`
+</a>
 
 - Note that the state may not be set instantly.
 - The node status word is defined differently for STH and STU
@@ -252,7 +260,9 @@ Reset the specified receiver. This command has no payload.
 | ----------- |
 | Status Word |
 
+<a name="get-error-status">
 ### Command `Get Error Status`
+</a>
 
 - STH definition:
 
@@ -360,10 +370,10 @@ Reset the specified receiver. This command has no payload.
 ## Block `Streaming`
 </a>
 
-| Number | Block Command | Access | Permanently Stored |
-| ------ | ------------- | ------ | ------------------ |
-| `0x01` | Acceleration  | Event  | –                  |
-| `0x20` | Voltage       | Event  | –                  |
+| Number | Block Command                 | Access | Permanently Stored |
+| ------ | ----------------------------- | ------ | ------------------ |
+| `0x01` | [Acceleration](#acceleration) | Event  | –                  |
+| `0x20` | [Voltage](#voltage)           | Event  | –                  |
 
 ### Values
 
@@ -403,7 +413,9 @@ Reset the specified receiver. This command has no payload.
   | `0`   | Data for specified data point will not be measured/sent |
   | `1`   | Data for specified data point will be measured/sent     |
 
+<a name="acceleration">
 ### Command `Acceleration`
+</a>
 
 - Requesting while streaming is possible
 - Only single stream allowed
@@ -455,7 +467,9 @@ Reset the specified receiver. This command has no payload.
 | ------------ |
 | LSB (BP + 2) |
 
+<a name="voltage">
 ### Command `Voltage`
+</a>
 
 #### Notes
 
