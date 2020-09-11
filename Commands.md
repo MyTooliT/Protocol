@@ -44,14 +44,14 @@ Reset the specified receiver. This command has no payload.
 
 #### Values
 
-- `Get/Set State`:
+- <a name="value:get-set-state">`Get/Set State`</a>:
 
   | Value | Meaning   |
   | ----- | --------- |
   | `0`   | Get State |
   | `1`   | Set State |
 
-- `Location`
+- <a name="value:location">`Location`</a>:
 
   | Value | Meaning     |
   | ----- | ----------- |
@@ -60,7 +60,7 @@ Reset the specified receiver. This command has no payload.
   | `2`   | Application |
   | `3`   | Reserved    |
 
-- `State`
+- <a name="value:state">`State`</a>:
 
   | Value | Meaning                                                                         |
   | ----- | ------------------------------------------------------------------------------- |
@@ -73,7 +73,7 @@ Reset the specified receiver. This command has no payload.
   | `6`   | Startup                                                                         |
   | `7`   | No change                                                                       |
 
-- `Error Reason`:
+- <a name="value:error-reason">`Error Reason`</a>:
 
   | Value | Meaning                                                     |
   | ----- | ----------------------------------------------------------- |
@@ -82,10 +82,10 @@ Reset the specified receiver. This command has no payload.
 
 #### Payload
 
-| Byte 1          |          |            |          |           |
-| --------------- | -------- | ---------- | -------- | --------- |
-| Bit 7           | Bit 6    | Bit 5 – 4  | Bit 3    | Bit 2 – 0 |
-| `Get/Set State` | Reserved | `Location` | Reserved | `State`   |
+| Byte 1                                  |          |                               |          |                         |
+| --------------------------------------- | -------- | ----------------------------- | -------- | ----------------------- |
+| Bit 7                                   | Bit 6    | Bit 5 – 4                     | Bit 3    | Bit 2 – 0               |
+| [`Get/Set State`](#value:get-set-state) | Reserved | [`Location`](#value:location) | Reserved | [`State`](#value:state) |
 
 #### Acknowledgment Payload
 
@@ -95,9 +95,9 @@ Reset the specified receiver. This command has no payload.
 
 #### Error Payload
 
-| Byte 2         |
-| -------------- |
-| `Error Reason` |
+| Byte 2                                |
+| ------------------------------------- |
+| [`Error Reason`](#value:error-reason) |
 
 <a name="command:get-node-status">
 ### Command `Get Node Status`
@@ -138,14 +138,14 @@ Reset the specified receiver. This command has no payload.
   } NodeStatusWord_t;
   ```
 
-- `Error Bit`:
+- <a name="value:error-bit">`Error Bit`</a>:
 
   | Value | Meaning  |
   | ----- | -------- |
   | `0`   | No Error |
   | `1`   | Error    |
 
-- `Network State`:
+- <a name="value:network-state">`Network State`</a>:
 
   | Value | Meaning                |
   | ----- | ---------------------- |
@@ -158,21 +158,21 @@ Reset the specified receiver. This command has no payload.
   | `6`   | Startup                |
   | `7`   | No Change              |
 
-- `Radio Port`:
+- <a name="value:radio-port">`Radio Port`</a>:
 
   | Value | Meaning             |
   | ----- | ------------------- |
   | `0`   | Radio Port Disabled |
   | `1`   | Radio Port Enabled  |
 
-- `CAN Port`:
+- <a name="value:can-port">`CAN Port`</a>:
 
   | Value | Meaning           |
   | ----- | ----------------- |
   | `0`   | CAN Port Disabled |
   | `1`   | CAN Port Enabled  |
 
-- `Radio Activity`:
+- <a name="value:radio-activity">`Radio Activity`</a>:
 
   | Value | Meaning                     |
   | ----- | --------------------------- |
@@ -186,17 +186,17 @@ Reset the specified receiver. This command has no payload.
 
 ##### STH
 
-| Byte 1    |                 |             |
-| --------- | --------------- | ----------- |
-| Bit 7 – 4 | Bit 3 – 1       | Bit 0       |
-| Reserved  | `Network State` | `Error Bit` |
+| Byte 1    |                                         |                                 |
+| --------- | --------------------------------------- | ------------------------------- |
+| Bit 7 – 4 | Bit 3 – 1                               | Bit 0                           |
+| Reserved  | [`Network State`](#value:network-state) | [`Error Bit`](#value:error-bit) |
 
 ##### STU
 
-| Byte 1   |                  |                    |                      |                 |             |
-| -------- | ---------------- | ------------------ | -------------------- | --------------- | ----------- |
-| Bit 7    | Bit 6            | Bit 5              | Bit 4                | Bit 3 – 1       | Bit 0       |
-| Reserved | `Radio Activity` | `CAN Port` Enabled | `Radio Port` Enabled | `Network State` | `Error Bit` |
+| Byte 1   |                                           |                                       |                                           |                                         |                                 |
+| -------- | ----------------------------------------- | ------------------------------------- | ----------------------------------------- | --------------------------------------- | ------------------------------- |
+| Bit 7    | Bit 6                                     | Bit 5                                 | Bit 4                                     | Bit 3 – 1                               | Bit 0                           |
+| Reserved | [`Radio Activity`](#value:radio-activity) | [`CAN Port`](#value:can-port) Enabled | [`Radio Port`](#value:radio-port) Enabled | [`Network State`](#value:network-state) | [`Error Bit`](#value:error-bit) |
 
 ##### STH & STU
 
@@ -295,14 +295,14 @@ Reset the specified receiver. This command has no payload.
   } ErrorStatusWord_t;
   ```
 
-- `Transmission Failure` (Bluetooth for STH, CAN for STU):
+- <a name="value:transmission-failure">`Transmission Failure`</a> (Bluetooth for STH, CAN for STU):
 
   | Value | Meaning                 |
   | ----- | ----------------------- |
   | `0`   | No Transmission Failure |
   | `1`   | Transmission Failure    |
 
-- `ADC Overrun`:
+- <a name="value:adc-overrun">`ADC Overrun`</a>:
 
   | Value | Meaning              |
   | ----- | -------------------- |
@@ -316,17 +316,17 @@ Reset the specified receiver. This command has no payload.
 
 ##### STH
 
-| Byte 1    |               |                                  |
-| --------- | ------------- | -------------------------------- |
-| Bit 7 – 2 | Bit 1         | Bit 0                            |
-| Reserved  | `ADC Overrun` | Bluetooth `Transmission Failure` |
+| Byte 1    |                                     |                                                                 |
+| --------- | ----------------------------------- | --------------------------------------------------------------- |
+| Bit 7 – 2 | Bit 1                               | Bit 0                                                           |
+| Reserved  | [`ADC Overrun`](#value:adc-overrun) | Bluetooth [`Transmission Failure`](#value:transmission-failure) |
 
 ##### STU
 
-| Byte 1    |                            |
-| --------- | -------------------------- |
-| Bit 7 – 2 | Bit 0                      |
-| Reserved  | CAN `Transmission Failure` |
+| Byte 1    |                                                           |
+| --------- | --------------------------------------------------------- |
+| Bit 7 – 2 | Bit 0                                                     |
+| Reserved  | CAN [`Transmission Failure`](#value:transmission-failure) |
 
 ##### STH & STU
 
@@ -377,7 +377,7 @@ Reset the specified receiver. This command has no payload.
 
 ### Values
 
-- The `Data Sets` bits used in the sections below can have the following values:
+- The <a name="value:data-sets">`Data Sets`</a> bits used in the sections below can have the following values:
 
   | Value | Data Amount   | Possible Data                                                                                                                                              |
   | ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -392,21 +392,21 @@ Reset the specified receiver. This command has no payload.
 
   The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
 
-- `Request`:
+- <a name="value:request">`Request`</a>:
 
   | Value | Meaning        |
   | ----- | -------------- |
   | `0`   | Stream         |
   | `1`   | Single Request |
 
-- `Bytes`:
+- <a name="value:bytes">`Bytes`</a>:
 
   | Value | Meaning                     |
   | ----- | --------------------------- |
   | `0`   | 2 Bytes for each data point |
   | `1`   | 3 Byte for data point       |
 
-- `Active`
+- <a name="value:active">`Active`</a>
 
   | Value | Meaning                                                 |
   | ----- | ------------------------------------------------------- |
@@ -428,10 +428,10 @@ Reset the specified receiver. This command has no payload.
 
 #### Payload
 
-| Byte 1    |         |                 |                 |                 |             |
-| --------- | ------- | --------------- | --------------- | --------------- | ----------- |
-| Bit 7     | Bit 6   | Bit 5           | Bit 4           | Bit 3           | Bit 2 – 0   |
-| `Request` | `Bytes` | X-Axis `Active` | Y-Axis `Active` | Z-Axis `Active` | `Data Sets` |
+| Byte 1                      |                         |                                  |                                  |                                  |                                 |
+| --------------------------- | ----------------------- | -------------------------------- | -------------------------------- | -------------------------------- | ------------------------------- |
+| Bit 7                       | Bit 6                   | Bit 5                            | Bit 4                            | Bit 3                            | Bit 2 – 0                       |
+| [`Request`](#value:request) | [`Bytes`](#value:bytes) | X-Axis [`Active`](#value:active) | Y-Axis [`Active`](#value:active) | Z-Axis [`Active`](#value:active) | [`Data Sets`](#value:data-sets) |
 
 #### Acknowledgment Payload
 
@@ -478,10 +478,10 @@ Reset the specified receiver. This command has no payload.
 
 #### Payload
 
-| Byte 1    |         |                    |                    |                    |             |
-| --------- | ------- | ------------------ | ------------------ | ------------------ | ----------- |
-| Bit 7     | Bit 6   | Bit 5              | Bit 4              | Bit 3              | Bit 2 – 0   |
-| `Request` | `Bytes` | Voltage 1 `Active` | Voltage 2 `Active` | Voltage 3 `Active` | `Data Sets` |
+| Byte 1                      |                         |                                     |                                     |                                     |                                 |
+| --------------------------- | ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ------------------------------- |
+| Bit 7                       | Bit 6                   | Bit 5                               | Bit 4                               | Bit 3                               | Bit 2 – 0                       |
+| [`Request`](#value:request) | [`Bytes`](#value:bytes) | Voltage 1 [`Active`](#value:active) | Voltage 2 [`Active`](#value:active) | Voltage 3 [`Active`](#value:active) | [`Data Sets`](#value:data-sets) |
 
 #### Acknowledgment Payload
 
