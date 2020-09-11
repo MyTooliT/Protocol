@@ -355,7 +355,7 @@ Reset the specified receiver. This command has no payload.
 
 | Number | Block Command | Access | Permanently Stored |
 | ------ | ------------- | ------ | ------------------ |
-| `0x1`  | Acceleration  | Event  | –                  |
+| `0x01` | Acceleration  | Event  | –                  |
 | `0x20` | Voltage       | Event  | –                  |
 
 The “Data Sets” bits used in the sections below can have the following values:
