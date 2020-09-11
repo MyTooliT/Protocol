@@ -44,14 +44,14 @@ Reset the specified receiver. This command has no payload.
 
 #### Values
 
-- Get/Set state values:
+- `Get/Set State`:
 
   | Value | Meaning   |
   | ----- | --------- |
   | `0`   | Get State |
   | `1`   | Set State |
 
-- Location values
+- `Location`
 
   | Value | Meaning     |
   | ----- | ----------- |
@@ -60,7 +60,7 @@ Reset the specified receiver. This command has no payload.
   | `2`   | Application |
   | `3`   | Reserved    |
 
-- State values
+- `State`
 
   | Value | Meaning                                                                         |
   | ----- | ------------------------------------------------------------------------------- |
@@ -73,7 +73,7 @@ Reset the specified receiver. This command has no payload.
   | `6`   | Startup                                                                         |
   | `7`   | No change                                                                       |
 
-- Error reason values
+- `Error Reason`:
 
   | Value | Meaning                                                     |
   | ----- | ----------------------------------------------------------- |
@@ -82,10 +82,10 @@ Reset the specified receiver. This command has no payload.
 
 #### Payload
 
-| Byte 1        |          |           |          |           |
-| ------------- | -------- | --------- | -------- | --------- |
-| Bit 7         | Bit 6    | Bit 5 – 4 | Bit 3    | Bit 2 – 0 |
-| Get/Set State | Reserved | Location  | Reserved | State     |
+| Byte 1          |          |            |          |           |
+| --------------- | -------- | ---------- | -------- | --------- |
+| Bit 7           | Bit 6    | Bit 5 – 4  | Bit 3    | Bit 2 – 0 |
+| `Get/Set State` | Reserved | `Location` | Reserved | `State`   |
 
 #### Acknowledgment Payload
 
@@ -95,9 +95,9 @@ Reset the specified receiver. This command has no payload.
 
 #### Error Payload
 
-| Byte 2       |
-| ------------ |
-| Error Reason |
+| Byte 2         |
+| -------------- |
+| `Error Reason` |
 
 <a name="get-node-status">
 ### Command `Get Node Status`
