@@ -4,37 +4,37 @@
 
 | Block  | Short Description             | Extended Description                                                                                                                              |
 | ------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0x00` | [System](#system)             | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)           |
-| `0x04` | [Streaming](#streaming)       | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block.    |
+| `0x00` | [System](#block:system)       | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)           |
+| `0x04` | [Streaming](#block:streaming) | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block.    |
 | `0x08` | Statistical Data and Quantity | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
 | `0x28` | Configuration                 | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here).                              |
 | `0x3D` | EEPROM                        | Used for writing and reading EEPROM data directly                                                                                                 |
 
-<a name="system">
+<a name="block:system">
 ## Block `System`
 </a>
 
-| Number | Block Command                         | Access     | Permanently Stored |
-| ------ | ------------------------------------- | ---------- | ------------------ |
-| `0x00` | [Verboten](#verboten)                 | –          | –                  |
-| `0x01` | [Reset](#reset)                       | Event      | –                  |
-| `0x02` | [Get/Set State](#get-set-state)       | Read/Write | –                  |
-| `0x05` | [Get Node Status](#get-node-status)   | Read/Write | –                  |
-| `0x06` | [Get Error Status](#get-error-status) | Read/Write | –                  |
+| Number | Block Command                                 | Access     | Permanently Stored |
+| ------ | --------------------------------------------- | ---------- | ------------------ |
+| `0x00` | [Verboten](#command:verboten)                 | –          | –                  |
+| `0x01` | [Reset](#command:reset)                       | Event      | –                  |
+| `0x02` | [Get/Set State](#command:get-set-state)       | Read/Write | –                  |
+| `0x05` | [Get Node Status](#command:get-node-status)   | Read/Write | –                  |
+| `0x06` | [Get Error Status](#command:get-error-status) | Read/Write | –                  |
 
-<a name="verboten">
+<a name="command:verboten">
 ### Command `Verboten`
 </a>
 
 This command is mainly used for initialization purposes
 
-<a name="reset">
+<a name="command:reset">
 ### Command `Reset`
 </a>
 
 Reset the specified receiver. This command has no payload.
 
-<a name="get-set-state">
+<a name="command:get-set-state">
 ### Command `Get/Set State`
 </a>
 
@@ -99,7 +99,7 @@ Reset the specified receiver. This command has no payload.
 | -------------- |
 | `Error Reason` |
 
-<a name="get-node-status">
+<a name="command:get-node-status">
 ### Command `Get Node Status`
 </a>
 
@@ -260,7 +260,7 @@ Reset the specified receiver. This command has no payload.
 | ----------- |
 | Status Word |
 
-<a name="get-error-status">
+<a name="command: get-error-status">
 ### Command `Get Error Status`
 </a>
 
@@ -366,14 +366,14 @@ Reset the specified receiver. This command has no payload.
 
 - Same structure as error payload for node status command
 
-<a name="streaming">
+<a name="block:streaming">
 ## Block `Streaming`
 </a>
 
-| Number | Block Command                 | Access | Permanently Stored |
-| ------ | ----------------------------- | ------ | ------------------ |
-| `0x01` | [Acceleration](#acceleration) | Event  | –                  |
-| `0x20` | [Voltage](#voltage)           | Event  | –                  |
+| Number | Block Command                         | Access | Permanently Stored |
+| ------ | ------------------------------------- | ------ | ------------------ |
+| `0x01` | [Acceleration](#command:acceleration) | Event  | –                  |
+| `0x20` | [Voltage](#command:voltage)           | Event  | –                  |
 
 ### Values
 
@@ -413,7 +413,7 @@ Reset the specified receiver. This command has no payload.
   | `0`   | Data for specified data point will not be measured/sent |
   | `1`   | Data for specified data point will be measured/sent     |
 
-<a name="acceleration">
+<a name="command:acceleration">
 ### Command `Acceleration`
 </a>
 
@@ -467,7 +467,7 @@ Reset the specified receiver. This command has no payload.
 | ------------ |
 | LSB (BP + 2) |
 
-<a name="voltage">
+<a name="command:voltage">
 ### Command `Voltage`
 </a>
 
