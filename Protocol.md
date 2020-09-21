@@ -48,6 +48,10 @@ This design requires that each message identifier must be unique (each sender ha
 
 The priority-based concept of messages is a key feature of the MyTooliT network protocol. The protocol uses CAN 2.0, Bluetooth and other data link layer protocols to transport messages between end nodes. Thus, MyTooliT transport messages between end nodes over diverse data link protocols. The flow control is managed by the prioritization of messages, the end-to-end-communication and by limiting the overall traffic to 40%/60% of the total bandwidth.
 
+### Reserved Bits
+
+Reserved Bits must be transmitted as `0`. This is required for compatibility.
+
 ## Protocol Specification
 
 Each CAN 2.0 frame consists of
@@ -61,7 +65,7 @@ The following figure shows the essential parts of an extended CAN 2.0 frame:
 
 | Identifier | DLC    | Payload     |
 | ---------- | ------ | ----------- |
-| 29 Bits    | 4 Bits | 0 – 7 Bytes |
+| 29 Bits    | 4 Bits | 0 – 8 Bytes |
 
 The
 
@@ -77,13 +81,13 @@ The
 
 The following table describes the identifier field.
 
-| Field    | Purpose                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| V        | Version number <br> • Must be `0` or the frame will be discarded                                                                                                              |
-| Command  | Command to be executed or acknowledged                                                                                                                                        |
-| R1/R2    | Reserved                                                                                                                                                                      |
-| Sender   | Number of the original sender (frames may hop) <br> • `0` Not allowed                                                                                                         |
-| Receiver | Number of the target receiver (frames may hop) <br> • `0` broadcasts at field bus (local network) with ACK <br> • `0x1F` broadcasts at field d bus(local network) without ACK |
+| Field    | Purpose                                                      |
+| -------- | ------------------------------------------------------------ |
+| V        | Version number <br> • Must be `0` or the frame will be discarded |
+| Command  | Command to be executed or acknowledged                       |
+| R1/R2    | Reserved                                                     |
+| Sender   | Number of the original sender (frames may hop) <br> • `0` Not allowed |
+| Receiver | Number of the target receiver (frames may hop) <br> • `0` broadcasts at field bus (local network) with ACK <br> • `0x1F` broadcasts at field bus(local network) without ACK |
 
 ### Command
 
@@ -144,7 +148,7 @@ The payload transports user data and/or sub-payloads.
 
 ### Startup an Backup Strategy
 
-This is currently not implemented. CAN transmits at 1 MBit gross and Bluetooth transmits the payload at 1Mbit net. Note, that Bluetooth is a CSMA/CD protocol that will cause jitter without taking any other actions. Collisions also reduce the total bandwidth.
+This is currently not implemented. CAN transmits at 1 MBit gross (gross bitrate: bitrate including physical protocol overhead) and Bluetooth transmits the payload at 1Mbit net (net bitrate: bitrate excluding physical protocol overhead). Note, that Bluetooth is a CSMA/CD protocol that will cause jitter without taking any other actions. Collisions also reduce the total bandwidth.
 
 ### Transmission Speed
 
@@ -158,8 +162,9 @@ Bluetooth supports a net bandwidth of about 700 kBit if each frame is 255 bytes 
 
 ### CAN 2.0
 
-The transmission speed should be aligned to a maximum of 40% of the total bandwidth. However, in any case there must not be any higher utilization than 60% of the overall bandwidth. In the case of fair message distribution with many nodes and many sporadic messages, the limit should be a utilization of 40%. In cases with many permanent messages the limit may be set to 60%. The 40% utilization for CAN2.0 with bit stuffing is calculated as follows:
+The transmission speed should be aligned to a maximum of 40% of the total bandwidth. However, in any case there must not be any higher utilization than 60% of the overall bandwidth. In the case of fair message distribution with many nodes and many sporadic messages, the limit should be a utilization of 40%. In cases with many permanent messages the limit may be set to 60%.
 
+The 40% utilization for CAN2.0 with bit stuffing is calculated as follows:
 $$
 U = \frac{m·79+ \sum_{m=0}^{m} \left( 8·p_m + \lfloor{p_m·\frac{8}{5}} \rfloor \right)}{B}
 $$
@@ -211,7 +216,3 @@ Alarm messages – they will be periodically repeated until muted or alarm off e
 Sporadic messages trigger on demand e.g. setting a program status word requires a request and an acknowledgement. The acknowledgement and the request are sporadic messages.
 
 Sporadic messages should have a reserved bandwidth of at least 10% (in an alarm shower case, the alarm messages will be prioritized). An overload case must be handled at the application level e.g. turn off all streaming messages and go to a graceful degradation state or a fail-save state. Note that time triggered communication eliminates such cases because each message transmission is pre-scheduled.
-
-### Reserved Bits
-
-Reserved Bits must be transmitted as `0`. This is required for compatibility.
