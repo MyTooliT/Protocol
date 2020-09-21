@@ -12,9 +12,9 @@
 | `0x28` | Configuration                 | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here).                              |
 | `0x3D` | EEPROM                        | Used for writing and reading EEPROM data directly                                                                                                 |
 
-<a name="block:system">
+<a name="block:system"></a>
+
 ## Block `System`
-</a>
 
 | Number | Block Command                                 | Access     | Permanently Stored |
 | ------ | --------------------------------------------- | ---------- | ------------------ |
@@ -24,21 +24,21 @@
 | `0x05` | [Get Node Status](#command:get-node-status)   | Read/Write | –                  |
 | `0x06` | [Get Error Status](#command:get-error-status) | Read/Write | –                  |
 
-<a name="command:verboten">
+<a name="command:verboten"></a>
+
 ### Command `Verboten`
-</a>
 
 This command is mainly used for initialization purposes
 
-<a name="command:reset">
+<a name="command:reset"></a>
+
 ### Command `Reset`
-</a>
 
 Reset the specified receiver. This command has no payload.
 
-<a name="command:get-set-state">
+<a name="command:get-set-state"></a>
+
 ### Command `Get/Set State`
-</a>
 
 - Not fully implemented
 - Startup state determines operating state
@@ -101,9 +101,9 @@ Reset the specified receiver. This command has no payload.
 | ------------------------------------- |
 | [`Error Reason`](#value:error-reason) |
 
-<a name="command:get-node-status">
+<a name="command:get-node-status"></a>
+
 ### Command `Get Node Status`
-</a>
 
 - Note that the state may not be set instantly.
 - The node status word is defined differently for STH and STU
@@ -262,9 +262,9 @@ Reset the specified receiver. This command has no payload.
 | ----------- |
 | Status Word |
 
-<a name="command: get-error-status">
+<a name="command: get-error-status"></a>
+
 ### Command `Get Error Status`
-</a>
 
 - STH definition:
 
@@ -368,9 +368,9 @@ Reset the specified receiver. This command has no payload.
 
 - Same structure as error payload for node status command
 
-<a name="block:streaming">
+<a name="block:streaming"></a>
+
 ## Block `Streaming`
-</a>
 
 | Number | Block Command                         | Access | Permanently Stored |
 | ------ | ------------------------------------- | ------ | ------------------ |
@@ -415,9 +415,9 @@ Reset the specified receiver. This command has no payload.
   | `0`   | Data for specified data point will not be measured/sent |
   | `1`   | Data for specified data point will be measured/sent     |
 
-<a name="command:acceleration">
+<a name="command:acceleration"></a>
+
 ### Command `Acceleration`
-</a>
 
 - Requesting while streaming is possible
 - Only single stream allowed
@@ -469,9 +469,9 @@ Reset the specified receiver. This command has no payload.
 | ------------ |
 | LSB (BP + 2) |
 
-<a name="command:voltage">
+<a name="command:voltage"></a>
+
 ### Command `Voltage`
-</a>
 
 #### Notes
 
