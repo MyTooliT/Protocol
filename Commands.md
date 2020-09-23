@@ -573,10 +573,52 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 ## Block `Configuration`
 
-| Number | Block Command                      | Access     | Permanently Stored |
-| ------ | ---------------------------------- | ---------- | ------------------ |
-| `0x00` | Get/Set Acceleration Configuration | Read/Write | x                  |
-| `0x60` | Get/Set Calibration Factor k       | Read/Write | x                  |
-| `0x61` | Get/Set Calibration Factor d       | Read/Write | x                  |
-| `0x62` | Calibration Meassurement           | Read/Write | x                  |
-| `0xC0` | HMI Configuration                  | Read/Write | x                  |
+| Number | Block Command                                                | Access     | Permanently Stored |
+| ------ | ------------------------------------------------------------ | ---------- | ------------------ |
+| `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
+| `0x60` | Get/Set Calibration Factor k                                 | Read/Write | x                  |
+| `0x61` | Get/Set Calibration Factor d                                 | Read/Write | x                  |
+| `0x62` | Calibration Meassurement                                     | Read/Write | x                  |
+| `0xC0` | HMI Configuration                                            | Read/Write | x                  |
+
+<a name="command:Get-Set-Acceleration-Configuration"></a>
+
+### Command `Get/Set Acceleration Configuration`
+
+#### Notes
+
+##### Sampling Rate
+
+- CLOCK/((Prescaler+1)*(AcquisitionTime + 12+1) * OverSamplingRate )
+- CLOCK=38400000 Hz
+
+##### Prescaler
+
+- Byte2
+
+##### Acquisition Time
+
+- Sample and Hold Time i.e. Time to charge capacitor that is cut off and meassured at digital quantisation
+- 2^(Byte3-1) iff Byte3 > AdcAcquisitionTime4
+- (Byte3+2) iff Byte3 < =AdcAcquisitionTime4
+
+##### Over Sampling Rate
+
+- 2^Byte4; No Over Sampling if Byte4=0
+
+##### ADC Reference Voltage
+
+- 1V25
+- 1V65
+- 1V8
+- 2V1
+- 2V2
+- 2V5
+- 2V7
+- 3V3(VDD)
+- 5V
+- 6V6
+
+##### Setting at Reset
+
+- 2/Aqu8(4)/OverSampling64(6)/VDD
