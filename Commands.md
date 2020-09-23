@@ -532,3 +532,11 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 5 (MSB) - Byte 8 (LSB)  |
 | ---------------------------- |
 | Seconds since first power on |
+
+### Command `Under Voltage Counter`
+
+#### ACK Payload
+
+| Byte 1 (MSB) - Byte 4 (LSB)                |
+| ------------------------------------------ |
+| Under voltage counter since first power on |
