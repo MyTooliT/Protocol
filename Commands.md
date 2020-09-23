@@ -488,3 +488,13 @@ Reset the specified receiver. This command has no payload.
 #### Acknowledgment Payload
 
 The command uses the same format as the “Acknowledgment Payload” of the `Acceleration` command.
+
+## Block `Statistical Data and Quantity`
+
+| Number | Block Command                     | Access | Permanently Stored |
+| ------ | --------------------------------- | ------ | ------------------ |
+| `0x00` | Power On Cycles, Power Off Cycles | Read   | x                  |
+| `0x01` | Operating time                    | Read   | x                  |
+| `0x02` | Under Voltage Counter             | Read   | x                  |
+| `0x03` | Watchdog Reset Counter            | Read   | x                  |
+| `0x04` | Production Date                   | Read   | x                  |
