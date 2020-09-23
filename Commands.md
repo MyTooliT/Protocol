@@ -9,7 +9,7 @@
 | `0x00` | [System](#block:system)                                      | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed) |
 | `0x04` | [Streaming](#block:streaming)                                | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
 | `0x08` | [Statistical Data and Quantity](#block:Statistical Data and Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
-| `0x28` | Configuration                                                | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
+| `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
 | `0x3D` | EEPROM                                                       | Used for writing and reading EEPROM data directly            |
 
 <a name="block:system"></a>
@@ -568,3 +568,15 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 1 (MSB) - Byte 4 (LSB)                                  |
 | ------------------------------------------------------------ |
 | ASCII String of the Production Date in the format: yyyymmdd where y=year, m=month, d=day |
+
+<a name="block:Configuration"></a>
+
+## Block `Configuration`
+
+| Number | Block Command                      | Access     | Permanently Stored |
+| ------ | ---------------------------------- | ---------- | ------------------ |
+| `0x00` | Get/Set Acceleration Configuration | Read/Write | x                  |
+| `0x60` | Get/Set Calibration Factor k       | Read/Write | x                  |
+| `0x61` | Get/Set Calibration Factor d       | Read/Write | x                  |
+| `0x62` | Calibration Meassurement           | Read/Write | x                  |
+| `0xC0` | HMI Configuration                  | Read/Write | x                  |
