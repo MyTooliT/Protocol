@@ -548,3 +548,11 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 1 (MSB) - Byte 4 (LSB)          |
 | ------------------------------------ |
 | Watchdog Resets since first power on |
+
+### Command `Production Date`
+
+#### ACK Payload
+
+| Byte 1 (MSB) - Byte 4 (LSB)                                  |
+| ------------------------------------------------------------ |
+| ASCII String of the Production Date in the format: yyyymmdd where y=year, m=month, d=day |
