@@ -540,3 +540,11 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 1 (MSB) - Byte 4 (LSB)                |
 | ------------------------------------------ |
 | Under voltage counter since first power on |
+
+### Command `Watchdog Reset Counter`
+
+#### ACK Payload
+
+| Byte 1 (MSB) - Byte 4 (LSB)          |
+| ------------------------------------ |
+| Watchdog Resets since first power on |
