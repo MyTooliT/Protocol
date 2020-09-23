@@ -491,13 +491,15 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 ## Block `Statistical Data and Quantity`
 
-| Number | Block Command                     | Access | Permanently Stored |
-| ------ | --------------------------------- | ------ | ------------------ |
-| `0x00` | Power On Cycles, Power Off Cycles | Read   | x                  |
-| `0x01` | Operating time                    | Read   | x                  |
-| `0x02` | Under Voltage Counter             | Read   | x                  |
-| `0x03` | Watchdog Reset Counter            | Read   | x                  |
-| `0x04` | Production Date                   | Read   | x                  |
+| Number | Block Command                                                | Access | Permanently Stored |
+| ------ | ------------------------------------------------------------ | ------ | ------------------ |
+| `0x00` | [Power On Cycles, Power Off Cycles](#command:Power On Cycles, Power Off Cycles) | Read   | x                  |
+| `0x01` | [Operating time](#command:Operating time)                    | Read   | x                  |
+| `0x02` | [Under Voltage Counter](#command:Under Voltage Counter)      | Read   | x                  |
+| `0x03` | [Watchdog Reset Counter](#command:Watchdog Reset Counter)    | Read   | x                  |
+| `0x04` | [Production Date](#command:Production Date)                  | Read   | x                  |
+
+<a name="command:Power On Cycles, Power Off Cycles"></a>
 
 ### Command `Power On Cycles, Power Off Cycles`
 
@@ -516,6 +518,8 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | --------------------------- |
 | Power Off Cycles            |
 
+<a name="command:Operating time"></a>
+
 ### Command `Operating time`
 
 #### Notes
@@ -533,6 +537,8 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | ---------------------------- |
 | Seconds since first power on |
 
+<a name="command:Under Voltage Counter"></a>
+
 ### Command `Under Voltage Counter`
 
 #### ACK Payload
@@ -541,6 +547,8 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | ------------------------------------------ |
 | Under voltage counter since first power on |
 
+<a name="command:Watchdog Reset Counter"></a>
+
 ### Command `Watchdog Reset Counter`
 
 #### ACK Payload
@@ -548,6 +556,8 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 1 (MSB) - Byte 4 (LSB)          |
 | ------------------------------------ |
 | Watchdog Resets since first power on |
+
+<a name="command:Production Date"></a>
 
 ### Command `Production Date`
 
