@@ -498,3 +498,20 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | `0x02` | Under Voltage Counter             | Read   | x                  |
 | `0x03` | Watchdog Reset Counter            | Read   | x                  |
 | `0x04` | Production Date                   | Read   | x                  |
+
+### Command `Power On Cycles, Power Off Cycles`
+
+#### Notes
+
+- Power off means power away e.g. Accumulator out of energy
+- Power On includes resets
+
+#### ACK Payload
+
+| Byte 1 (MSB) - Byte 4 (LSB) |
+| --------------------------- |
+| Power On Cycles             |
+
+| Byte 5 (MSB) - Byte 8 (LSB) |
+| --------------------------- |
+| Power Off Cycles            |
