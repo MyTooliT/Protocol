@@ -8,7 +8,7 @@
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `0x00` | [System](#block:system)                                      | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed) |
 | `0x04` | [Streaming](#block:streaming)                                | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
-| `0x08` | [Statistical Data and Quantity](#block:Statistical Data and Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
+| `0x08` | [Statistical Data and Quantity](#block:Statistical-Data-and-Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
 | `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
 | `0x3D` | EEPROM                                                       | Used for writing and reading EEPROM data directly            |
 
@@ -489,19 +489,19 @@ Reset the specified receiver. This command has no payload.
 
 The command uses the same format as the “Acknowledgment Payload” of the `Acceleration` command.
 
-<a name="block:Statistical Data and Quantity"></a>
+<a name="block:Statistical-Data-and-Quantity"></a>
 
 ## Block `Statistical Data and Quantity`
 
 | Number | Block Command                                                | Access | Permanently Stored |
 | ------ | ------------------------------------------------------------ | ------ | ------------------ |
-| `0x00` | [Power On Cycles, Power Off Cycles](#command:Power On Cycles, Power Off Cycles) | Read   | x                  |
-| `0x01` | [Operating time](#command:Operating time)                    | Read   | x                  |
-| `0x02` | [Under Voltage Counter](#command:Under Voltage Counter)      | Read   | x                  |
-| `0x03` | [Watchdog Reset Counter](#command:Watchdog Reset Counter)    | Read   | x                  |
-| `0x04` | [Production Date](#command:Production Date)                  | Read   | x                  |
+| `0x00` | [Power On Cycles, Power Off Cycles](#command:Power-On-Cycles-Power-Off-Cycles) | Read   | x                  |
+| `0x01` | [Operating time](#command:Operating-time)                    | Read   | x                  |
+| `0x02` | [Under Voltage Counter](#command:Under-Voltage-Counter)      | Read   | x                  |
+| `0x03` | [Watchdog Reset Counter](#command:Watchdog-Reset-Counter)    | Read   | x                  |
+| `0x04` | [Production Date](#command:Production-Date)                  | Read   | x                  |
 
-<a name="command:Power On Cycles, Power Off Cycles"></a>
+<a name="command:Power-On-Cycles-Power-Off-Cycles"></a>
 
 ### Command `Power On Cycles, Power Off Cycles`
 
@@ -520,7 +520,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | --------------------------- |
 | Power Off Cycles            |
 
-<a name="command:Operating time"></a>
+<a name="command:Operating-time"></a>
 
 ### Command `Operating time`
 
@@ -539,7 +539,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | ---------------------------- |
 | Seconds since first power on |
 
-<a name="command:Under Voltage Counter"></a>
+<a name="command:Under-Voltage-Counter"></a>
 
 ### Command `Under Voltage Counter`
 
@@ -549,7 +549,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | ------------------------------------------ |
 | Under voltage counter since first power on |
 
-<a name="command:Watchdog Reset Counter"></a>
+<a name="command:Watchdog-Reset-Counter"></a>
 
 ### Command `Watchdog Reset Counter`
 
@@ -559,7 +559,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | ------------------------------------ |
 | Watchdog Resets since first power on |
 
-<a name="command:Production Date"></a>
+<a name="command:Production-Date"></a>
 
 ### Command `Production Date`
 
