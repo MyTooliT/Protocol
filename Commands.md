@@ -515,3 +515,20 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 5 (MSB) - Byte 8 (LSB) |
 | --------------------------- |
 | Power Off Cycles            |
+
+### Command `Operating time`
+
+#### Notes
+
+- Seconds since first power are stored each half an hour
+- The STH also stored seconds since reset in disconnect case.
+
+#### ACK Payload
+
+| Byte 1 (MSB) - Byte 4 (LSB) |
+| --------------------------- |
+| Seconds since reset         |
+
+| Byte 5 (MSB) - Byte 8 (LSB)  |
+| ---------------------------- |
+| Seconds since first power on |
