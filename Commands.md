@@ -574,9 +574,9 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Number | Block Command                                                | Access     | Permanently Stored |
 | ------ | ------------------------------------------------------------ | ---------- | ------------------ |
 | `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
-| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Callibration-Factor-k) | Read/Write | x                  |
-| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Callibration-Factor-d) | Read/Write | x                  |
-| `0x62` | Calibration Meassurement                                     | Read/Write | x                  |
+| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k) | Read/Write | x                  |
+| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d) | Read/Write | x                  |
+| `0x62` | [Calibration Measurement](#command:Callibration-Measurement) | Read/Write | x                  |
 | `0xC0` | HMI Configuration                                            | Read/Write | x                  |
 
 <a name="command:Get-Set-Acceleration-Configuration"></a>
@@ -661,13 +661,13 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 - Same structure as payload
 
-<a name="command:Get-Set-Callibration-Factor-k"></a>
+<a name="command:Get-Set-Calibration-Factor-k"></a>
 
-### Command `Get/Set Callibration Factor k`
+### Command `Get/Set Calibration Factor k`
 
 #### Values
 
-- <a name="value:callibration-element">`Callibration Element`</a>:
+- <a name="value:calibration-element">`Calibration Element`</a>:
 
   | Value | Meaning      |
   | ----- | ------------ |
@@ -677,12 +677,12 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 - <a name="value:number-of-axis">`Number or axis`</a>:
 
-  | Value | Meaning                        |
-  | ----- | ------------------------------ |
-  | `0`   | Reserved                       |
-  | `1`   | x-Axis / First meassure point  |
-  | `2`   | y-Axis / Second meassure point |
-  | `3`   | z-Axis / Third meassure point  |
+  | Value | Meaning                       |
+  | ----- | ----------------------------- |
+  | `0`   | Reserved                      |
+  | `1`   | x-Axis / First measure point  |
+  | `2`   | y-Axis / Second measure point |
+  | `3`   | z-Axis / Third measure point  |
 
 - <a name="value:get-set-value">`Get/Set Value`</a>:
 
@@ -693,9 +693,9 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 #### Payload
 
-| Byte 1                                                |
-| ----------------------------------------------------- |
-| [`Callibration Element`](#value:callibration-element) |
+| Byte 1                                              |
+| --------------------------------------------------- |
+| [`Calibration Element`](#value:calibration-element) |
 
 | Byte 2                                    |
 | ----------------------------------------- |
@@ -716,9 +716,9 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 #### Acknowledgment Payload
 
-| Byte 1                                                |
-| ----------------------------------------------------- |
-| [`Callibration Element`](#value:callibration-element) |
+| Byte 1                                              |
+| --------------------------------------------------- |
+| [`Calibration Element`](#value:calibration-element) |
 
 | Byte 2                                    |
 | ----------------------------------------- |
@@ -738,6 +738,29 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 <a name="command:Get-Set-Callibration-Factor-d"></a>
 
-### Command `Get/Set Callibration Factor d`
+### Command `Get/Set Calibration Factor d`
 
-Payload and Acknowledgment Payload have the same Structure as [`Get/Set Callibration Factor k`](#command:Get-Set-Callibration-Factor-k) but with `d (Offset)` instead of `k (Slope)` from `kx+d`.
+Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibration Factor k`](#command:Get-Set-Calibration-Factor-k) but with `d (Offset)` instead of `k (Slope)` from `kx+d`.
+
+<a name="command:Calibration-Measurement"></a>
+
+### Command `Calibration Measurement`
+
+#### Values
+
+- <a name="value:calibration-Get-Set">`Calibration Get/Set`</a>:
+
+  | Value | Meaning                                       |
+  | ----- | --------------------------------------------- |
+  | `0`   | Get (Ignores the remaining bits of this byte) |
+  | `1`   | Set                                           |
+
+- <a name="value:calibration-Method">`Calibration Method`</a>:
+
+  | Value | Meaning  |
+  | ----- | -------- |
+  | `0`   | Reserved |
+  | `1`   | Inject   |
+  | `2`   | Eject    |
+  | `3`   | Measure  |
+
