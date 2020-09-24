@@ -620,3 +620,31 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 ##### Setting at Reset
 
 - 2/Aqu8(4)/OverSampling64(6)/VDD
+
+#### Payload
+
+| Byte 1               |           |
+| -------------------- | --------- |
+| Bit 7                | Bit 6 – 0 |
+| 0: Get        1: Set | Reserved  |
+
+| Byte 2        |
+| ------------- |
+| ADC Prescaler |
+
+| Byte 3                      |
+| --------------------------- |
+| Acquisition time (See Note) |
+
+| Byte 4                                                       |
+| ------------------------------------------------------------ |
+| Power of over sampling rate e.g. 10->1024 OverSampling Rate, 0=no Over Sampling |
+
+| Byte 5                              |
+| ----------------------------------- |
+| Reference: Voltage/20 e.g. 3.3V->66 |
+
+| Byte 6 - Byte 8 |
+| --------------- |
+| Reserved        |
+
