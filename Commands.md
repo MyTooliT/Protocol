@@ -889,3 +889,9 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Notes
 
 - Used to read data from EEPROM directly.
+
+#### Payload
+
+| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8 |
+| ------ | ------ | ------ | -------- | --------------- |
+| Page   | Offset | Length | Reserved | Reserved        |
