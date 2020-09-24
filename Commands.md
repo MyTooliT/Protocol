@@ -575,7 +575,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | ------ | ------------------------------------------------------------ | ---------- | ------------------ |
 | `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
 | `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Callibration-Factor-k) | Read/Write | x                  |
-| `0x61` | Get/Set Calibration Factor d                                 | Read/Write | x                  |
+| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Callibration-Factor-d) | Read/Write | x                  |
 | `0x62` | Calibration Meassurement                                     | Read/Write | x                  |
 | `0xC0` | HMI Configuration                                            | Read/Write | x                  |
 
@@ -651,7 +651,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 | Byte 5                              |
 | ----------------------------------- |
-| Reference: Voltage/20 e.g. 3.3V->66 |
+| Reference: Voltage*20 e.g. 3.3V->66 |
 
 | Byte 6 - Byte 8 |
 | --------------- |
@@ -712,7 +712,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 | Byte 5 (MSB) - Byte 8 (LSB)                                  |
 | ------------------------------------------------------------ |
-| k according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
+| k (Slope) according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
 
 #### Acknowledgment Payload
 
@@ -734,4 +734,10 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 | Byte 5 (MSB) - Byte 8 (LSB)                                  |
 | ------------------------------------------------------------ |
-| k according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
+| k (Slope) according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
+
+<a name="command:Get-Set-Callibration-Factor-d"></a>
+
+### Command `Get/Set Callibration Factor d`
+
+Payload and Acknowledgment Payload have the same Structure as [`Get/Set Callibration Factor k`](#command:Get-Set-Callibration-Factor-k) but with `d (Offset)` instead of `k (Slope)` from `kx+d`.
