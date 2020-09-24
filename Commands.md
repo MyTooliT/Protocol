@@ -574,7 +574,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Number | Block Command                                                | Access     | Permanently Stored |
 | ------ | ------------------------------------------------------------ | ---------- | ------------------ |
 | `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
-| `0x60` | Get/Set Calibration Factor k                                 | Read/Write | x                  |
+| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Callibration-Factor-k) | Read/Write | x                  |
 | `0x61` | Get/Set Calibration Factor d                                 | Read/Write | x                  |
 | `0x62` | Calibration Meassurement                                     | Read/Write | x                  |
 | `0xC0` | HMI Configuration                                            | Read/Write | x                  |
@@ -660,3 +660,33 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 #### Acknowledgment Payload
 
 - Same structure as payload
+
+<a name="command:Get-Set-Callibration-Factor-k"></a>
+
+### Command `Get/Set Callibration Factor k`
+
+#### Values
+
+- <a name="value:callibration-element">`Callibration Element`</a>:
+
+  | Value | Meaning      |
+  | ----- | ------------ |
+  | `0`   | Acceleration |
+  | `1`   | Temperature  |
+  | `32`  | Voltage      |
+
+- <a name="value:number-of-axis">`Number or axis`</a>:
+
+  | Value | Meaning                        |
+  | ----- | ------------------------------ |
+  | `0`   | Reserved                       |
+  | `1`   | x-Axis / First meassure point  |
+  | `2`   | y-Axis / Second meassure point |
+  | `3`   | z-Axis / Third meassure point  |
+
+- <a name="value:get-set-value">`Get/Set Value`</a>:
+
+  | Value | Meaning   |
+  | ----- | --------- |
+  | `0`   | Get Value |
+  | `1`   | Set Value |
