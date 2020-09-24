@@ -916,3 +916,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8  |
 | ------ | ------ | ------ | -------- | ---------------- |
 | Page   | Offset | Length | Reserved | Data (MSB first) |
+
+#### Acknowledgment Payload
+
+- Same structure as payload
