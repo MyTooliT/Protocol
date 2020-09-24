@@ -621,12 +621,21 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 - 2/Aqu8(4)/OverSampling64(6)/VDD
 
+#### Values
+
+- <a name="value:get-set-state2">`Get/Set State`</a>:
+
+  | Value | Meaning   |
+  | ----- | --------- |
+  | `0`   | Get State |
+  | `1`   | Set State |
+
 #### Payload
 
-| Byte 1               |           |
-| -------------------- | --------- |
-| Bit 7                | Bit 6 – 0 |
-| 0: Get        1: Set | Reserved  |
+| Byte 1                                   |           |
+| ---------------------------------------- | --------- |
+| Bit 7                                    | Bit 6 – 0 |
+| [`Get/Set State`](#value:get-set-state2) | Reserved  |
 
 | Byte 2        |
 | ------------- |
