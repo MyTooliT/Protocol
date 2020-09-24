@@ -877,7 +877,15 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ## Block `EEPROM`
 
-| Number | Block Command | Access | Permanently Stored |
-| ------ | ------------- | ------ | ------------------ |
-| `0x00` | EEPROM Read   | Read   | x                  |
-| `0x01` | EEPROM Write  | Write  | x                  |
+| Number | Block Command                       | Access | Permanently Stored |
+| ------ | ----------------------------------- | ------ | ------------------ |
+| `0x00` | [EEPROM Read](#command:EEPROM-Read) | Read   | x                  |
+| `0x01` | EEPROM Write                        | Write  | x                  |
+
+<a name="command:EEPROM-Read"></a>
+
+### Command `EEPROM Read`
+
+#### Notes
+
+- Used to read data from EEPROM directly.
