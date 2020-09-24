@@ -713,3 +713,25 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Byte 5 (MSB) - Byte 8 (LSB)                                  |
 | ------------------------------------------------------------ |
 | k according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
+
+#### Acknowledgment Payload
+
+| Byte 1                                                |
+| ----------------------------------------------------- |
+| [`Callibration Element`](#value:callibration-element) |
+
+| Byte 2                                    |
+| ----------------------------------------- |
+| [`Number or axis`](#value:number-of-axis) |
+
+| Byte 3   |
+| -------- |
+| Reserved |
+
+| Byte 4   |
+| -------- |
+| Reserved |
+
+| Byte 5 (MSB) - Byte 8 (LSB)                                  |
+| ------------------------------------------------------------ |
+| k according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
