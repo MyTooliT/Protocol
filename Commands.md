@@ -824,24 +824,47 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Values
 
-- Get/Set Sampling Rate
+- <a name="value:Get-Set-Sampling-Rate">`Get/Set Sampling Rate`</a>:
 
   | Value | Meaning           |
   | ----- | ----------------- |
   | `0`   | Get Sampling Rate |
   | `1`   | Set Sampling Rate |
 
-- LED
+- <a name="value:LED">`LED`</a>:
 
   | Value | Meaning  |
   | ----- | -------- |
   | `0`   | Reserved |
   | `1`   | LED      |
 
-- ON/OFF
+- <a name="value:ON-OFF">`ON/OFF`</a>:
 
   | Value | Meaning          |
   | ----- | ---------------- |
   | `0`   | Reserved         |
   | `1`   | On (Reset value) |
   | `2`   | Off              |
+
+#### Payload
+
+| Byte 1                                                  |                     |
+| ------------------------------------------------------- | ------------------- |
+| Bit 7                                                   | Bit 6 - Bit 0       |
+| [`Get/Set Sampling Rate`](#value:Get-Set-Sampling-Rate) | [`LED`](#value:LED) |
+
+| Byte 2         |
+| -------------- |
+| Number (0-255) |
+
+| Byte 3                    |
+| ------------------------- |
+| [`ON/OFF`](#value:ON-OFF) |
+
+| Byte 4   |
+| -------- |
+| Reserved |
+
+| Byte 5 - Byte 8 |
+| --------------- |
+| Reserved        |
