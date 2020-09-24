@@ -910,3 +910,9 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - Used to write data to EEPROM directly. 
 - It is not allowed to write everything if the byte 0 is locked(0xCA)
+
+#### Payload
+
+| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8  |
+| ------ | ------ | ------ | -------- | ---------------- |
+| Page   | Offset | Length | Reserved | Data (MSB first) |
