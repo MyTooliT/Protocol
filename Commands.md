@@ -764,3 +764,25 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   | `2`   | Eject    |
   | `3`   | Measure  |
 
+- <a name="value:calibration-Measurement-Element">`Calibration Measurement Element`</a>:
+
+  | Value | Meaning                                                      |
+  | ----- | ------------------------------------------------------------ |
+  | `0`   | Acceleration                                                 |
+  | `1`   | Temperature (for VREF=1250 temperature gets calculated to m°C) |
+  | `32`  | Voltage                                                      |
+  | `96`  | VSS(Ground)                                                  |
+  | `97`  | VDD (Supply)                                                 |
+  | `98`  | Regulated Internal Power                                     |
+  | `99`  | Operation Amplifier Output                                   |
+
+- <a name="value:Dimension">`Dimension`</a>:
+
+  | Value | Meaning         |
+  | ----- | --------------- |
+  | `0`   | Reserved        |
+  | `1`   | 1. Dimension(x) |
+  | `2`   | 2. Dimension(y) |
+  | `3`   | 3. Dimension(z) |
+
+  
