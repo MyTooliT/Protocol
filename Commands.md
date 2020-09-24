@@ -877,10 +877,10 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ## Block `EEPROM`
 
-| Number | Block Command                       | Access | Permanently Stored |
-| ------ | ----------------------------------- | ------ | ------------------ |
-| `0x00` | [EEPROM Read](#command:EEPROM-Read) | Read   | x                  |
-| `0x01` | EEPROM Write                        | Write  | x                  |
+| Number | Block Command                         | Access | Permanently Stored |
+| ------ | ------------------------------------- | ------ | ------------------ |
+| `0x00` | [EEPROM Read](#command:EEPROM-Read)   | Read   | x                  |
+| `0x01` | [EEPROM Write](#command:EEPROM-Write) | Write  | x                  |
 
 <a name="command:EEPROM-Read"></a>
 
@@ -901,3 +901,12 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8  |
 | ------ | ------ | ------ | -------- | ---------------- |
 | Page   | Offset | Length | Reserved | Data (MSB first) |
+
+<a name="command:EEPROM-Write"></a>
+
+### Command `EEPROM Write`
+
+#### Notes
+
+- Used to write data to EEPROM directly. 
+- It is not allowed to write everything if the byte 0 is locked(0xCA)
