@@ -577,7 +577,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k) | Read/Write | x                  |
 | `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d) | Read/Write | x                  |
 | `0x62` | [Calibration Measurement](#command:Callibration-Measurement) | Read/Write | x                  |
-| `0xC0` | HMI Configuration                                            | Read/Write | x                  |
+| `0xC0` | [HMI Configuration](#command:HMI-Configuration)              | Read/Write | x                  |
 
 <a name="command:Get-Set-Acceleration-Configuration"></a>
 
@@ -817,3 +817,31 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Byte 5 - Byte 8 |
 | --------------- |
 | Result          |
+
+<a name="command:HMI-Configuration"></a>
+
+### Command `HMI Configuration`
+
+#### Values
+
+- Get/Set Sampling Rate
+
+  | Value | Meaning           |
+  | ----- | ----------------- |
+  | `0`   | Get Sampling Rate |
+  | `1`   | Set Sampling Rate |
+
+- LED
+
+  | Value | Meaning  |
+  | ----- | -------- |
+  | `0`   | Reserved |
+  | `1`   | LED      |
+
+- ON/OFF
+
+  | Value | Meaning          |
+  | ----- | ---------------- |
+  | `0`   | Reserved         |
+  | `1`   | On (Reset value) |
+  | `2`   | Off              |
