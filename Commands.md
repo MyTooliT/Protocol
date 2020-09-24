@@ -868,3 +868,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Byte 5 - Byte 8 |
 | --------------- |
 | Reserved        |
+
+#### Acknowledgment Payload
+
+- Same structure as payload
