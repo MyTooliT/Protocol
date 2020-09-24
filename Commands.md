@@ -785,4 +785,25 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   | `2`   | 2. Dimension(y) |
   | `3`   | 3. Dimension(z) |
 
-  
+#### Payload
+
+| Byte 1                                              |                                                   |       |               |
+| --------------------------------------------------- | ------------------------------------------------- | ----- | ------------- |
+| Bit 7                                               | Bit 6 - Bit 5                                     | Bit 4 | Bit 3 - Bit 0 |
+| [`Calibration Get/Set`](#value:calibration-Get-Set) | [`Calibration Method`](#value:calibration-Method) | Reset | Reserved      |
+
+| Byte 2                                                       |
+| ------------------------------------------------------------ |
+| [`Calibration Measurement Element`](#value:calibration-Measurement-Element) |
+
+| Byte 3                          |
+| ------------------------------- |
+| [`Dimension`](#value:Dimension) |
+
+| Byte 4   |
+| -------- |
+| Reserved |
+
+| Byte 5 - Byte 8 |
+| --------------- |
+| Reserved        |
