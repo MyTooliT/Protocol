@@ -648,3 +648,6 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | --------------- |
 | Reserved        |
 
+#### Acknowledgment Payload
+
+- Same structure as payload
