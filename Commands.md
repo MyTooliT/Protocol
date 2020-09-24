@@ -8,7 +8,7 @@
 | `0x04` | [Streaming](#block:streaming)                                | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
 | `0x08` | [Statistical Data and Quantity](#block:Statistical-Data-and-Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
 | `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
-| `0x3D` | EEPROM                                                       | Used for writing and reading EEPROM data directly            |
+| `0x3D` | [EEPROM](#block:EEPROM)                                      | Used for writing and reading EEPROM data directly            |
 
 <a name="block:system"></a>
 
@@ -872,3 +872,12 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - Same structure as payload
+
+<a name="block:EEPROM"></a>
+
+## Block `EEPROM`
+
+| Number | Block Command | Access | Permanently Stored |
+| ------ | ------------- | ------ | ------------------ |
+| `0x00` | EEPROM Read   | Read   | x                  |
+| `0x01` | EEPROM Write  | Write  | x                  |
