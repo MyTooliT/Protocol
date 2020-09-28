@@ -9,7 +9,7 @@
 | `0x08` | [Statistical Data and Quantity](#block:Statistical-Data-and-Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
 | `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
 | `0x3D` | [EEPROM](#block:EEPROM)                                      | Used for writing and reading EEPROM data directly            |
-| `0x3E` | ProductData and RFID                                         | Used to store product data like a serial number. Furthermore, this block provides access to RFID information that is supported via connected tools. |
+| `0x3E` | [ProductData and RFID](#block:ProductionData-and-RFID)       | Used to store product data like a serial number. Furthermore, this block provides access to RFID information that is supported via connected tools. |
 | `0x3F` | Test                                                         | Test Config Page                                             |
 
 <a name="block:system"></a>
@@ -922,3 +922,18 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - Same structure as payload
+
+<a name="block:ProductionData-and-RFID"></a>
+
+## Block `ProductData and RFID`
+
+| Number          | Block Command                             | Access | Permanently Stored |
+| --------------- | ----------------------------------------- | ------ | ------------------ |
+| `0x00`          | Global Trade Identification Number (GTIN) | Read   | x                  |
+| `0x01`          | Hardware Revision                         | Read   | x                  |
+| `0x02`          | Firmware Version                          | Read   | x                  |
+| `0x03`          | Release Name                              | Read   | x                  |
+| `0x04` - `0x07` | Serial Number 1-4                         | Read   | x                  |
+| `0x08` - `0x17` | Name 1-16                                 | Read   | x                  |
+| `0x18` - `0x1F` | OEM Free Use 0-7                          | Read   | x                  |
+| `0x80`          | Tool RFID product information             | Read   | x                  |
