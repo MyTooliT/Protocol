@@ -934,7 +934,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | `0x02`          | [Firmware Version](#command:Firmware-Version)              | Read   | x                  |
 | `0x03`          | [Release Name](#command:Release-Name)                      | Read   | x                  |
 | `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                | Read   | x                  |
-| `0x08` - `0x17` | Name 1-16                                                  | Read   | x                  |
+| `0x08` - `0x17` | [Name 1-16](#command:Name)                                 | Read   | x                  |
 | `0x18` - `0x1F` | OEM Free Use 0-7                                           | Read   | x                  |
 | `0x80`          | Tool RFID product information                              | Read   | x                  |
 
@@ -994,6 +994,37 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | `0x05`  | Serial Number 2 |
 | `0x06`  | Serial Number 3 |
 | `0x07`  | Serial Number 4 |
+
+#### Acknowledgment Payload
+
+- UTF-8 String (8 Byte)
+
+<a name="command:Name"></a>
+
+### Command `Name`
+
+#### Notes
+
+- Multiple Strings in different languages possible
+
+| Command | Purpose |
+| ------- | ------- |
+| `0x08`  | Name 1  |
+| `0x09`  | Name 2  |
+| `0x0A`  | Name 3  |
+| `0x0B`  | Name 4  |
+| `0x0C`  | Name 5  |
+| `0x0D`  | Name 6  |
+| `0x0E`  | Name 7  |
+| `0x0F`  | Name 8  |
+| `0x10`  | Name 9  |
+| `0x11`  | Name 10 |
+| `0x12`  | Name 11 |
+| `0x13`  | Name 12 |
+| `0x14`  | Name 13 |
+| `0x15`  | Name 14 |
+| `0x16`  | Name 15 |
+| `0x17`  | Name 16 |
 
 #### Acknowledgment Payload
 
