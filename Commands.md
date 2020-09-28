@@ -9,6 +9,8 @@
 | `0x08` | [Statistical Data and Quantity](#block:Statistical-Data-and-Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
 | `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
 | `0x3D` | [EEPROM](#block:EEPROM)                                      | Used for writing and reading EEPROM data directly            |
+| `0x3E` | ProductData and RFID                                         | Used to store product data like a serial number. Furthermore, this block provides access to RFID information that is supported via connected tools. |
+| `0x3F` | Test                                                         | Test Config Page                                             |
 
 <a name="block:system"></a>
 
