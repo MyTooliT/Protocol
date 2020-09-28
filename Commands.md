@@ -930,7 +930,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Number          | Block Command                                              | Access | Permanently Stored |
 | --------------- | ---------------------------------------------------------- | ------ | ------------------ |
 | `0x00`          | [Global Trade Identification Number (GTIN)](#command:GTIN) | Read   | x                  |
-| `0x01`          | Hardware Revision                                          | Read   | x                  |
+| `0x01`          | [Hardware Revision](#command:Hardware-Revision)            | Read   | x                  |
 | `0x02`          | Firmware Version                                           | Read   | x                  |
 | `0x03`          | Release Name                                               | Read   | x                  |
 | `0x04` - `0x07` | Serial Number 1-4                                          | Read   | x                  |
@@ -948,3 +948,15 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 - Format: uint64_t (unsigned int)
 - MSB: Byte 0
 - LSB: Byte 7
+
+<a name="command:Hardware-Revision"></a>
+
+### Command `Hardware Revision`
+
+#### Acknowledgment Payload
+
+- 8 Bytes totally
+  - 5 Bytes Reserved
+  - 1 Byte Major Revision
+  - 1 Byte Minor Revision
+  - 1 Byte Build Revision
