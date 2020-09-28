@@ -1063,7 +1063,47 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ## Block `Test`
 
-| Number | Block Command | Access | Permanently Stored |
-| ------ | ------------- | ------ | ------------------ |
-| `0x00` | Reserved      | -      | -                  |
-| `0x01` | Test signal   | -      | -                  |
+| Number | Block Command                       | Access | Permanently Stored |
+| ------ | ----------------------------------- | ------ | ------------------ |
+| `0x00` | Reserved                            | -      | -                  |
+| `0x01` | [Test signal](#command:Test-signal) | -      | -                  |
+
+<a name="command:Test-signal"></a>
+
+### Command `Test signal`
+
+#### Payload
+
+- ##### Byte 1:
+
+| Value | Meaning  |
+| ----- | -------- |
+| 0     | Reserved |
+| 1     | Line     |
+| 2     | Ramp     |
+
+- ##### Byte 2:
+
+  Module (Module specific)
+
+- ##### Byte 3-8:
+
+  Module specific
+
+#### Acknowledgment Payload
+
+- ##### Byte 1:
+
+| Value | Meaning  |
+| ----- | -------- |
+| 0     | Reserved |
+| 1     | Line     |
+| 2     | Ramp     |
+
+- ##### Byte 2-3:
+
+  Module (Module specific)
+
+- ##### Byte 4-8:
+
+  Module specific
