@@ -933,7 +933,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | `0x01`          | [Hardware Revision](#command:Hardware-Revision)            | Read   | x                  |
 | `0x02`          | [Firmware Version](#command:Firmware-Version)              | Read   | x                  |
 | `0x03`          | [Release Name](#command:Release-Name)                      | Read   | x                  |
-| `0x04` - `0x07` | Serial Number 1-4                                          | Read   | x                  |
+| `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                | Read   | x                  |
 | `0x08` - `0x17` | Name 1-16                                                  | Read   | x                  |
 | `0x18` - `0x1F` | OEM Free Use 0-7                                           | Read   | x                  |
 | `0x80`          | Tool RFID product information                              | Read   | x                  |
@@ -981,3 +981,20 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - 8 Byte ASCII Code
 - NULL terminated or 8 Byte long
+
+<a name="command:Serial-Number"></a>
+
+### Command `Serial Number`
+
+#### Notes
+
+| Command | Purpose         |
+| ------- | --------------- |
+| `0x04`  | Serial Number 1 |
+| `0x05`  | Serial Number 2 |
+| `0x06`  | Serial Number 3 |
+| `0x07`  | Serial Number 4 |
+
+#### Acknowledgment Payload
+
+- UTF-8 String (8 Byte)
