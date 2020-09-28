@@ -10,7 +10,7 @@
 | `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
 | `0x3D` | [EEPROM](#block:EEPROM)                                      | Used for writing and reading EEPROM data directly            |
 | `0x3E` | [ProductData and RFID](#block:ProductionData-and-RFID)       | Used to store product data like a serial number. Furthermore, this block provides access to RFID information that is supported via connected tools. |
-| `0x3F` | Test                                                         | Test Config Page                                             |
+| `0x3F` | [Test](#block:Test)                                          | Test Config Page                                             |
 
 <a name="block:system"></a>
 
@@ -1058,3 +1058,12 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - to be determined
+
+<a name="block:Test"></a>
+
+## Block `Test`
+
+| Number | Block Command | Access | Permanently Stored |
+| ------ | ------------- | ------ | ------------------ |
+| `0x00` | Reserved      | -      | -                  |
+| `0x01` | Test signal   | -      | -                  |
