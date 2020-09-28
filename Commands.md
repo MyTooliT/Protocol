@@ -935,7 +935,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | `0x03`          | [Release Name](#command:Release-Name)                      | Read   | x                  |
 | `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                | Read   | x                  |
 | `0x08` - `0x17` | [Name 1-16](#command:Name)                                 | Read   | x                  |
-| `0x18` - `0x1F` | OEM Free Use 0-7                                           | Read   | x                  |
+| `0x18` - `0x1F` | [OEM Free Use 0-7](#command:OEM-Free-Use)                  | Read   | x                  |
 | `0x80`          | Tool RFID product information                              | Read   | x                  |
 
 <a name="command:GTIN"></a>
@@ -1029,3 +1029,24 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - UTF-8 String (8 Byte)
+
+<a name="command:OEM-Free-Use"></a>
+
+### Command `OEM Free Use`
+
+#### Notes
+
+| Command | Purpose        |
+| ------- | -------------- |
+| `0x18`  | OEM Free Use 0 |
+| `0x19`  | OEM Free Use 1 |
+| `0x1A`  | OEM Free Use 2 |
+| `0x1B`  | OEM Free Use 3 |
+| `0x1C`  | OEM Free Use 4 |
+| `0x1D`  | OEM Free Use 5 |
+| `0x1E`  | OEM Free Use 6 |
+| `0x1F`  | OEM Free Use 7 |
+
+#### Acknowledgment Payload
+
+- 8 Byte
