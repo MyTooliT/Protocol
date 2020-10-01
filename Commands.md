@@ -2,15 +2,15 @@
 
 ## Blocks
 
-| Block  | Short Description                                            | Extended Description                                         |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `0x00` | [System](#block:system)                                      | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed) |
-| `0x04` | [Streaming](#block:streaming)                                | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block. |
-| `0x08` | [Statistical Data and Quantity](#block:Statistical-Data-and-Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles |
-| `0x28` | [Configuration](#block:Configuration)                        | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here). |
-| `0x3D` | [EEPROM](#block:EEPROM)                                      | Used for writing and reading EEPROM data directly            |
-| `0x3E` | [ProductData and RFID](#block:ProductionData-and-RFID)       | Used to store product data like a serial number. Furthermore, this block provides access to RFID information that is supported via connected tools. |
-| `0x3F` | [Test](#block:Test)                                          | Test Config Page                                             |
+| Block  | Short Description                                                     | Extended Description                                                                                                                                |
+| ------ | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `0x00` | [System](#block:system)                                               | System commands are used to modify/request the state of each unit (e.g. reset) or an the overall system state (e.g. transmission speed)             |
+| `0x04` | [Streaming](#block:streaming)                                         | Streaming commands are used to transmit data streams, but may be also used for single requests. The super frame is also located in this block.      |
+| `0x08` | [Statistical Data and Quantity](#block:Statistical-Data-and-Quantity) | This command group is used to store statistical data that can be used for histograms such as operating time and the number of power on/off cycles   |
+| `0x28` | [Configuration](#block:Configuration)                                 | This command block is used to set configuration data (e.g. you can set the sampling rate of acceleration data here).                                |
+| `0x3D` | [EEPROM](#block:EEPROM)                                               | Used for writing and reading EEPROM data directly                                                                                                   |
+| `0x3E` | [ProductData and RFID](#block:ProductionData-and-RFID)                | Used to store product data like a serial number. Furthermore, this block provides access to RFID information that is supported via connected tools. |
+| `0x3F` | [Test](#block:Test)                                                   | Test Config Page                                                                                                                                    |
 
 <a name="block:system"></a>
 
@@ -493,13 +493,13 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 ## Block `Statistical Data and Quantity`
 
-| Number | Block Command                                                | Access | Permanently Stored |
-| ------ | ------------------------------------------------------------ | ------ | ------------------ |
+| Number | Block Command                                                                  | Access | Permanently Stored |
+| ------ | ------------------------------------------------------------------------------ | ------ | ------------------ |
 | `0x00` | [Power On Cycles, Power Off Cycles](#command:Power-On-Cycles-Power-Off-Cycles) | Read   | x                  |
-| `0x01` | [Operating time](#command:Operating-time)                    | Read   | x                  |
-| `0x02` | [Under Voltage Counter](#command:Under-Voltage-Counter)      | Read   | x                  |
-| `0x03` | [Watchdog Reset Counter](#command:Watchdog-Reset-Counter)    | Read   | x                  |
-| `0x04` | [Production Date](#command:Production-Date)                  | Read   | x                  |
+| `0x01` | [Operating time](#command:Operating-time)                                      | Read   | x                  |
+| `0x02` | [Under Voltage Counter](#command:Under-Voltage-Counter)                        | Read   | x                  |
+| `0x03` | [Watchdog Reset Counter](#command:Watchdog-Reset-Counter)                      | Read   | x                  |
+| `0x04` | [Production Date](#command:Production-Date)                                    | Read   | x                  |
 
 <a name="command:Power-On-Cycles-Power-Off-Cycles"></a>
 
@@ -565,21 +565,21 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 #### ACK Payload
 
-| Byte 1 (MSB) - Byte 4 (LSB)                                  |
-| ------------------------------------------------------------ |
+| Byte 1 (MSB) - Byte 4 (LSB)                                                              |
+| ---------------------------------------------------------------------------------------- |
 | ASCII String of the Production Date in the format: yyyymmdd where y=year, m=month, d=day |
 
 <a name="block:Configuration"></a>
 
 ## Block `Configuration`
 
-| Number | Block Command                                                | Access     | Permanently Stored |
-| ------ | ------------------------------------------------------------ | ---------- | ------------------ |
+| Number | Block Command                                                                     | Access     | Permanently Stored |
+| ------ | --------------------------------------------------------------------------------- | ---------- | ------------------ |
 | `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
-| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k) | Read/Write | x                  |
-| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d) | Read/Write | x                  |
-| `0x62` | [Calibration Measurement](#command:Callibration-Measurement) | Read/Write | x                  |
-| `0xC0` | [HMI Configuration](#command:HMI-Configuration)              | Read/Write | x                  |
+| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k)             | Read/Write | x                  |
+| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d)             | Read/Write | x                  |
+| `0x62` | [Calibration Measurement](#command:Callibration-Measurement)                      | Read/Write | x                  |
+| `0xC0` | [HMI Configuration](#command:HMI-Configuration)                                   | Read/Write | x                  |
 
 <a name="command:Get-Set-Acceleration-Configuration"></a>
 
@@ -648,13 +648,13 @@ $$f_{clock}=38400000 Hz$$
 | --------------------------- |
 | Acquisition time (See Note) |
 
-| Byte 4                                                       |
-| ------------------------------------------------------------ |
+| Byte 4                                                                          |
+| ------------------------------------------------------------------------------- |
 | Power of over sampling rate e.g. 10->1024 OverSampling Rate, 0=no Over Sampling |
 
-| Byte 5                              |
-| ----------------------------------- |
-| Reference: Voltage*20 e.g. 3.3V->66 |
+| Byte 5                               |
+| ------------------------------------ |
+| Reference: Voltage\*20 e.g. 3.3V->66 |
 
 | Byte 6 - Byte 8 |
 | --------------- |
@@ -713,8 +713,8 @@ $$f_{clock}=38400000 Hz$$
 | -------- |
 | Reserved |
 
-| Byte 5 (MSB) - Byte 8 (LSB)                                  |
-| ------------------------------------------------------------ |
+| Byte 5 (MSB) - Byte 8 (LSB)                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- |
 | k (Slope) according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
 
 #### Acknowledgment Payload
@@ -735,8 +735,8 @@ $$f_{clock}=38400000 Hz$$
 | -------- |
 | Reserved |
 
-| Byte 5 (MSB) - Byte 8 (LSB)                                  |
-| ------------------------------------------------------------ |
+| Byte 5 (MSB) - Byte 8 (LSB)                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- |
 | k (Slope) according to IEEE 754 single precision (float)<br /><br />Calibration=kx+d (Also calculation to SI value or any other value) |
 
 <a name="command:Get-Set-Callibration-Factor-d"></a>
@@ -769,15 +769,15 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - <a name="value:calibration-Measurement-Element">`Calibration Measurement Element`</a>:
 
-  | Value | Meaning                                                      |
-  | ----- | ------------------------------------------------------------ |
-  | `0`   | Acceleration                                                 |
+  | Value | Meaning                                                        |
+  | ----- | -------------------------------------------------------------- |
+  | `0`   | Acceleration                                                   |
   | `1`   | Temperature (for VREF=1250 temperature gets calculated to m°C) |
-  | `32`  | Voltage                                                      |
-  | `96`  | VSS(Ground)                                                  |
-  | `97`  | VDD (Supply)                                                 |
-  | `98`  | Regulated Internal Power                                     |
-  | `99`  | Operation Amplifier Output                                   |
+  | `32`  | Voltage                                                        |
+  | `96`  | VSS(Ground)                                                    |
+  | `97`  | VDD (Supply)                                                   |
+  | `98`  | Regulated Internal Power                                       |
+  | `99`  | Operation Amplifier Output                                     |
 
 - <a name="value:Dimension">`Dimension`</a>:
 
@@ -795,8 +795,8 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Bit 7                                               | Bit 6 - Bit 5                                     | Bit 4 | Bit 3 - Bit 0 |
 | [`Calibration Get/Set`](#value:calibration-Get-Set) | [`Calibration Method`](#value:calibration-Method) | Reset | Reserved      |
 
-| Byte 2                                                       |
-| ------------------------------------------------------------ |
+| Byte 2                                                                      |
+| --------------------------------------------------------------------------- |
 | [`Calibration Measurement Element`](#value:calibration-Measurement-Element) |
 
 | Byte 3                          |
@@ -911,7 +911,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Notes
 
-- Used to write data to EEPROM directly. 
+- Used to write data to EEPROM directly.
 - It is not allowed to write everything if the byte 0 is locked(0xCA)
 
 #### Payload
@@ -928,15 +928,15 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ## Block `ProductData and RFID`
 
-| Number          | Block Command                                                | Access | Permanently Stored |
-| --------------- | ------------------------------------------------------------ | ------ | ------------------ |
-| `0x00`          | [Global Trade Identification Number (GTIN)](#command:GTIN)   | Read   | x                  |
-| `0x01`          | [Hardware Revision](#command:Hardware-Revision)              | Read   | x                  |
-| `0x02`          | [Firmware Version](#command:Firmware-Version)                | Read   | x                  |
-| `0x03`          | [Release Name](#command:Release-Name)                        | Read   | x                  |
-| `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                  | Read   | x                  |
-| `0x08` - `0x17` | [Name 1-16](#command:Name)                                   | Read   | x                  |
-| `0x18` - `0x1F` | [OEM Free Use 0-7](#command:OEM-Free-Use)                    | Read   | x                  |
+| Number          | Block Command                                                           | Access | Permanently Stored |
+| --------------- | ----------------------------------------------------------------------- | ------ | ------------------ |
+| `0x00`          | [Global Trade Identification Number (GTIN)](#command:GTIN)              | Read   | x                  |
+| `0x01`          | [Hardware Revision](#command:Hardware-Revision)                         | Read   | x                  |
+| `0x02`          | [Firmware Version](#command:Firmware-Version)                           | Read   | x                  |
+| `0x03`          | [Release Name](#command:Release-Name)                                   | Read   | x                  |
+| `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                             | Read   | x                  |
+| `0x08` - `0x17` | [Name 1-16](#command:Name)                                              | Read   | x                  |
+| `0x18` - `0x1F` | [OEM Free Use 0-7](#command:OEM-Free-Use)                               | Read   | x                  |
 | `0x80`          | [Tool RFID product information](#command:Tool-RFID-product-information) | Read   | -                  |
 
 <a name="command:GTIN"></a>
