@@ -1074,7 +1074,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Payload
 
-- ##### Byte 1:
+##### Byte 1:
 
 | Value | Meaning  |
 | ----- | -------- |
@@ -1082,17 +1082,17 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | 1     | Line     |
 | 2     | Ramp     |
 
-- ##### Byte 2:
+##### Byte 2:
 
-  Module (Module specific)
+Module (Module specific)
 
-- ##### Byte 3-8:
+##### Byte 3-8:
 
-  Module specific
+Module specific
 
 #### Acknowledgment Payload
 
-- ##### Byte 1:
+##### Byte 1:
 
 | Value | Meaning  |
 | ----- | -------- |
@@ -1100,10 +1100,10 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | 1     | Line     |
 | 2     | Ramp     |
 
-- ##### Byte 2-3:
+##### Byte 2-3:
 
-  Module (Module specific)
+Module (Module specific)
 
-- ##### Byte 4-8:
+##### Byte 4-8:
 
-  Module specific
+Module specific
