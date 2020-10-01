@@ -599,7 +599,7 @@ $$f_{clock}=38400000 Hz$$
 
 ##### Acquisition Time
 
-- Sample and Hold Time i.e. Time to charge capacitor that is cut off and meassured at digital quantisation
+- Sample and Hold Time i.e. Time to charge capacitor that is cut off and measured at digital quantisation
 - 2^(Byte3-1) iff Byte3 > AdcAcquisitionTime4
 - (Byte3+2) iff Byte3 < =AdcAcquisitionTime4
 
