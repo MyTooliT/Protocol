@@ -373,8 +373,6 @@ Reset the specified receiver. This command has no payload.
 
 ### Command `Bluetooth`
 
-<a name="block:streaming"></a>
-
 - <a name="value:bluetooth-subcommand">`Bluetooth Subcommand`</a>
 
   | Value | Meaning                                                                         |
@@ -471,6 +469,8 @@ Reset the specified receiver. This command has no payload.
 | Byte 3 – 8                                                |
 | --------------------------------------------------------- |
 | [`Bluetooth Return Value`](#value:bluetooth-return-value) |
+
+<a name="block:streaming"></a>
 
 ## Block `Streaming`
 
