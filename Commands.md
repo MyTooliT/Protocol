@@ -1212,3 +1212,16 @@ Module (Module specific)
 ##### Byte 4-8:
 
 Module specific
+
+## Errors
+
+| Value | Description                     | Example                                    |
+| ----- | ------------------------------- | ------------------------------------------ |
+| `0`   | Specific Error                  |                                            |
+| `1`   | Not available                   |                                            |
+| `2`   | General Error                   |                                            |
+| `3`   | Write not allowed               | Setting of memory area in word not allowed |
+| `4`   | Unsupported format              | 64 Byte Data via CAN2.0 is not possible    |
+| `5`   | Wrong key/magic number          |                                            |
+| `6`   | No SuperFrame inside SuperFrame |                                            |
+| `7`   | EEPROM defect                   |                                            |
