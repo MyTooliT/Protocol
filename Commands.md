@@ -456,6 +456,8 @@ Reset the specified receiver. This command has no payload.
 | ------------------------------------------- |
 | [`Bluetooth Value`](#value:bluetooth-value) |
 
+**Note:** Use `0` bytes if Device Number or [`Bluetooth Value`](#value:bluetooth-value) are not applicable (e.g. when you use the `Connect` command)
+
 #### Acknowledgement Payload
 
 | Byte 1          |
