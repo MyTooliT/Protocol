@@ -262,7 +262,7 @@ Reset the specified receiver. This command has no payload.
 | ----------- |
 | Status Word |
 
-<a name="command: get-error-status"></a>
+<a name="command:get-error-status"></a>
 
 ### Command `Get Error Status`
 
