@@ -81,12 +81,12 @@ The
 
 The following table describes the identifier field.
 
-| Field    | Purpose                                                      |
-| -------- | ------------------------------------------------------------ |
-| V        | Version number <br> • Must be `0` or the frame will be discarded |
-| Command  | Command to be executed or acknowledged                       |
-| R1/R2    | Reserved                                                     |
-| Sender   | Number of the original sender (frames may hop) <br> • `0` Not allowed |
+| Field    | Purpose                                                                                                                                                                     |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| V        | Version number <br> • Must be `0` or the frame will be discarded                                                                                                            |
+| Command  | Command to be executed or acknowledged                                                                                                                                      |
+| R1/R2    | Reserved                                                                                                                                                                    |
+| Sender   | Number of the original sender (frames may hop) <br> • `0` Not allowed                                                                                                       |
 | Receiver | Number of the target receiver (frames may hop) <br> • `0` broadcasts at field bus (local network) with ACK <br> • `0x1F` broadcasts at field bus(local network) without ACK |
 
 ### Command
@@ -165,6 +165,7 @@ Bluetooth supports a net bandwidth of about 700 kBit if each frame is 255 bytes 
 The transmission speed should be aligned to a maximum of 40% of the total bandwidth. However, in any case there must not be any higher utilization than 60% of the overall bandwidth. In the case of fair message distribution with many nodes and many sporadic messages, the limit should be a utilization of 40%. In cases with many permanent messages the limit may be set to 60%.
 
 The 40% utilization for CAN2.0 with bit stuffing is calculated as follows:
+
 $$
 U = \frac{m·79+ \sum_{m=0}^{m} \left( 8·p_m + \lfloor{p_m·\frac{8}{5}} \rfloor \right)}{B}
 $$
