@@ -23,6 +23,7 @@
 | `0x02` | [Get/Set State](#command:get-set-state)       | Read/Write | –                  |
 | `0x05` | [Get Node Status](#command:get-node-status)   | Read/Write | –                  |
 | `0x06` | [Get Error Status](#command:get-error-status) | Read/Write | –                  |
+| `0x0B` | [Bluetooth](#command:bluetooth)               | Read       | –                  |
 
 <a name="command:verboten"></a>
 
@@ -368,7 +369,108 @@ Reset the specified receiver. This command has no payload.
 
 - Same structure as error payload for node status command
 
+<a name="command:bluetooth"></a>
+
+### Command `Bluetooth`
+
 <a name="block:streaming"></a>
+
+- <a name="value:bluetooth-subcommand">`Bluetooth Subcommand`</a>
+
+  | Value | Meaning                                                                         |
+  | ----- | ------------------------------------------------------------------------------- |
+  | `0`   | Reserved                                                                        |
+  | `1`   | Connect                                                                         |
+  | `2`   | Get number of available devices                                                 |
+  | `3`   | Write device name #1 and set device name #2 to `NULL`                           |
+  | `4`   | Write device name #2 and push it to STH (read will be equivalent in the future) |
+  | `5`   | Read device name #1                                                             |
+  | `6`   | Read device Name #2                                                             |
+  | `7`   | Connect to device                                                               |
+  | `8`   | Check if connected                                                              |
+  | `9`   | Disconnect                                                                      |
+  | `10`  | Get send counter                                                                |
+  | `11`  | Received RX frames                                                              |
+  | `12`  | Absolute RSSI indicator (number must be interpreted as negative)                |
+  | `13`  | Read energy mode reduced                                                        |
+  | `14`  | Write energy mode reduced                                                       |
+  | `15`  | Read energy mode lowest                                                         |
+  | `16`  | Write energy mode lowest                                                        |
+  | `17`  | Bluetooth MAC address                                                           |
+
+- <a name="value:bluetooth-value">`Bluetooth Value`</a>
+
+  | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                  |
+  | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `0`                                                   | -                                                                                                                                                      |
+  | `1`                                                   | -                                                                                                                                                      |
+  | `2`                                                   | -                                                                                                                                                      |
+  | `3`                                                   | ASCII string                                                                                                                                           |
+  | `4`                                                   | ASCII string (`NULL`)                                                                                                                                  |
+  | `5`                                                   | -                                                                                                                                                      |
+  | `6`                                                   | -                                                                                                                                                      |
+  | `7`                                                   | Bluetooth MAC address                                                                                                                                  |
+  | `8`                                                   | -                                                                                                                                                      |
+  | `9`                                                   | -                                                                                                                                                      |
+  | `10`                                                  | -                                                                                                                                                      |
+  | `11`                                                  | -                                                                                                                                                      |
+  | `12`                                                  | -                                                                                                                                                      |
+  | `13`                                                  | -                                                                                                                                                      |
+  | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big endian            |
+  | `15`                                                  | -                                                                                                                                                      |
+  | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little endian 0 = read |
+  | `17`                                                  | -                                                                                                                                                      |
+
+- <a name="value:bluetooth-return-value">`Bluetooth Return Value`</a>
+
+  | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                         |
+  | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `0`                                                   | `NULL`                                                                                                                                        |
+  | `1`                                                   | `NULL`                                                                                                                                        |
+  | `2`                                                   | ASCII string                                                                                                                                  |
+  | `3`                                                   | ASCII string                                                                                                                                  |
+  | `4`                                                   | ASCII string                                                                                                                                  |
+  | `5`                                                   | ASCII string                                                                                                                                  |
+  | `6`                                                   | ASCI string of connected device or `NULL` if not connected                                                                                    |
+  | `7`                                                   | `NULL`                                                                                                                                        |
+  | `8`                                                   | `NULL` if not connected <br> Not `NULL` otherwise                                                                                             |
+  | `9`                                                   | `NULL`                                                                                                                                        |
+  | `10`                                                  | 6 Byte `unsigned int`                                                                                                                         |
+  | `11`                                                  | 6 Byte `unsigned int`                                                                                                                         |
+  | `12`                                                  | Byte 3: `uint8_t` deviceType <br> Byte 4: `int8_t` <br> Byte 5 – 8: `NULL`                                                                    |
+  | `13`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <Br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big Endian   |
+  | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <Br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big Endian   |
+  | `15`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <Br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little Endian |
+  | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <Br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little Endian |
+  | `17`                                                  | Bluetooth MAC address                                                                                                                         |
+
+#### Payload
+
+| Byte 1                                                |
+| ----------------------------------------------------- |
+| [`Bluetooth Subcommand`](#value:bluetooth-subcommand) |
+
+| Byte 2        |
+| ------------- |
+| Device Number |
+
+| Byte 3 – 8                                  |
+| ------------------------------------------- |
+| [`Bluetooth Value`](#value:bluetooth-value) |
+
+#### Acknowledgement Payload
+
+| Byte 1          |
+| --------------- |
+| Same as Payload |
+
+| Byte 2          |
+| --------------- |
+| Same as Payload |
+
+| Byte 3 – 8                                                |
+| --------------------------------------------------------- |
+| [`Bluetooth Return Value`](#value:bluetooth-return-value) |
 
 ## Block `Streaming`
 
