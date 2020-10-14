@@ -400,24 +400,24 @@ Reset the specified receiver. This command has no payload.
 
   | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                  |
   | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `0`                                                   | -                                                                                                                                                      |
-  | `1`                                                   | -                                                                                                                                                      |
-  | `2`                                                   | -                                                                                                                                                      |
+  | `0`                                                   | –                                                                                                                                                      |
+  | `1`                                                   | –                                                                                                                                                      |
+  | `2`                                                   | –                                                                                                                                                      |
   | `3`                                                   | ASCII string                                                                                                                                           |
   | `4`                                                   | ASCII string (`NULL`)                                                                                                                                  |
-  | `5`                                                   | -                                                                                                                                                      |
-  | `6`                                                   | -                                                                                                                                                      |
+  | `5`                                                   | –                                                                                                                                                      |
+  | `6`                                                   | –                                                                                                                                                      |
   | `7`                                                   | Bluetooth MAC address                                                                                                                                  |
-  | `8`                                                   | -                                                                                                                                                      |
-  | `9`                                                   | -                                                                                                                                                      |
-  | `10`                                                  | -                                                                                                                                                      |
-  | `11`                                                  | -                                                                                                                                                      |
-  | `12`                                                  | -                                                                                                                                                      |
-  | `13`                                                  | -                                                                                                                                                      |
+  | `8`                                                   | –                                                                                                                                                      |
+  | `9`                                                   | –                                                                                                                                                      |
+  | `10`                                                  | –                                                                                                                                                      |
+  | `11`                                                  | –                                                                                                                                                      |
+  | `12`                                                  | –                                                                                                                                                      |
+  | `13`                                                  | –                                                                                                                                                      |
   | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big endian            |
-  | `15`                                                  | -                                                                                                                                                      |
+  | `15`                                                  | –                                                                                                                                                      |
   | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little endian 0 = read |
-  | `17`                                                  | -                                                                                                                                                      |
+  | `17`                                                  | –                                                                                                                                                      |
 
 - <a name="value:bluetooth-return-value">`Bluetooth Return Value`</a>
 
