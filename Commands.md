@@ -382,8 +382,8 @@ Reset the specified receiver. This command has no payload.
   | `2`   | Get number of available devices                                                 |
   | `3`   | Write device name #1 and set device name #2 to `NULL`                           |
   | `4`   | Write device name #2 and push it to STH (read will be equivalent in the future) |
-  | `5`   | Read device name #1                                                             |
-  | `6`   | Read device Name #2                                                             |
+  | `5`   | Read first part (6 bytes) of device name                                        |
+  | `6`   | Read second part (2 bytes) of device name                                       |
   | `7`   | Connect to device                                                               |
   | `8`   | Check if connected                                                              |
   | `9`   | Disconnect                                                                      |
@@ -426,8 +426,8 @@ Reset the specified receiver. This command has no payload.
   | `0`                                                   | `NULL`                                                                                                                                        |
   | `1`                                                   | `NULL`                                                                                                                                        |
   | `2`                                                   | ASCII string containing the number of available devices                                                                                       |
-  | `3`                                                   | ASCII string                                                                                                                                  |
-  | `4`                                                   | ASCII string                                                                                                                                  |
+  | `3`                                                   | ASCII string containing the first 6 characters of the Bluetooth advertisement name                                                            |
+  | `4`                                                   | ASCII string containing the last 2 characters of the Bluetooth advertisement name                                                             |
   | `5`                                                   | ASCII string                                                                                                                                  |
   | `6`                                                   | ASCI string of connected device or `NULL` if not connected                                                                                    |
   | `7`                                                   | `NULL`                                                                                                                                        |
