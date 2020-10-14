@@ -425,7 +425,7 @@ Reset the specified receiver. This command has no payload.
   | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
   | `0`                                                   | `NULL`                                                                                                                                        |
   | `1`                                                   | `NULL`                                                                                                                                        |
-  | `2`                                                   | ASCII string                                                                                                                                  |
+  | `2`                                                   | ASCII string containing the number of available devices                                                                                       |
   | `3`                                                   | ASCII string                                                                                                                                  |
   | `4`                                                   | ASCII string                                                                                                                                  |
   | `5`                                                   | ASCII string                                                                                                                                  |
