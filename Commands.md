@@ -409,7 +409,7 @@ Reset the specified receiver. This command has no payload.
   | `4`                                                   | ASCII string (`NULL`)                                                                                                                                  |
   | `5`                                                   | –                                                                                                                                                      |
   | `6`                                                   | –                                                                                                                                                      |
-  | `7`                                                   | Bluetooth MAC address                                                                                                                                  |
+  | `7`                                                   | Bluetooth MAC address (can also be `NULL`, since the [`Device Number`](#value:bluetooth-device-number) determines the Bluetooth device)                |
   | `8`                                                   | –                                                                                                                                                      |
   | `9`                                                   | –                                                                                                                                                      |
   | `10`                                                  | –                                                                                                                                                      |
@@ -432,7 +432,7 @@ Reset the specified receiver. This command has no payload.
   | `4`                                                   | ASCII string containing the last 2 characters of the Bluetooth advertisement name                                                             |
   | `5`                                                   | ASCII string                                                                                                                                  |
   | `6`                                                   | ASCI string of connected device or `NULL` if not connected                                                                                    |
-  | `7`                                                   | `NULL`                                                                                                                                        |
+  | `7`                                                   | `NULL` (Byte 3 is `true` if in search mode, at least single device was found, no legacy mode and scanning mode active; `false` otherwise)     |
   | `8`                                                   | `NULL` if not connected <br> Not `NULL` otherwise                                                                                             |
   | `9`                                                   | `NULL`                                                                                                                                        |
   | `10`                                                  | 6 Byte `unsigned int`                                                                                                                         |
