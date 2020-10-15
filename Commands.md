@@ -395,6 +395,7 @@ Reset the specified receiver. This command has no payload.
   | `15`  | Read energy mode lowest                                                         |
   | `16`  | Write energy mode lowest                                                        |
   | `17`  | Bluetooth MAC address                                                           |
+  | `18`  | Connect to device (with Bluetooth MAC address)                                  |
 
 - <a name="value:bluetooth-device-number">`Device Number`</a>: Sequential positive number assigned by STU to available STH nodes; For a single STH this number will be `0`.
 
