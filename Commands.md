@@ -384,7 +384,7 @@ Reset the specified receiver. This command has no payload.
   | `4`   | Write device name #2 and push it to STH (read will be equivalent in the future) |
   | `5`   | Read first part (6 bytes) of device name                                        |
   | `6`   | Read second part (2 bytes) of device name                                       |
-  | `7`   | Connect to device                                                               |
+  | `7`   | Connect to device (with device number)                                          |
   | `8`   | Check if connected                                                              |
   | `9`   | Disconnect                                                                      |
   | `10`  | Get send counter                                                                |
@@ -409,7 +409,7 @@ Reset the specified receiver. This command has no payload.
   | `4`                                                   | ASCII string (`NULL`)                                                                                                                                  |
   | `5`                                                   | –                                                                                                                                                      |
   | `6`                                                   | –                                                                                                                                                      |
-  | `7`                                                   | Bluetooth MAC address (can also be `NULL`, since the [`Device Number`](#value:bluetooth-device-number) determines the Bluetooth device)                |
+  | `7`                                                   | –                                                                                                                                                      |
   | `8`                                                   | –                                                                                                                                                      |
   | `9`                                                   | –                                                                                                                                                      |
   | `10`                                                  | –                                                                                                                                                      |
