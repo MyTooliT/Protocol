@@ -442,7 +442,7 @@ Reset the specified receiver. This command has no payload.
   | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <Br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big Endian   |
   | `15`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <Br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little Endian |
   | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <Br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little Endian |
-  | `17`                                                  | Bluetooth MAC address                                                                                                                         |
+  | `17`                                                  | Byte 3 – 6: Bluetooth MAC address in little endian format                                                                                     |
 
 #### Payload
 
