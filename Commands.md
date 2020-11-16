@@ -998,19 +998,19 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Notes
 
-- Used to read data from EEPROM directly.
+- Used to read data from EEPROM directly
 
 #### Payload
 
-| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8 |
-| ------ | ------ | ------ | -------- | --------------- |
-| Page   | Offset | Length | Reserved | Reserved        |
+| Byte 1 | Byte 2 | Byte 3 | Byte 4 - Byte 8 |
+| ------ | ------ | ------ | --------------- |
+| Page   | Offset | Length | Reserved        |
 
 #### Acknowledgment Payload
 
-| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8  |
-| ------ | ------ | ------ | -------- | ---------------- |
-| Page   | Offset | Length | Reserved | Data (MSB first) |
+| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8 |
+| ------ | ------ | ------ | -------- | --------------- |
+| Page   | Offset | Length | Reserved | Data            |
 
 <a name="command:EEPROM-Write"></a>
 
@@ -1018,14 +1018,14 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Notes
 
-- Used to write data to EEPROM directly.
-- It is not allowed to write everything if the byte 0 is locked(0xCA)
+- Used to write data to EEPROM directly
+- You are not allowed to change all values, if the EEPROM is locked ([byte `0` is set to value `0xca`](https://github.com/MyTooliT/EEPROM/blob/master/EEPROM.md))
 
 #### Payload
 
-| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8  |
-| ------ | ------ | ------ | -------- | ---------------- |
-| Page   | Offset | Length | Reserved | Data (MSB first) |
+| Byte 1 | Byte 2 | Byte 3 | Byte 4   | Byte 5 - Byte 8 |
+| ------ | ------ | ------ | -------- | --------------- |
+| Page   | Offset | Length | Reserved | Data            |
 
 #### Acknowledgment Payload
 
