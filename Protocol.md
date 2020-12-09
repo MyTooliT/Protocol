@@ -16,7 +16,7 @@ The identifier contains
   - answers to actions,
   - or specify errors.
 
-Each command, defined by its number, will be acknowledge via the same command number. A
+Each command, defined by its number, will be acknowledged via the same command number. A
 
 - request bit defines request (acknowledgement) commands, and
 - an error bit defines errors.
