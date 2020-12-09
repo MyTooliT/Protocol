@@ -67,7 +67,7 @@ Reset the specified receiver. This command has no payload.
 
   | Value | Meaning                                                                         |
   | ----- | ------------------------------------------------------------------------------- |
-  | `0`   | Failure (No acknowledgement will be sent; <br> Only power on resets this state) |
+  | `0`   | Failure (No acknowledgement will be sent; <br/> Only power on resets this state) |
   | `1`   | Error (No active communication)                                                 |
   | `2`   | Turn Off/Standby                                                                |
   | `3`   | Graceful degradation level 2                                                    |
@@ -417,9 +417,9 @@ Reset the specified receiver. This command has no payload.
   | `11`                                                  | –                                                                                                                                                      |
   | `12`                                                  | –                                                                                                                                                      |
   | `13`                                                  | –                                                                                                                                                      |
-  | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big endian            |
+  | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big endian            |
   | `15`                                                  | –                                                                                                                                                      |
-  | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little endian 0 = read |
+  | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little endian 0 = read |
   | `17`                                                  | Byte 3: Value `255` (self addressing)                                                                                                                  |
 
 - <a name="value:bluetooth-return-value">`Bluetooth Return Value`</a>
@@ -434,15 +434,15 @@ Reset the specified receiver. This command has no payload.
   | `5`                                                   | ASCII string                                                                                                                                  |
   | `6`                                                   | ASCI string of connected device or `NULL` if not connected                                                                                    |
   | `7`                                                   | `NULL` (Byte 3 is `true` if in search mode, at least single device was found, no legacy mode and scanning mode active; `false` otherwise)     |
-  | `8`                                                   | `NULL` if not connected <br> Not `NULL` otherwise                                                                                             |
+  | `8`                                                   | `NULL` if not connected <br/> Not `NULL` otherwise                                                                                             |
   | `9`                                                   | `NULL`                                                                                                                                        |
   | `10`                                                  | 6 Byte `unsigned int`                                                                                                                         |
   | `11`                                                  | 6 Byte `unsigned int`                                                                                                                         |
-  | `12`                                                  | Byte 3: `uint8_t` deviceType <br> Byte 4: `int8_t` <br> Byte 5 – 8: `NULL`                                                                    |
-  | `13`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <Br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big Endian   |
-  | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <Br> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br> Big Endian   |
-  | `15`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <Br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little Endian |
-  | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <Br> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br> Little Endian |
+  | `12`                                                  | Byte 3: `uint8_t` deviceType <br/> Byte 4: `int8_t` <br/> Byte 5 – 8: `NULL`                                                                    |
+  | `13`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian   |
+  | `14`                                                  | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian   |
+  | `15`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian |
+  | `16`                                                  | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian |
   | `17`                                                  | Byte 3 – 6: Bluetooth MAC address in little endian format                                                                                     |
 
 #### Payload
@@ -490,14 +490,14 @@ Reset the specified receiver. This command has no payload.
 
   | Value | Data Amount   | Possible Data                                                                                                                                              |
   | ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | 0     | Stop (stream) | • value 1 <br> • value 2 <br> • value 3 <br> • value 1 / value 2 / value 3 <br> • value 1 / value 2 <br> • value 1 / value 3 <br> • value 2 / value 3 <br> |
+  | 0     | Stop (stream) | • value 1 <br/> • value 2 <br/> • value 3 <br/> • value 1 / value 2 / value 3 <br/> • value 1 / value 2 <br/> • value 1 / value 3 <br/> • value 2 / value 3 <br/> |
   | 1     | 1 data set    |                                                                                                                                                            |
   | 2     | 3 data sets   |                                                                                                                                                            |
   | 3     | 6 data sets   |                                                                                                                                                            |
   | 4     | 10 data sets  |                                                                                                                                                            |
   | 5     | 15 data sets  |                                                                                                                                                            |
   | 6     | 20 data sets  |                                                                                                                                                            |
-  | 7     | 30 data sets  | • value 1 <br> • value 2 <br> • value 3                                                                                                                    |
+  | 7     | 30 data sets  | • value 1 <br/> • value 2 <br/> • value 3                                                                                                                    |
 
   The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
 
