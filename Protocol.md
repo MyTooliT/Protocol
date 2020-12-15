@@ -38,7 +38,7 @@ CAN was introduced by BOSCH in the 1980s in the automotive industry to exchange 
 
 A standard base format (11 bit identifier) and an extended format (29 bit identifier) exist. The MyTooliT communication protocol is based on the extended format. The following figure describes the extended format:
 
-![CAN Frame](Figures/CAN%20Frame.png)
+![CAN Frame](Pictures/CAN%20Frame.png)
 
 For more information, please take a look at the [Wikipedia article about CAN](https://en.wikipedia.org/wiki/CAN_bus) or other available literature (e.g. [Experimental Framework for Controller Area Network based on a Multi-Processor-System-on-a- Chip](https://repositum.tuwien.at/retrieve/27430)).
 
@@ -136,7 +136,7 @@ In the MyTooliT protocol the subscribers manage the error handling e.g. re-reque
 
 The following figure shows the overall idea of network addressing.
 
-![End To End Communication](Figures/End%20To%20End%20Communication.png)
+![End To End Communication](Pictures/End%20To%20End%20Communication.png)
 
 ### DLC
 
