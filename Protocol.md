@@ -63,9 +63,9 @@ Each CAN 2.0 frame consists of
 
 The following figure shows the essential parts of an extended CAN 2.0 frame:
 
-| Identifier | DLC    | Payload     |
-| ---------- | ------ | ----------- |
-| 29 Bits    | 4 Bits | 0 – 8 Bytes |
+| Identifier |  DLC   |   Payload   |
+| :--------: | :----: | :---------: |
+|  29 Bits   | 4 Bits | 0 – 8 Bytes |
 
 The
 
@@ -75,39 +75,39 @@ The
 
 ### Identifier
 
-|     | V   | Command | R1  | Sender  | R2  | Receiver |
-| --- | --- | ------- | --- | ------- | --- | -------- |
-| Bit | 0   | 1 – 16  | 17  | 18 – 22 | 23  | 24 – 28  |
+|     |  V  | Command | R1  | Sender  | R2  | Receiver |
+| :-: | :-: | :-----: | :-: | :-----: | :-: | :------: |
+| Bit |  0  | 1 – 16  | 17  | 18 – 22 | 23  | 24 – 28  |
 
 The following table describes the identifier field.
 
-| Field    | Purpose                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| V        | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                             |
+|  Field   | Purpose                                                                                                                                                                       |
+| :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    V     | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                             |
 | Command  | Command to be executed or acknowledged                                                                                                                                        |
-| R1/R2    | Reserved                                                                                                                                                                      |
-| Sender   | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                        |
+|  R1/R2   | Reserved                                                                                                                                                                      |
+|  Sender  | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                        |
 | Receiver | Number of the target receiver (frames may hop) <br/> • `0` broadcasts at field bus (local network) with ACK <br/> • `0x1F` broadcasts at field bus(local network) without ACK |
 
 ### Command
 
-|     | Command Number | A   | E   |
-| --- | -------------- | --- | --- |
-| Bit | 0 – 13         | 14  | 15  |
+|     | Command Number |  A  |  E  |
+| :-: | :------------: | :-: | :-: |
+| Bit |     0 – 13     | 14  | 15  |
 
 The command number contains the command block and the block command:
 
 | Block | Block Command |
-| ----- | ------------- |
-| 0 – 5 | 6 – 13        |
+| :---: | :-----------: |
+| 0 – 5 |    6 – 13     |
 
 The following table describes the whole command field.
 
-| Field          | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     Field      | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| :------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command Number | • 64 command blocks (6 Bit) <br/> • A command block supports up to 256 (8 Bit) block commands <br/> • Values: 1 – 16383 (14 bit), `0` is not valid <br/> • Commands are described [here](Commands.md)                                                                                                                                                                                                                                     |
-| A              | Acknowledge field <br/> • `1` for a request <br/> • `0` for an acknowledgement <br/> Note that a single command may trigger multiple acknowledges (streaming).                                                                                                                                                                                                                                                                            |
-| E              | Error Bit <br/> • Indicates an error <br/> • `1` if it is an error <br/> • `0` if it is not an error <br/> • An error code is supported via the payload <br/> • The error format is 8 bytes long. The first byte describes the error number and the following 7 bytes are used for an error description. Furthermore, there are general errors (1 – 255) that are followed by `0` and specific errors that are followed by variable bits. |
+|       A        | Acknowledge field <br/> • `1` for a request <br/> • `0` for an acknowledgement <br/> Note that a single command may trigger multiple acknowledges (streaming).                                                                                                                                                                                                                                                                            |
+|       E        | Error Bit <br/> • Indicates an error <br/> • `1` if it is an error <br/> • `0` if it is not an error <br/> • An error code is supported via the payload <br/> • The error format is 8 bytes long. The first byte describes the error number and the following 7 bytes are used for an error description. Furthermore, there are general errors (1 – 255) that are followed by `0` and specific errors that are followed by variable bits. |
 
 ### Abstracted CAN Messages
 
