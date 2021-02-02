@@ -81,13 +81,13 @@ The
 
 The following table describes the identifier field.
 
-|  Field   | Purpose                                                                                                                                                                       |
-| :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|    V     | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                             |
-| Command  | Command to be executed or acknowledged                                                                                                                                        |
-|  R1/R2   | Reserved                                                                                                                                                                      |
-|  Sender  | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                        |
-| Receiver | Number of the target receiver (frames may hop) <br/> • `0` broadcasts at field bus (local network) with ACK <br/> • `0x1F` broadcasts at field bus(local network) without ACK |
+|  Field   | Purpose                                                                                                                                                                        |
+| :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|    V     | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                              |
+| Command  | Command to be executed or acknowledged                                                                                                                                         |
+|  R1/R2   | Reserved                                                                                                                                                                       |
+|  Sender  | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                         |
+| Receiver | Number of the target receiver (frames may hop) <br/> • `0` broadcasts at field bus (local network) with ACK <br/> • `0x1F` broadcasts at field bus (local network) without ACK |
 
 ### Command
 
