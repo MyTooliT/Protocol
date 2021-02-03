@@ -378,7 +378,7 @@ Reset the specified receiver. This command has no payload.
   | Value | Meaning                                                                         |
   | ----: | ------------------------------------------------------------------------------- |
   |   `0` | Reserved                                                                        |
-  |   `1` | Connect                                                                         |
+  |   `1` | Activate                                                                        |
   |   `2` | Get number of available devices                                                 |
   |   `3` | Write device name #1 and set device name #2 to `NULL`                           |
   |   `4` | Write device name #2 and push it to STH (read will be equivalent in the future) |
