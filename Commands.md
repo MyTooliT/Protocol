@@ -397,7 +397,10 @@ Reset the specified receiver. This command has no payload.
   |  `17` | Bluetooth MAC address                                                           |
   |  `18` | Connect to device (with Bluetooth MAC address)                                  |
 
-- <a name="value:bluetooth-device-number">`Device Number`</a>: Sequential positive number assigned by STU to available STH nodes; For a single STH this number will be `0`.
+- <a name="value:bluetooth-device-number">`Device Number`</a>: Sequential positive number assigned by STU to available STH nodes
+
+  - For a single STH this number will be `0`
+  - The number `255` (`0xff`) is reserved for “self addressing” (used for example when we ask a connected STH for its own MAC address)
 
 - <a name="value:bluetooth-value">`Bluetooth Value`</a>
 
