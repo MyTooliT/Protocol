@@ -424,26 +424,26 @@ Reset the specified receiver. This command has no payload.
 
 - <a name="value:bluetooth-return-value">`Bluetooth Return Value`</a>
 
-  | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                           |
-  | ----------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-  |                                                   `0` | `NULL`                                                                                                                                          |
-  |                                                   `1` | `NULL`                                                                                                                                          |
-  |                                                   `2` | ASCII string containing the number of available devices                                                                                         |
-  |                                                   `3` | ASCII string containing the first 6 characters of the Bluetooth advertisement name                                                              |
-  |                                                   `4` | ASCII string containing the last 2 characters of the Bluetooth advertisement name                                                               |
-  |                                                   `5` | ASCII string                                                                                                                                    |
-  |                                                   `6` | ASCI string of connected device or `NULL` if not connected                                                                                      |
-  |                                                   `7` | `NULL` (Byte 3 is `true` if in search mode, at least single device was found, no legacy mode and scanning mode active; `false` otherwise)       |
-  |                                                   `8` | `NULL` if not connected <br/> Not `NULL` otherwise                                                                                              |
-  |                                                   `9` | `NULL`                                                                                                                                          |
-  |                                                  `10` | 6 Byte `unsigned int`                                                                                                                           |
-  |                                                  `11` | 6 Byte `unsigned int`                                                                                                                           |
-  |                                                  `12` | Byte 3: `uint8_t` deviceType <br/> Byte 4: `int8_t` <br/> Byte 5 – 8: `NULL`                                                                    |
-  |                                                  `13` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian   |
-  |                                                  `14` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian   |
-  |                                                  `15` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian |
-  |                                                  `16` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian |
-  |                                                  `17` | Byte 3 – 6: Bluetooth MAC address in little endian format                                                                                       |
+  | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                           |
+  | ----------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  |                                                   `0` | `NULL`                                                                                                                                                          |
+  |                                                   `1` | `NULL`                                                                                                                                                          |
+  |                                                   `2` | ASCII string containing the number of available devices                                                                                                         |
+  |                                                   `3` | ASCII string containing the first 6 characters of the Bluetooth advertisement name                                                                              |
+  |                                                   `4` | ASCII string containing the last 2 characters of the Bluetooth advertisement name                                                                               |
+  |                                                   `5` | ASCII string                                                                                                                                                    |
+  |                                                   `6` | ASCI string of connected device or `NULL` if not connected                                                                                                      |
+  |                                                   `7` | First byte is: <br/> •`true` (`1`) if in search mode, at least single device was found, no legacy mode and scanning mode active <br/> • `false` (`0`) otherwise |
+  |                                                   `8` | First byte is: <br/> • `true` (`1`) if connected <br/> • `false` (`0`) otherwise                                                                                |
+  |                                                   `9` | `NULL`                                                                                                                                                          |
+  |                                                  `10` | 6 Byte `unsigned int`                                                                                                                                           |
+  |                                                  `11` | 6 Byte `unsigned int`                                                                                                                                           |
+  |                                                  `12` | Byte 3: `uint8_t` deviceType <br/> Byte 4: `int8_t` <br/> Byte 5 – 8: `NULL`                                                                                    |
+  |                                                  `13` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian                   |
+  |                                                  `14` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian                   |
+  |                                                  `15` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
+  |                                                  `16` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
+  |                                                  `17` | Byte 3 – 6: Bluetooth MAC address in little endian format                                                                                                       |
 
 #### Payload
 
