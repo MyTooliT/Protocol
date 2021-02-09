@@ -386,7 +386,7 @@ Reset the specified receiver. This command has no payload.
   |   `6` | Read second part (2 bytes) of device name                                       |
   |   `7` | Connect to device (with device number)                                          |
   |   `8` | Check if connected                                                              |
-  |   `9` | Disconnect                                                                      |
+  |   `9` | Deactivate                                                                      |
   |  `10` | Get send counter                                                                |
   |  `11` | Received RX frames                                                              |
   |  `12` | Absolute RSSI indicator (number must be interpreted as negative)                |
