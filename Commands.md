@@ -394,7 +394,7 @@ Reset the specified receiver. This command has no payload.
   |  `14` | Write energy mode reduced                                                       |
   |  `15` | Read energy mode lowest                                                         |
   |  `16` | Write energy mode lowest                                                        |
-  |  `17` | Bluetooth MAC address                                                           |
+  |  `17` | Get Bluetooth MAC address                                                       |
   |  `18` | Connect to device (with Bluetooth MAC address)                                  |
 
 - <a name="value:bluetooth-device-number">`Device Number`</a>: Sequential positive number assigned by STU to available STH nodes
@@ -424,6 +424,7 @@ Reset the specified receiver. This command has no payload.
   |                                                  `15` | –                                                                                                                                                        |
   |                                                  `16` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little endian 0 = read |
   |                                                  `17` | –                                                                                                                                                        |
+  |                                                  `18` | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                    |
 
 - <a name="value:bluetooth-return-value">`Bluetooth Return Value`</a>
 
@@ -446,7 +447,8 @@ Reset the specified receiver. This command has no payload.
   |                                                  `14` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian                   |
   |                                                  `15` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
   |                                                  `16` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
-  |                                                  `17` | Byte 3 – 6: Bluetooth MAC address in little endian format                                                                                                       |
+  |                                                  `17` | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                           |
+  |                                                  `18` | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                           |
 
 #### Payload
 
