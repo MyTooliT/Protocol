@@ -373,6 +373,14 @@ Reset the specified receiver. This command has no payload.
 
 ### Command `Bluetooth`
 
+- In general you need at least the following commands to connect to an STH
+
+  1. `Activate`: Activate Bluetooth on the STU
+  2. `Get number of available devices`: Check which STHs are available at the STU
+  3. `Connect to device (with Bluetooth MAC address)` or `Connect to device (with device number)`: Connect to the STH at the specified STU
+
+  Connecting to the STH will not work, if you do not **check for available devices first**
+
 - <a name="value:bluetooth-subcommand">`Bluetooth Subcommand`</a>
 
   | Value | Meaning                                                                         |
