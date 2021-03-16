@@ -397,7 +397,7 @@ Reset the specified receiver. This command has no payload.
   |   `9` | Deactivate                                                                      |
   |  `10` | Get send counter                                                                |
   |  `11` | Received RX frames                                                              |
-  |  `12` | Absolute RSSI indicator (number must be interpreted as negative)                |
+  |  `12` | Get RSSI (Received Signal Strength Indication)                                  |
   |  `13` | Read energy mode reduced                                                        |
   |  `14` | Write energy mode reduced                                                       |
   |  `15` | Read energy mode lowest                                                         |
@@ -450,7 +450,7 @@ Reset the specified receiver. This command has no payload.
   |                                                   `9` | 6 Bytes containing `NULL` (`0`)                                                                                                                                 |
   |                                                  `10` | 6 Byte `unsigned int`                                                                                                                                           |
   |                                                  `11` | 6 Byte `unsigned int`                                                                                                                                           |
-  |                                                  `12` | Byte 3: `uint8_t` deviceType <br/> Byte 4: `int8_t` <br/> Byte 5 – 8: `NULL`                                                                                    |
+  |                                                  `12` | • First byte contains RSSI as signed number <br/> • All other bytes are `NULL` (`0`)                                                                            |
   |                                                  `13` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian                   |
   |                                                  `14` | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian                   |
   |                                                  `15` | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
