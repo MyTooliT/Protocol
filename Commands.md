@@ -1061,7 +1061,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | Number          | Block Command                                                           | Access | Permanently Stored |
 | --------------- | ----------------------------------------------------------------------- | ------ | ------------------ |
 | `0x00`          | [Global Trade Identification Number (GTIN)](#command:GTIN)              | Read   | x                  |
-| `0x01`          | [Hardware Revision](#command:Hardware-Revision)                         | Read   | x                  |
+| `0x01`          | [Hardware Version](#command:Hardware-Version)                           | Read   | x                  |
 | `0x02`          | [Firmware Version](#command:Firmware-Version)                           | Read   | x                  |
 | `0x03`          | [Release Name](#command:Release-Name)                                   | Read   | x                  |
 | `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                             | Read   | x                  |
@@ -1080,17 +1080,17 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 - MSB: Byte 0
 - LSB: Byte 7
 
-<a name="command:Hardware-Revision"></a>
+<a name="command:Hardware-Version"></a>
 
-### Command `Hardware Revision`
+### Command `Hardware Version`
 
 #### Acknowledgment Payload
 
 - 8 Bytes totally
   - 5 Bytes Reserved
-  - 1 Byte Major Revision
-  - 1 Byte Minor Revision
-  - 1 Byte Build Revision
+  - 1 Byte Major Version
+  - 1 Byte Minor Version
+  - 1 Byte Build Version
 
 <a name="command:Firmware-Version"></a>
 
@@ -1100,9 +1100,9 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - 8 Bytes totally
   - 5 Bytes Reserved
-  - 1 Byte Major Revision
-  - 1 Byte Minor Revision
-  - 1 Byte Build Revision
+  - 1 Byte Major Version
+  - 1 Byte Minor Version
+  - 1 Byte Build Version
 
 <a name="command:Release-Name"></a>
 
