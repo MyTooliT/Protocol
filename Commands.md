@@ -1090,7 +1090,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   - 5 Bytes Reserved
   - 1 Byte Major Version
   - 1 Byte Minor Version
-  - 1 Byte Build Version
+  - 1 Byte Patch Version
 
 <a name="command:Firmware-Version"></a>
 
@@ -1102,7 +1102,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   - 5 Bytes Reserved
   - 1 Byte Major Version
   - 1 Byte Minor Version
-  - 1 Byte Build Version
+  - 1 Byte Patch Version
 
 <a name="command:Release-Name"></a>
 
