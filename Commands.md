@@ -1111,7 +1111,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - 8 Byte ASCII Code
-- `NULL` terminated or 8 Byte long
+- `NULL` terminated or 8 bytes long
 
 <a name="command:Serial-Number"></a>
 
