@@ -1076,7 +1076,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - 8 Byte GTIN
-- Format: uint64_t (unsigned int)
+- Format: `uint64_t` (`unsigned int`)
 - MSB: Byte 0
 - LSB: Byte 7
 
@@ -1111,7 +1111,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - 8 Byte ASCII Code
-- NULL terminated or 8 Byte long
+- `NULL` terminated or 8 Byte long
 
 <a name="command:Serial-Number"></a>
 
