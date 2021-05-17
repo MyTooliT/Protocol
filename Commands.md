@@ -1056,7 +1056,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 <a name="block:ProductionData-and-RFID"></a>
 
-## Block `ProductData and RFID`
+## Block `Product Data and RFID`
 
 | Number          | Block Command                                                           | Access | Permanently Stored |
 | --------------- | ----------------------------------------------------------------------- | ------ | ------------------ |
@@ -1065,7 +1065,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | `0x02`          | [Firmware Version](#command:Firmware-Version)                           | Read   | x                  |
 | `0x03`          | [Release Name](#command:Release-Name)                                   | Read   | x                  |
 | `0x04` - `0x07` | [Serial Number 1-4](#command:Serial-Number)                             | Read   | x                  |
-| `0x08` - `0x17` | [Name 1-16](#command:Name)                                              | Read   | x                  |
+| `0x08` - `0x17` | [Product Name 1-16](#command:Product-Name)                              | Read   | x                  |
 | `0x18` - `0x1F` | [OEM Free Use 0-7](#command:OEM-Free-Use)                               | Read   | x                  |
 | `0x80`          | [Tool RFID product information](#command:Tool-RFID-product-information) | Read   | -                  |
 
@@ -1129,36 +1129,36 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 - UTF-8 string (8 bytes for each part)
 - The whole serial number is a concatenation of its parts starting with the first part of the serial number
 
-<a name="command:Name"></a>
+<a name="command:Product-Name"></a>
 
-### Command `Name`
+### Command `Product Name`
 
 #### Notes
 
 - Multiple Strings in different languages possible
 
-| Command | Purpose |
-| ------- | ------- |
-| `0x08`  | Name 1  |
-| `0x09`  | Name 2  |
-| `0x0A`  | Name 3  |
-| `0x0B`  | Name 4  |
-| `0x0C`  | Name 5  |
-| `0x0D`  | Name 6  |
-| `0x0E`  | Name 7  |
-| `0x0F`  | Name 8  |
-| `0x10`  | Name 9  |
-| `0x11`  | Name 10 |
-| `0x12`  | Name 11 |
-| `0x13`  | Name 12 |
-| `0x14`  | Name 13 |
-| `0x15`  | Name 14 |
-| `0x16`  | Name 15 |
-| `0x17`  | Name 16 |
+| Command | Purpose                      |
+| ------- | ---------------------------- |
+| `0x08`  | Get 1. part of product name  |
+| `0x09`  | Get 2. part of product name  |
+| `0x0A`  | Get 3. part of product name  |
+| `0x0B`  | Get 4. part of product name  |
+| `0x0C`  | Get 5. part of product name  |
+| `0x0D`  | Get 6. part of product name  |
+| `0x0E`  | Get 7. part of product name  |
+| `0x0F`  | Get 8. part of product name  |
+| `0x10`  | Get 9. part of product name  |
+| `0x11`  | Get 10. part of product name |
+| `0x12`  | Get 11. part of product name |
+| `0x13`  | Get 12. part of product name |
+| `0x14`  | Get 13. part of product name |
+| `0x15`  | Get 14. part of product name |
+| `0x16`  | Get 15. part of product name |
+| `0x17`  | Get 16. part of product name |
 
 #### Acknowledgment Payload
 
-- UTF-8 String (8 Byte)
+- UTF-8 string (8 bytes)
 
 <a name="command:OEM-Free-Use"></a>
 
