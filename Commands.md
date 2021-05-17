@@ -1249,11 +1249,3 @@ Module specific
 |   `5` | Wrong key/magic number          |                                            |
 |   `6` | No SuperFrame inside SuperFrame |                                            |
 |   `7` | EEPROM defect                   |                                            |
-
-```
-
-```
-
-```
-
-```
