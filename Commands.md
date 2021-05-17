@@ -1105,7 +1105,10 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Acknowledgment Payload
 
-- 8 Byte ASCII Code
+|        Byte 1 – Byte 8        |
+| :---------------------------: |
+| Firmware Release Name (ASCII) |
+
 - `NULL` terminated or 8 bytes long
 
 <a name="command:Serial-Number"></a>
