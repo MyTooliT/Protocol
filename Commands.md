@@ -1117,16 +1117,17 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Notes
 
-| Command | Purpose         |
-| ------- | --------------- |
-| `0x04`  | Serial Number 1 |
-| `0x05`  | Serial Number 2 |
-| `0x06`  | Serial Number 3 |
-| `0x07`  | Serial Number 4 |
+| Number | Purpose                          |
+| ------ | -------------------------------- |
+| `0x04` | Get first part of serial number  |
+| `0x05` | Get second part of serial number |
+| `0x06` | Get third part of serial number  |
+| `0x07` | Get last part of serial number   |
 
 #### Acknowledgment Payload
 
-- UTF-8 String (8 Byte)
+- UTF-8 string (8 bytes for each part)
+- The whole serial number is a concatenation of its parts starting with the first part of the serial number
 
 <a name="command:Name"></a>
 
