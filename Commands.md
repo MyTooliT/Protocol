@@ -1179,7 +1179,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Acknowledgment Payload
 
-- 8 Byte
+- 8 bytes for each block command
 
 <a name="command:Tool-RFID-product-information"></a>
 
