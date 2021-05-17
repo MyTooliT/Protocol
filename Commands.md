@@ -1085,11 +1085,9 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Acknowledgment Payload
 
-- 8 Bytes totally
-  - 5 Bytes Reserved
-  - 1 Byte Major Version
-  - 1 Byte Minor Version
-  - 1 Byte Patch Version
+| Byte 1 – Byte 5 |    Byte 6     |    Byte 7     |    Byte 8     |
+| :-------------: | :-----------: | :-----------: | :-----------: |
+|    Reserved     | Major Version | Minor Version | Patch Version |
 
 <a name="command:Firmware-Version"></a>
 
