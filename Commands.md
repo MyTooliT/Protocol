@@ -1075,10 +1075,9 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Acknowledgment Payload
 
-- 8 Byte GTIN
-- Format: `uint64_t` (`unsigned int`)
-- MSB: Byte 0
-- LSB: Byte 7
+| Byte 1 (MSB) – Byte 8 (LSB) |
+| :-------------------------: |
+|    GTIN (`unsigned int`)    |
 
 <a name="command:Hardware-Version"></a>
 
