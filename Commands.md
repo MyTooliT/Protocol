@@ -47,14 +47,14 @@ Reset the specified receiver. This command has no payload.
 
 #### Values
 
-- <a name="value:get-set-state">`Get/Set State`</a>:
+- <a name="value:get-set-state"></a>`Get/Set State`:
 
   | Value | Meaning   |
   | ----: | --------- |
   |   `0` | Get State |
   |   `1` | Set State |
 
-- <a name="value:location">`Location`</a>:
+- <a name="value:location"></a>`Location`:
 
   | Value | Meaning     |
   | ----: | ----------- |
@@ -63,7 +63,7 @@ Reset the specified receiver. This command has no payload.
   |   `2` | Application |
   |   `3` | Reserved    |
 
-- <a name="value:state">`State`</a>:
+- <a name="value:state"></a>`State`:
 
   | Value | Meaning                                                                          |
   | ----: | -------------------------------------------------------------------------------- |
@@ -76,7 +76,7 @@ Reset the specified receiver. This command has no payload.
   |   `6` | Startup                                                                          |
   |   `7` | No change                                                                        |
 
-- <a name="value:error-reason">`Error Reason`</a>:
+- <a name="value:error-reason"></a>`Error Reason`:
 
   | Value | Meaning                                                     |
   | ----: | ----------------------------------------------------------- |
@@ -141,14 +141,14 @@ Reset the specified receiver. This command has no payload.
   } NodeStatusWord_t;
   ```
 
-- <a name="value:error-bit">`Error Bit`</a>:
+- <a name="value:error-bit"></a>`Error Bit`:
 
   | Value | Meaning  |
   | ----: | -------- |
   |   `0` | No Error |
   |   `1` | Error    |
 
-- <a name="value:network-state">`Network State`</a>:
+- <a name="value:network-state"></a>`Network State`:
 
   | Value | Meaning                |
   | ----: | ---------------------- |
@@ -161,21 +161,21 @@ Reset the specified receiver. This command has no payload.
   |   `6` | Startup                |
   |   `7` | No Change              |
 
-- <a name="value:radio-port">`Radio Port`</a>:
+- <a name="value:radio-port"></a>`Radio Port`:
 
   | Value | Meaning             |
   | ----: | ------------------- |
   |   `0` | Radio Port Disabled |
   |   `1` | Radio Port Enabled  |
 
-- <a name="value:can-port">`CAN Port`</a>:
+- <a name="value:can-port"></a>`CAN Port`:
 
   | Value | Meaning           |
   | ----: | ----------------- |
   |   `0` | CAN Port Disabled |
   |   `1` | CAN Port Enabled  |
 
-- <a name="value:radio-activity">`Radio Activity`</a>:
+- <a name="value:radio-activity"></a>`Radio Activity`:
 
   | Value | Meaning                     |
   | ----: | --------------------------- |
@@ -298,14 +298,14 @@ Reset the specified receiver. This command has no payload.
   } ErrorStatusWord_t;
   ```
 
-- <a name="value:transmission-failure">`Transmission Failure`</a> (Bluetooth for STH, CAN for STU):
+- <a name="value:transmission-failure"></a>`Transmission Failure` (Bluetooth for STH, CAN for STU):
 
   | Value | Meaning                 |
   | ----: | ----------------------- |
   |   `0` | No Transmission Failure |
   |   `1` | Transmission Failure    |
 
-- <a name="value:adc-overrun">`ADC Overrun`</a>:
+- <a name="value:adc-overrun"></a>`ADC Overrun`:
 
   | Value | Meaning              |
   | ----: | -------------------- |
@@ -381,36 +381,36 @@ Reset the specified receiver. This command has no payload.
 
   Connecting to the STH will not work, if you do not **check for available devices first**
 
-- <a name="value:bluetooth-subcommand">`Bluetooth Subcommand`</a>
+- <a name="value:bluetooth-subcommand"></a>`Bluetooth Subcommand`
 
   |                                 Value | Meaning                                                                         |
   | ------------------------------------: | ------------------------------------------------------------------------------- |
-  |   <a name=command:bluetooth:0>`0`</a> | Reserved                                                                        |
-  |   <a name=command:bluetooth:1>`1`</a> | Activate                                                                        |
-  |   <a name=command:bluetooth:2>`2`</a> | Get number of available devices                                                 |
-  |   <a name=command:bluetooth:3>`3`</a> | Write device name #1 and set device name #2 to `NULL`                           |
-  |   <a name=command:bluetooth:4>`4`</a> | Write device name #2 and push it to STH (read will be equivalent in the future) |
-  |   <a name=command:bluetooth:5>`5`</a> | Read first part (6 bytes) of device name                                        |
-  |   <a name=command:bluetooth:6>`6`</a> | Read second part (2 bytes) of device name                                       |
-  |   <a name=command:bluetooth:7>`7`</a> | Connect to device (with device number)                                          |
-  |   <a name=command:bluetooth:8>`8`</a> | Check if connected                                                              |
-  |   <a name=command:bluetooth:9>`9`</a> | Deactivate                                                                      |
-  | <a name=command:bluetooth:10>`10`</a> | Get send counter                                                                |
-  | <a name=command:bluetooth:11>`11`</a> | Received RX frames                                                              |
-  | <a name=command:bluetooth:12>`12`</a> | Get RSSI (Received Signal Strength Indication)                                  |
-  | <a name=command:bluetooth:13>`13`</a> | Read energy mode reduced                                                        |
-  | <a name=command:bluetooth:14>`14`</a> | Write energy mode reduced                                                       |
-  | <a name=command:bluetooth:15>`15`</a> | Read energy mode lowest                                                         |
-  | <a name=command:bluetooth:16>`16`</a> | Write energy mode lowest                                                        |
-  | <a name=command:bluetooth:17>`17`</a> | Get Bluetooth MAC address                                                       |
-  | <a name=command:bluetooth:18>`18`</a> | Connect to device (with Bluetooth MAC address)                                  |
+  |   <a name=command:bluetooth:0></a>`0` | Reserved                                                                        |
+  |   <a name=command:bluetooth:1></a>`1` | Activate                                                                        |
+  |   <a name=command:bluetooth:2></a>`2` | Get number of available devices                                                 |
+  |   <a name=command:bluetooth:3></a>`3` | Write device name #1 and set device name #2 to `NULL`                           |
+  |   <a name=command:bluetooth:4></a>`4` | Write device name #2 and push it to STH (read will be equivalent in the future) |
+  |   <a name=command:bluetooth:5></a>`5` | Read first part (6 bytes) of device name                                        |
+  |   <a name=command:bluetooth:6></a>`6` | Read second part (2 bytes) of device name                                       |
+  |   <a name=command:bluetooth:7></a>`7` | Connect to device (with device number)                                          |
+  |   <a name=command:bluetooth:8></a>`8` | Check if connected                                                              |
+  |   <a name=command:bluetooth:9></a>`9` | Deactivate                                                                      |
+  | <a name=command:bluetooth:10></a>`10` | Get send counter                                                                |
+  | <a name=command:bluetooth:11></a>`11` | Received RX frames                                                              |
+  | <a name=command:bluetooth:12></a>`12` | Get RSSI (Received Signal Strength Indication)                                  |
+  | <a name=command:bluetooth:13></a>`13` | Read energy mode reduced                                                        |
+  | <a name=command:bluetooth:14></a>`14` | Write energy mode reduced                                                       |
+  | <a name=command:bluetooth:15></a>`15` | Read energy mode lowest                                                         |
+  | <a name=command:bluetooth:16></a>`16` | Write energy mode lowest                                                        |
+  | <a name=command:bluetooth:17></a>`17` | Get Bluetooth MAC address                                                       |
+  | <a name=command:bluetooth:18></a>`18` | Connect to device (with Bluetooth MAC address)                                  |
 
-- <a name="value:bluetooth-device-number">`Device Number`</a>: Sequential positive number assigned by STU to available STH nodes
+- <a name="value:bluetooth-device-number"></a>`Device Number`: Sequential positive number assigned by STU to available STH nodes
 
   - For a single STH this number will be `0`
   - The number `255` (`0xff`) is reserved for “self addressing” (used for example when we ask a connected STH for its own MAC address). **Note**: A connected STH also returns its own name, if you use the read name subcommands ([`5`](#command:bluetooth:5) and [`6`](#command:bluetooth:6)) and a device number other than `0xff`.
 
-- <a name="value:bluetooth-value">`Bluetooth Value`</a>
+- <a name="value:bluetooth-value"></a>`Bluetooth Value`
 
   | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                    |
   | ----------------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -434,7 +434,7 @@ Reset the specified receiver. This command has no payload.
   |                         [`17`](#command:bluetooth:17) | –                                                                                                                                                        |
   |                         [`18`](#command:bluetooth:18) | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                    |
 
-- <a name="value:bluetooth-return-value">`Bluetooth Return Value`</a>
+- <a name="value:bluetooth-return-value"></a>`Bluetooth Return Value`
 
   | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                           |
   | ----------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -499,7 +499,7 @@ Reset the specified receiver. This command has no payload.
 
 ### Values
 
-- The <a name="value:data-sets">`Data Sets`</a> bits used in the sections below can have the following values:
+- The <a name="value:data-sets"></a>`Data Sets` bits used in the sections below can have the following values:
 
   | Value | Data Amount   |
   | ----: | ------------- |
@@ -524,21 +524,21 @@ Reset the specified receiver. This command has no payload.
 
   The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
 
-- <a name="value:request">`Request`</a>:
+- <a name="value:request"></a>`Request`:
 
   | Value | Meaning        |
   | ----: | -------------- |
   |   `0` | Stream         |
   |   `1` | Single Request |
 
-- <a name="value:bytes">`Bytes`</a>:
+- <a name="value:bytes"></a>`Bytes`:
 
   | Value | Meaning                     |
   | ----: | --------------------------- |
   |   `0` | 2 Bytes for each data point |
   |   `1` | 3 Byte for data point       |
 
-- <a name="value:active">`Active`</a>
+- <a name="value:active"></a>`Active`
 
   | Value | Meaning                                                 |
   | ----: | ------------------------------------------------------- |
@@ -756,7 +756,7 @@ $$f_{clock}=38400000 Hz$$
 
 #### Values
 
-- <a name="value:get-set-state2">`Get/Set State`</a>:
+- <a name="value:get-set-state2"></a>`Get/Set State`:
 
   | Value | Meaning   |
   | ----- | --------- |
@@ -800,7 +800,7 @@ $$f_{clock}=38400000 Hz$$
 
 #### Values
 
-- <a name="value:calibration-element">`Calibration Element`</a>:
+- <a name="value:calibration-element"></a>`Calibration Element`:
 
   | Value | Meaning      |
   | ----: | ------------ |
@@ -808,7 +808,7 @@ $$f_{clock}=38400000 Hz$$
   |   `1` | Temperature  |
   |  `32` | Voltage      |
 
-- <a name="value:number-of-axis">`Number or axis`</a>:
+- <a name="value:number-of-axis"></a>`Number or axis`:
 
   | Value | Meaning                       |
   | ----: | ----------------------------- |
@@ -817,7 +817,7 @@ $$f_{clock}=38400000 Hz$$
   |   `2` | y-Axis / Second measure point |
   |   `3` | z-Axis / Third measure point  |
 
-- <a name="value:get-set-value">`Get/Set Value`</a>:
+- <a name="value:get-set-value"></a>`Get/Set Value`:
 
   | Value | Meaning   |
   | ----: | --------- |
@@ -881,14 +881,14 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Values
 
-- <a name="value:calibration-Get-Set">`Calibration Get/Set`</a>:
+- <a name="value:calibration-Get-Set"></a>`Calibration Get/Set`:
 
   | Value | Meaning                                       |
   | ----: | --------------------------------------------- |
   |   `0` | Get (Ignores the remaining bits of this byte) |
   |   `1` | Set                                           |
 
-- <a name="value:calibration-Method">`Calibration Method`</a>:
+- <a name="value:calibration-Method"></a>`Calibration Method`:
 
   | Value | Meaning  |
   | ----: | -------- |
@@ -897,7 +897,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   |   `2` | Eject    |
   |   `3` | Measure  |
 
-- <a name="value:calibration-Measurement-Element">`Calibration Measurement Element`</a>:
+- <a name="value:calibration-Measurement-Element"></a>`Calibration Measurement Element`:
 
   | Value | Meaning                                                        |
   | ----: | -------------------------------------------------------------- |
@@ -909,7 +909,7 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   |  `98` | Regulated Internal Power                                       |
   |  `99` | Operation Amplifier Output                                     |
 
-- <a name="value:Dimension">`Dimension`</a>:
+- <a name="value:Dimension"></a>`Dimension`:
 
   | Value | Meaning         |
   | ----: | --------------- |
@@ -957,21 +957,21 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 #### Values
 
-- <a name="value:Get-Set-Sampling-Rate">`Get/Set Sampling Rate`</a>:
+- <a name="value:Get-Set-Sampling-Rate"></a>`Get/Set Sampling Rate`:
 
   | Value | Meaning           |
   | ----: | ----------------- |
   |   `0` | Get Sampling Rate |
   |   `1` | Set Sampling Rate |
 
-- <a name="value:LED">`LED`</a>:
+- <a name="value:LED"></a>`LED`:
 
   | Value | Meaning  |
   | ----: | -------- |
   |   `0` | Reserved |
   |   `1` | LED      |
 
-- <a name="value:ON-OFF">`ON/OFF`</a>:
+- <a name="value:ON-OFF"></a>`ON/OFF`:
 
   | Value | Meaning          |
   | ----: | ---------------- |
