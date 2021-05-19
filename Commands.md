@@ -124,7 +124,7 @@ Reset the specified receiver. This command has no payload.
   } NodeStatusWord_t;
   ```
 
-- STU node staus word:
+- STU node status word:
 
   ```c
     struct
