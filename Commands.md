@@ -92,9 +92,10 @@ Reset the specified receiver. This command has no payload.
 
 #### Acknowledgment Payload
 
-| Byte 1 |
-| ------ |
-| `0x08` |
+|                 Byte 1                  |          |                               |          |                         |
+| :-------------------------------------: | :------: | :---------------------------: | :------: | :---------------------: |
+|                  Bit 7                  |  Bit 6   |           Bit 5 – 4           |  Bit 3   |        Bit 2 – 0        |
+| [`Get/Set State`](#value:get-set-state) | Reserved | [`Location`](#value:location) | Reserved | [`State`](#value:state) |
 
 #### Error Payload
 
