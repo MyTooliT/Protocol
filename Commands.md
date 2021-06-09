@@ -537,7 +537,7 @@ Reset the specified receiver. This command has no payload.
   | Value | Meaning                     |
   | ----: | --------------------------- |
   |   `0` | 2 Bytes for each data point |
-  |   `1` | 3 Byte for data point       |
+  |   `1` | 3 Bytes for each data point |
 
 - <a name="value:active"></a>`Active`
 
