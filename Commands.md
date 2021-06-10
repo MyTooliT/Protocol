@@ -580,11 +580,11 @@ Reset the specified receiver. This command has no payload.
 
 |  Byte 3  |
 | :------: |
-| MSB (BP) |
+| LSB (BP) |
 
 |    Byte 4    |
 | :----------: |
-| LSB (BP + 1) |
+| MSB (BP + 1) |
 
 ##### 3 Byte Format
 
