@@ -709,7 +709,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
 | `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k)             | Read/Write | x                  |
 | `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d)             | Read/Write | x                  |
-| `0x62` | [Calibration Measurement](#command:Callibration-Measurement)                      | Read/Write | x                  |
+| `0x62` | [Calibration Measurement](#command:Calibration-Measurement)                       | Read/Write | x                  |
 | `0xC0` | [HMI Configuration](#command:HMI-Configuration)                                   | Read/Write | x                  |
 
 <a name="command:Get-Set-Acceleration-Configuration"></a>
