@@ -913,12 +913,12 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - <a name="value:Dimension"></a>`Dimension`:
 
-  | Value | Meaning         |
-  | ----: | --------------- |
-  |   `0` | Reserved        |
-  |   `1` | 1. Dimension(x) |
-  |   `2` | 2. Dimension(y) |
-  |   `3` | 3. Dimension(z) |
+  | Value | Meaning          |
+  | ----: | ---------------- |
+  |   `0` | Reserved         |
+  |   `1` | 1. Dimension (x) |
+  |   `2` | 2. Dimension (y) |
+  |   `3` | 3. Dimension (z) |
 
 #### Payload
 
