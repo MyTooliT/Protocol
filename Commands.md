@@ -901,15 +901,15 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - <a name="value:calibration-Measurement-Element"></a>`Calibration Measurement Element`:
 
-  | Value | Meaning                                                        |
-  | ----: | -------------------------------------------------------------- |
-  |   `0` | Acceleration                                                   |
-  |   `1` | Temperature (for VREF=1250 temperature gets calculated to m°C) |
-  |  `32` | Voltage                                                        |
-  |  `96` | VSS(Ground)                                                    |
-  |  `97` | VDD (Supply)                                                   |
-  |  `98` | Regulated Internal Power                                       |
-  |  `99` | Operation Amplifier Output                                     |
+  | Value | Meaning                                                               |
+  | ----: | --------------------------------------------------------------------- |
+  |   `0` | Acceleration                                                          |
+  |   `1` | Temperature (for $V_{REF}=1.25~V$ the temperature is returned in m°C) |
+  |  `32` | Voltage                                                               |
+  |  `96` | VSS (Ground)                                                          |
+  |  `97` | VDD (Supply)                                                          |
+  |  `98` | Regulated Internal Power                                              |
+  |  `99` | Operation Amplifier Output                                            |
 
 - <a name="value:Dimension"></a>`Dimension`:
 
