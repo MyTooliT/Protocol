@@ -892,12 +892,12 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 - <a name="value:calibration-Method"></a>`Calibration Method`:
 
-  | Value | Meaning  |
-  | ----: | -------- |
-  |   `0` | Reserved |
-  |   `1` | Inject   |
-  |   `2` | Eject    |
-  |   `3` | Measure  |
+  | Value | Meaning    |
+  | ----: | ---------- |
+  |   `0` | Reserved   |
+  |   `1` | Activate   |
+  |   `2` | Deactivate |
+  |   `3` | Measure    |
 
 - <a name="value:calibration-Measurement-Element"></a>`Calibration Measurement Element`:
 
