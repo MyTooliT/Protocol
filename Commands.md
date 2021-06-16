@@ -720,7 +720,8 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 ##### Sampling Rate
 
-$$ \frac{f\_{CLOCK}}{(Prescaler+1)·(AcquisitionTime + 12+1) · OverSamplingRate} $$
+<!-- prettier-ignore -->
+$$ \frac{f_{CLOCK}}{(Prescaler+1)·(AcquisitionTime + 12+1) · OverSamplingRate} $$
 
 $$f_{clock}=38400000 Hz$$
 
