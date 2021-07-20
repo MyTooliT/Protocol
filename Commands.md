@@ -429,9 +429,9 @@ Reset the specified receiver. This command has no payload.
   |                         [`11`](#command:bluetooth:11) | –                                                                                                                                                        |
   |                         [`12`](#command:bluetooth:12) | –                                                                                                                                                        |
   |                         [`13`](#command:bluetooth:13) | –                                                                                                                                                        |
-  |                         [`14`](#command:bluetooth:14) | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big endian            |
+  |                         [`14`](#command:bluetooth:14) | Byte 3 – 6: Time from normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big endian            |
   |                         [`15`](#command:bluetooth:15) | –                                                                                                                                                        |
-  |                         [`16`](#command:bluetooth:16) | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little endian 0 = read |
+  |                         [`16`](#command:bluetooth:16) | Byte 3 – 6: Time from reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little endian 0 = read |
   |                         [`17`](#command:bluetooth:17) | –                                                                                                                                                        |
   |                         [`18`](#command:bluetooth:18) | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                    |
 
