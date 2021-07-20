@@ -1012,10 +1012,11 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ## Block `EEPROM`
 
-| Number | Block Command                         | Access | Permanently Stored |
-| -----: | ------------------------------------- | ------ | ------------------ |
-| `0x00` | [EEPROM Read](#command:EEPROM-Read)   | Read   | x                  |
-| `0x01` | [EEPROM Write](#command:EEPROM-Write) | Write  | x                  |
+| Number | Block Command                                                     | Access | Permanently Stored |
+| -----: | ----------------------------------------------------------------- | ------ | ------------------ |
+| `0x00` | [EEPROM Read](#command:EEPROM-Read)                               | Read   | x                  |
+| `0x01` | [EEPROM Write](#command:EEPROM-Write)                             | Write  | x                  |
+| `0x20` | [Read Write Request Counter](#command:Read-Write-Request-Counter) | Read   | x                  |
 
 <a name="command:EEPROM-Read"></a>
 
@@ -1055,6 +1056,26 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 #### Acknowledgment Payload
 
 - Same structure as payload
+
+<a name="command:Read-Write-Request-Counter"></a>
+
+### Command `Read Write Request Counter`
+
+#### Notes
+
+- The current documentation of this command is based on the (old) code of ICOc
+
+#### Payload
+
+| Byte 1 - Byte 8 |
+| :-------------: |
+|        0        |
+
+#### Acknowledgment Payload
+
+| Byte 1 - Byte 4 |    Byte 5 - Byte 8    |
+| :-------------: | :-------------------: |
+|    Undefined    | EEPROM Write Requests |
 
 <a name="block:ProductionData-and-RFID"></a>
 
