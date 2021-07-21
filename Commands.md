@@ -523,7 +523,7 @@ Reset the specified receiver. This command has no payload.
   - value 1 / value 3
   - value 2 / value 3
 
-  The chronological order starts with the oldest set (BP) and continues with newer values (BP + t), where t is the time point.
+  The chronological order starts with the oldest value (BP) and continues with newer values (BP + t), where t is the time point.
 
 - <a name="value:request"></a>`Request`:
 
@@ -576,29 +576,49 @@ Reset the specified receiver. This command has no payload.
 | :--------------: |
 | Sequence Counter |
 
-##### 2 Byte Format
+##### Streaming Data Bytes
 
-|  Byte 3  |
-| :------: |
-| LSB (BP) |
+- Data is sent in little endian order (at least for 2 byte format)
+- Older streaming data is stored in first bytes, newer data in later bytes
+- Values are stored in first available bytes,
+  - first value 1 (`x`) (if requested),
+  - then value 2 (`y`) (if requested),
+  - then value 3 (`z`) (if requested)
+- Data length depends on requested values and number of sets
 
-|    Byte 4    |
-| :----------: |
-| MSB (BP + 1) |
+###### Examples
 
-##### 3 Byte Format
+- Request first value (`x`)
+- Single data set
+- 2 Byte format
 
-|  Byte 3  |
-| :------: |
-| MSB (BP) |
+| Byte 3  |
+| :-----: |
+| x (LSB) |
 
-|  Byte 4  |
-| :------: |
-| (BP + 1) |
+| Byte 4  |
+| :-----: |
+| x (MSB) |
 
-|    Byte 5    |
-| :----------: |
-| LSB (BP + 2) |
+- Request second (`y`) and third value (`z`)
+- Single data set
+- 2 Byte format
+
+| Byte 3  |
+| :-----: |
+| y (LSB) |
+
+| Byte 4  |
+| :-----: |
+| y (MSB) |
+
+| Byte 5  |
+| :-----: |
+| z (LSB) |
+
+| Byte 6  |
+| :-----: |
+| z (MSB) |
 
 <a name="command:voltage"></a>
 
