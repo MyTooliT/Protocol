@@ -495,7 +495,7 @@ Reset the specified receiver. This command has no payload.
 
 | Number | Block Command                         | Access | Permanently Stored |
 | ------ | ------------------------------------- | ------ | ------------------ |
-| `0x01` | [Acceleration](#command:acceleration) | Event  | –                  |
+| `0x00` | [Acceleration](#command:acceleration) | Event  | –                  |
 | `0x20` | [Voltage](#command:voltage)           | Event  | –                  |
 
 ### Values
