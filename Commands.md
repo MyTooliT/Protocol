@@ -940,6 +940,8 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
   |   `2` | 2. Dimension (y) |
   |   `3` | 3. Dimension (z) |
 
+- <a name="value:reference-voltage"></a>`Reference Voltage`: This value specifies the reference voltage in fractures of $\frac{1}{20}$ of a volt. A common value would be 66 ($\frac{66}{20} = \frac{33}{10} = 3.3$) for the supply voltage ($V_{DD}$ Voltage Drain Drain) of 3.3 V.
+
 #### Payload
 
 |                       Byte 1                        |                                                   |       |               |
@@ -955,9 +957,9 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 | :-----------------------------: |
 | [`Dimension`](#value:Dimension) |
 
-|  Byte 4  |
-| :------: |
-| Reserved |
+|                     Byte 4                      |
+| :---------------------------------------------: |
+| [`Reference Voltage`](#value:reference-voltage) |
 
 | Byte 5 - Byte 8 |
 | :-------------: |
