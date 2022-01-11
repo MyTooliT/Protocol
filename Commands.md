@@ -628,6 +628,7 @@ Reset the specified receiver. This command has no payload.
 
 - Highest voltage sampling rate determines bit stream rate
 - Requesting while streaming is possible
+- To determine the supply/battery voltage (voltage 1) value you need to multiply the returned values with the number `5.7`. This is the result of the voltage divider circuit we use (which contains a 470 kΩ and 100 kΩ resistor).
 
 #### Payload
 
