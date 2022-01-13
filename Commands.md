@@ -437,27 +437,27 @@ Reset the specified receiver. This command has no payload.
 
 - <a name="value:bluetooth-return-value"></a>`Bluetooth Return Value`
 
-  | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                           |
-  | ----------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  |                           [`0`](#command:bluetooth:0) | `NULL`                                                                                                                                                          |
-  |                           [`1`](#command:bluetooth:1) | 6 Bytes containing `NULL` (`0`)                                                                                                                                 |
-  |                           [`2`](#command:bluetooth:2) | ASCII string containing the number of available devices                                                                                                         |
-  |                           [`3`](#command:bluetooth:3) | ASCII string                                                                                                                                                    |
-  |                           [`4`](#command:bluetooth:4) | ASCII string                                                                                                                                                    |
-  |                           [`5`](#command:bluetooth:5) | ASCII string containing the first 6 characters of the Bluetooth advertisement name                                                                              |
-  |                           [`6`](#command:bluetooth:6) | • ASCII string containing the last 2 characters of the Bluetooth advertisement name <br/> • `NULL` if not connected                                             |
-  |                           [`7`](#command:bluetooth:7) | First byte is: <br/> •`true` (`1`) if in search mode, at least single device was found, no legacy mode and scanning mode active <br/> • `false` (`0`) otherwise |
-  |                           [`8`](#command:bluetooth:8) | First byte is: <br/> • `true` (`1`) if connected <br/> • `false` (`0`) otherwise <br/> Followed by 5 bytes containing `NULL` (`0`)                              |
-  |                           [`9`](#command:bluetooth:9) | 6 Bytes containing `NULL` (`0`)                                                                                                                                 |
-  |                         [`10`](#command:bluetooth:10) | 6 Byte `unsigned int` (Big Endian)                                                                                                                              |
-  |                         [`11`](#command:bluetooth:11) | 6 Byte `unsigned int`                                                                                                                                           |
-  |                         [`12`](#command:bluetooth:12) | • First byte contains RSSI as signed number <br/> • All other bytes are `NULL` (`0`)                                                                            |
-  |                         [`13`](#command:bluetooth:13) | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms <br/> Big Endian                   |
-  |                         [`14`](#command:bluetooth:14) | Byte 3 – 6: Time form normal to reduced energy mode in ms (Little Endian) <br/> Byte 7 – 8: Advertisement time for reduced energy mode in ms (Little Endian)    |
-  |                         [`15`](#command:bluetooth:15) | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
-  |                         [`16`](#command:bluetooth:16) | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in ms <br/> Little Endian                 |
-  |                         [`17`](#command:bluetooth:17) | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                           |
-  |                         [`18`](#command:bluetooth:18) | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                           |
+  | [`Bluetooth Subcommand`](#value:bluetooth-subcommand) | Value                                                                                                                                                                |
+  | ----------------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  |                           [`0`](#command:bluetooth:0) | `NULL`                                                                                                                                                               |
+  |                           [`1`](#command:bluetooth:1) | 6 Bytes containing `NULL` (`0`)                                                                                                                                      |
+  |                           [`2`](#command:bluetooth:2) | ASCII string containing the number of available devices                                                                                                              |
+  |                           [`3`](#command:bluetooth:3) | ASCII string                                                                                                                                                         |
+  |                           [`4`](#command:bluetooth:4) | ASCII string                                                                                                                                                         |
+  |                           [`5`](#command:bluetooth:5) | ASCII string containing the first 6 characters of the Bluetooth advertisement name                                                                                   |
+  |                           [`6`](#command:bluetooth:6) | • ASCII string containing the last 2 characters of the Bluetooth advertisement name <br/> • `NULL` if not connected                                                  |
+  |                           [`7`](#command:bluetooth:7) | First byte is: <br/> •`true` (`1`) if in search mode, at least single device was found, no legacy mode and scanning mode active <br/> • `false` (`0`) otherwise      |
+  |                           [`8`](#command:bluetooth:8) | First byte is: <br/> • `true` (`1`) if connected <br/> • `false` (`0`) otherwise <br/> Followed by 5 bytes containing `NULL` (`0`)                                   |
+  |                           [`9`](#command:bluetooth:9) | 6 Bytes containing `NULL` (`0`)                                                                                                                                      |
+  |                         [`10`](#command:bluetooth:10) | 6 Byte `unsigned int` (Big Endian)                                                                                                                                   |
+  |                         [`11`](#command:bluetooth:11) | 6 Byte `unsigned int`                                                                                                                                                |
+  |                         [`12`](#command:bluetooth:12) | • First byte contains RSSI as signed number <br/> • All other bytes are `NULL` (`0`)                                                                                 |
+  |                         [`13`](#command:bluetooth:13) | Byte 3 – 6: Time form normal to reduced energy mode in ms <br/> Byte 7 – 8: Advertisement time for reduced energy mode in 0.625 · ms <br/> Big Endian                |
+  |                         [`14`](#command:bluetooth:14) | Byte 3 – 6: Time form normal to reduced energy mode in ms (Little Endian) <br/> Byte 7 – 8: Advertisement time for reduced energy mode in 0.625 · ms (Little Endian) |
+  |                         [`15`](#command:bluetooth:15) | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in 0.625 · ms <br/> Little Endian              |
+  |                         [`16`](#command:bluetooth:16) | Byte 3 – 6: Time form reduced to lowest energy mode in ms <br/> Byte 7 – 8: Advertisement time for lowest energy mode in 0.625 · ms <br/> Little Endian              |
+  |                         [`17`](#command:bluetooth:17) | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                                |
+  |                         [`18`](#command:bluetooth:18) | Bytes of Bluetooth MAC address in reversed order (from right to left)                                                                                                |
 
 #### Payload
 
