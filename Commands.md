@@ -529,8 +529,8 @@ Reset the specified receiver. This command has no payload.
 
   | Value | Meaning        |
   | ----: | -------------- |
-  |   `0` | Stream         |
-  |   `1` | Single Request |
+  |   `0` | Single Request |
+  |   `1` | Stream         |
 
 - <a name="value:bytes"></a>`Bytes`:
 
