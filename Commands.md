@@ -725,13 +725,14 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 ## Block `Configuration`
 
-| Number | Block Command                                                                     | Access     | Permanently Stored |
-| ------ | --------------------------------------------------------------------------------- | ---------- | ------------------ |
+| Number | Block Command                                                | Access     | Permanently Stored |
+| ------ | ------------------------------------------------------------ | ---------- | ------------------ |
 | `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
-| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k)             | Read/Write | x                  |
-| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d)             | Read/Write | x                  |
-| `0x62` | [Calibration Measurement](#command:Calibration-Measurement)                       | Read/Write | x                  |
-| `0xC0` | [HMI Configuration](#command:HMI-Configuration)                                   | Read/Write | x                  |
+| `0x01` | [Get/Set Used Sensors](#command:Get-Set-Used-Sensors)        | Read/Write | x                  |
+| `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k) | Read/Write | x                  |
+| `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d) | Read/Write | x                  |
+| `0x62` | [Calibration Measurement](#command:Calibration-Measurement)  | Read/Write | x                  |
+| `0xC0` | [HMI Configuration](#command:HMI-Configuration)              | Read/Write | x                  |
 
 <a name="command:Get-Set-Acceleration-Configuration"></a>
 
@@ -810,6 +811,51 @@ $$f_{clock}=38400000 Hz$$
 | Reference: Voltage\*20 e.g. 3.3V->66 |
 
 | Byte 6 - Byte 8 |
+| :-------------: |
+|    Reserved     |
+
+#### Acknowledgment Payload
+
+- Same structure as payload
+
+<a name="command:Get-Set-Used-Sensors"></a>
+
+### Command `Get/Set Used Sensors`
+
+#### Notes
+
+- If a sensor number sent with a "Set" command is bigger than the number of sensors defined by the holder it will raise an error.
+- If a `0x00` is sent as a sensor number with a "Set" command it will use the momentary set sensor instead of changing the sensor.
+
+#### Values
+
+- <a name="value:get-set-state-used-sensors"></a>`Get/Set State`:
+
+  | Value | Meaning   |
+  | ----- | --------- |
+  | `0`   | Get State |
+  | `1`   | Set State |
+
+#### Payload
+
+|                        Byte 1                        |           |
+| :--------------------------------------------------: | :-------: |
+|                        Bit 7                         | Bit 6 – 0 |
+| [`Get/Set State`](#value:get-set-state-used-sensors) | Reserved  |
+
+|             Byte 2              |
+| :-----------------------------: |
+| Used Sensor Number for X-Sensor |
+
+|             Byte 3              |
+| :-----------------------------: |
+| Used Sensor Number for Y-Sensor |
+
+|             Byte 4              |
+| :-----------------------------: |
+| Used Sensor Number for Z-Sensor |
+
+| Byte 5 - Byte 8 |
 | :-------------: |
 |    Reserved     |
 
