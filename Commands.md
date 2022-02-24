@@ -604,19 +604,19 @@ Reset the specified receiver. This command has no payload.
 - Single data set
 - 2 Byte format
 
-| Byte 3  |
+| Byte 5  |
 | :-----: |
 | y (LSB) |
 
-| Byte 4  |
+| Byte 6  |
 | :-----: |
 | y (MSB) |
 
-| Byte 5  |
+| Byte 7  |
 | :-----: |
 | z (LSB) |
 
-| Byte 6  |
+| Byte 8  |
 | :-----: |
 | z (MSB) |
 
