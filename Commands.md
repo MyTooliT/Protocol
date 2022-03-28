@@ -1285,10 +1285,11 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ## Block `Test`
 
-| Number | Block Command                       | Access | Permanently Stored |
-| ------ | ----------------------------------- | ------ | ------------------ |
-| `0x00` | Reserved                            | -      | -                  |
-| `0x01` | [Test signal](#command:Test-signal) | -      | -                  |
+| Number | Block Command                             | Access | Permanently Stored |
+| ------ | ----------------------------------------- | ------ | ------------------ |
+| `0x00` | Reserved                                  | -      | -                  |
+| `0x01` | [Test signal](#command:Test-signal)       | -      | -                  |
+| `0x69` | [Test Pfeifferl](#command:Test-pfeifferl) | -      | -                  |
 
 <a name="command:Test-signal"></a>
 
@@ -1342,3 +1343,57 @@ Module specific
 |   `5` | Wrong key/magic number          |                                            |
 |   `6` | No SuperFrame inside SuperFrame |                                            |
 |   `7` | EEPROM defect                   |                                            |
+
+<a name="command:Test-pfeifferl"></a>
+
+### Command `Test Pfeifferl`
+
+#### Payload
+
+##### Byte 1:
+
+Ch:
+
+Silabs Channel number, 0-39
+
+##### Byte 2:
+
+Type:
+
+- 254: CW
+- 253: pn9
+
+##### Byte 3:
+
+Wait_Before:
+
+Time till the RF is turned on in seconds
+
+##### Byte 4-5:
+
+On_Duration:
+
+Duration the RF is turned on in seconds
+
+##### Byte 6:
+
+Pwr:
+
+RF Power (32 = max)
+
+##### Byte 7:
+
+Phy:
+
+Physical antenna chosen (1 = default)
+
+##### Byte 8:
+
+Len:
+
+Length of an RF packet (37 = default)
+
+#### Acknowledgment Payload
+
+- Same structure as payload
+- ACK is sent before starting the process
