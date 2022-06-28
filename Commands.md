@@ -725,18 +725,84 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 ## Block `Configuration`
 
-| Number | Block Command                                                | Access     | Permanently Stored |
-| ------ | ------------------------------------------------------------ | ---------- | ------------------ |
-| `0x00` | [Get/Set Acceleration Configuration](#command:Get-Set-Acceleration-Configuration) | Read/Write | x                  |
-| `0x01` | [Get/Set Used Sensors](#command:Get-Set-Used-Sensors)        | Read/Write | x                  |
+| Number | Block Command                                                         | Access     | Permanently Stored |
+| ------ | --------------------------------------------------------------------- | ---------- | ------------------ |
+| `0x00` | [Get/Set ADC Configuration](#command:Get-Set-ADC-Configuration)       | Read/Write | x                  |
+| `0x01` | [Get/Set Used Sensors](#command:Get-Set-Used-Sensors)                 | Read/Write | x                  |
 | `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k) | Read/Write | x                  |
 | `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d) | Read/Write | x                  |
-| `0x62` | [Calibration Measurement](#command:Calibration-Measurement)  | Read/Write | x                  |
-| `0xC0` | [HMI Configuration](#command:HMI-Configuration)              | Read/Write | x                  |
+| `0x62` | [Calibration Measurement](#command:Calibration-Measurement)           | Read/Write | x                  |
+| `0xC0` | [HMI Configuration](#command:HMI-Configuration)                       | Read/Write | x                  |
 
-<a name="command:Get-Set-Acceleration-Configuration"></a>
+<a name="command:Get-Set-ADC-Configuration"></a>
 
-### Command `Get/Set Acceleration Configuration`
+### Command `Get/Set ADC Configuration`
+
+#### Values
+
+- <a name="value:get-set-adc-config"></a>`Get/Set Config`:
+
+  | Value | Meaning    |
+  | ----- | ---------- |
+  | `0`   | Get Config |
+  | `1`   | Set Config |
+
+- <a name="value:prescaler"></a>`Prescaler`:
+
+  Possible Values: 1 – 127
+
+- <a name="value:aquisition-time"></a>`Acquisition Time`:
+
+  - Sample and hold time i.e. time to charge capacitor that is cut off and measured at digital quantisation
+  - $2^{value-1}$ iff `value > AdcAcquisitionTime4`
+  - $value+2$ iff `value <= AdcAcquisitionTime4`
+
+- <a name="value:oversampling-rate"></a>`Oversampling Rate`:
+
+  - Oversampling Rate: $2^{value}$
+  - No Over Sampling if value = 0
+
+- <a name="value:reference-voltage"></a>`Reference Voltage`:
+
+  - value = Reference Voltage (in Volt) · 20 (e.g. 25 for 1.25 V)
+  - Possible Voltages:
+    - 1V25
+    - 1V65
+    - 1V8
+    - 2V1
+    - 2V2
+    - 2V5
+    - 2V7
+    - 3V3(VDD)
+    - 5V
+    - 6V6
+
+#### Payload
+
+|                    Byte 1                     |           |
+| :-------------------------------------------: | :-------: |
+|                     Bit 7                     | Bit 6 – 0 |
+| [`Get/Set Config`](#value:get-set-adc-config) | Reserved  |
+
+|             Byte 2              |
+| :-----------------------------: |
+| [`Prescaler`](#value:prescaler) |
+
+|                    Byte 3                    |
+| :------------------------------------------: |
+| [`Acquisition Time`](#value:aquisition-time) |
+
+|                     Byte 4                      |
+| :---------------------------------------------: |
+| [`Oversampling Rate`](#value:oversampling-rate) |
+
+|                     Byte 5                      |
+| :---------------------------------------------: |
+| [`Reference Voltage`](#value:reference-voltage) |
+
+| Byte 6 - Byte 8 |
+| :-------------: |
+|    Reserved     |
 
 #### Notes
 
@@ -746,33 +812,6 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 $$ \frac{f_{CLOCK}}{(Prescaler+1)·(AcquisitionTime + 12+1) · OverSamplingRate} $$
 
 $$f_{clock}=38400000 Hz$$
-
-##### Prescaler
-
-- Byte2
-
-##### Acquisition Time
-
-- Sample and Hold Time i.e. Time to charge capacitor that is cut off and measured at digital quantisation
-- 2^(Byte3-1) iff Byte3 > AdcAcquisitionTime4
-- (Byte3+2) iff Byte3 < =AdcAcquisitionTime4
-
-##### Over Sampling Rate
-
-- 2^Byte4; No Over Sampling if Byte4=0
-
-##### ADC Reference Voltage
-
-- 1V25
-- 1V65
-- 1V8
-- 2V1
-- 2V2
-- 2V5
-- 2V7
-- 3V3(VDD)
-- 5V
-- 6V6
 
 ##### Setting at Reset
 
