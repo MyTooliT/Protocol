@@ -754,17 +754,19 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 - <a name="value:aquisition-time"></a>`Acquisition Time`:
 
   - Sample and hold time i.e. time to charge capacitor that is cut off and measured at digital quantisation in cycles
-  - $value+1$ iff `value <= 3` (e.g. 4 cycles for a value of 3)
-  - $2^{value-1}$ iff `value > 3` (e.g. 8 cycles for a value of 4)
+  - $value+1$ iff $value ≤ 3$ (e.g. 4 cycles for a value of 3)
+  - $2^{value-1}$ iff $value > 3$ (e.g. 8 cycles for a value of 4)
+  - Possible acquisition times: 1, 2, 3, 4, 8, 16, 32, … , 256
 
 - <a name="value:oversampling-rate"></a>`Oversampling Rate`:
 
   - Oversampling Rate: $2^{value}$
-  - No Over Sampling if value = 0
+  - No oversampling if $value = 0$
+  - Possible oversampling rates: 1, 2, 4, 8, 16, … , 4096
 
 - <a name="value:reference-voltage"></a>`Reference Voltage`:
 
-  - value = Reference Voltage (in Volt) · 20 (e.g. 25 for 1.25 V)
+  - $value = V_{reference} · 20$ (e.g. 25 for 1.25 V)
   - Possible Voltages:
     - 1V25
     - 1V65
@@ -773,7 +775,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
     - 2V2
     - 2V5
     - 2V7
-    - 3V3(VDD)
+    - 3V3 (VDD)
     - 5V
     - 6V6
 
