@@ -753,9 +753,9 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 
 - <a name="value:aquisition-time"></a>`Acquisition Time`:
 
-  - Sample and hold time i.e. time to charge capacitor that is cut off and measured at digital quantisation
-  - $2^{value-1}$ iff `value > AdcAcquisitionTime4`
-  - $value+2$ iff `value <= AdcAcquisitionTime4`
+  - Sample and hold time i.e. time to charge capacitor that is cut off and measured at digital quantisation in cycles
+  - $value+1$ iff `value <= 3` (e.g. 4 cycles for a value of 3)
+  - $2^{value-1}$ iff `value > 3` (e.g. 8 cycles for a value of 4)
 
 - <a name="value:oversampling-rate"></a>`Oversampling Rate`:
 
