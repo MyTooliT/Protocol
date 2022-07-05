@@ -819,42 +819,6 @@ $$f_{clock}=38400000 Hz$$
 
 - 2/Aqu8(4)/OverSampling64(6)/VDD
 
-#### Values
-
-- <a name="value:get-set-state2"></a>`Get/Set State`:
-
-  | Value | Meaning   |
-  | ----- | --------- |
-  | `0`   | Get State |
-  | `1`   | Set State |
-
-#### Payload
-
-|                  Byte 1                  |           |
-| :--------------------------------------: | :-------: |
-|                  Bit 7                   | Bit 6 – 0 |
-| [`Get/Set State`](#value:get-set-state2) | Reserved  |
-
-|    Byte 2     |
-| :-----------: |
-| ADC Prescaler |
-
-|           Byte 3            |
-| :-------------------------: |
-| Acquisition time (See Note) |
-
-|                                     Byte 4                                      |
-| :-----------------------------------------------------------------------------: |
-| Power of over sampling rate e.g. 10->1024 OverSampling Rate, 0=no Over Sampling |
-
-|                Byte 5                |
-| :----------------------------------: |
-| Reference: Voltage\*20 e.g. 3.3V->66 |
-
-| Byte 6 - Byte 8 |
-| :-------------: |
-|    Reserved     |
-
 #### Acknowledgment Payload
 
 - Same structure as payload
