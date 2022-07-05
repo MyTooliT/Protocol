@@ -817,7 +817,10 @@ $$f_{clock}=38400000 Hz$$
 
 ##### Setting at Reset
 
-- 2/Aqu8(4)/OverSampling64(6)/VDD
+- [`Prescaler`](#value:prescaler): 2
+- [`Acquisition Time`](#value:aquisition-time): 8 (byte value = 4)
+- [`Oversampling Rate`](#value:oversampling-rate): 64 (byte value = 6)
+- [`Reference Voltage`](#value:reference-voltage): 3.3 ($V_{DD}$) (byte value = 66)
 
 #### Acknowledgment Payload
 
