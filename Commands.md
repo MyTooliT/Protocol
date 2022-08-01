@@ -956,6 +956,16 @@ Payload and Acknowledgment Payload have the same Structure as [`Get/Set Calibrat
 
 ### Command `Calibration Measurement`
 
+#### Notes
+
+- Activating the self test of an accelerometer:
+
+  - [`Calibration Get/Set`](#value:calibration-Get-Set): Get
+  - [`Calibration Measurement Element`](#value:calibration-Measurement-Element): Acceleration
+  - [`Calibration Method`](#value:calibration-Method): Activate
+
+  seems to only work for the next measurement. This means the STH will return the “normal” acceleration value after you read the acceleration a second time, even if you do not deactivate the self test before the second measurement.
+
 #### Values
 
 - <a name="value:calibration-Get-Set"></a>`Calibration Get/Set`:
