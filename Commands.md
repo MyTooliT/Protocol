@@ -728,7 +728,7 @@ The command uses the same format as the “Acknowledgment Payload” of the `Acc
 | Number | Block Command                                                         | Access     | Permanently Stored |
 | ------ | --------------------------------------------------------------------- | ---------- | ------------------ |
 | `0x00` | [Get/Set ADC Configuration](#command:Get-Set-ADC-Configuration)       | Read/Write | x                  |
-| `0x01` | [Get/Set Used Sensors](#command:Get-Set-Used-Sensors)                 | Read/Write | x                  |
+| `0x01` | [Get/Set Sensors](#command:get-set-sensors)                           | Read/Write | x                  |
 | `0x60` | [Get/Set Calibration Factor k](#command:Get-Set-Calibration-Factor-k) | Read/Write | x                  |
 | `0x61` | [Get/Set Calibration Factor d](#command:Get-Set-Calibration-Factor-d) | Read/Write | x                  |
 | `0x62` | [Calibration Measurement](#command:Calibration-Measurement)           | Read/Write | x                  |
@@ -826,14 +826,14 @@ $$f_{clock}=38400000 Hz$$
 - [`Oversampling Rate`](#value:oversampling-rate): 64 (byte value = 6)
 - [`Reference Voltage`](#value:reference-voltage): 3.3 ($V_{DD}$) (byte value = 66)
 
-<a name="command:Get-Set-Used-Sensors"></a>
+<a name="command:get-set-sensors"></a>
 
-### Command `Get/Set Used Sensors`
+### Command `Get/Set Sensors`
 
 #### Notes
 
-- If a sensor number sent with a "Set" command is bigger than the number of sensors defined by the holder it will raise an error.
-- If a `0x00` is sent as a sensor number with a "Set" command it will use the momentary set sensor instead of changing the sensor.
+- If a sensor number sent with a "Set" command is greater than the number of sensors defined by the sensor device then the sensor device will react with an error message.
+- The sensor number `0` represents a special value that tells the sensor device to keep the current sensor configuration value for the specified measurement channel.
 
 #### Values
 
@@ -851,17 +851,17 @@ $$f_{clock}=38400000 Hz$$
 |                        Bit 7                         | Bit 6 – 0 |
 | [`Get/Set State`](#value:get-set-state-used-sensors) | Reserved  |
 
-|             Byte 2              |
-| :-----------------------------: |
-| Used Sensor Number for X-Sensor |
+|                    Byte 2                     |
+| :-------------------------------------------: |
+| Sensor (number) for first measurement channel |
 
-|             Byte 3              |
-| :-----------------------------: |
-| Used Sensor Number for Y-Sensor |
+|                     Byte 3                     |
+| :--------------------------------------------: |
+| Sensor (number) for second measurement channel |
 
-|             Byte 4              |
-| :-----------------------------: |
-| Used Sensor Number for Z-Sensor |
+|                    Byte 4                     |
+| :-------------------------------------------: |
+| Sensor (number) for third measurement channel |
 
 | Byte 5 - Byte 8 |
 | :-------------: |
