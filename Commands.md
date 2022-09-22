@@ -493,10 +493,10 @@ Reset the specified receiver. This command has no payload.
 
 ## Block `Streaming`
 
-| Number | Block Command                         | Access | Permanently Stored |
-| ------ | ------------------------------------- | ------ | ------------------ |
-| `0x00` | [Acceleration](#command:acceleration) | Event  | –                  |
-| `0x20` | [Voltage](#command:voltage)           | Event  | –                  |
+| Number | Block Command               | Access | Permanently Stored |
+| ------ | --------------------------- | ------ | ------------------ |
+| `0x00` | [Data](#command:data)       | Event  | –                  |
+| `0x20` | [Voltage](#command:voltage) | Event  | –                  |
 
 ### Values
 
@@ -546,25 +546,28 @@ Reset the specified receiver. This command has no payload.
   |   `0` | Data for specified data point will not be measured/sent |
   |   `1` | Data for specified data point will be measured/sent     |
 
-<a name="command:acceleration"></a>
+<a name="command:data"></a>
 
-### Command `Acceleration`
+### Command `Data`
 
+- This command is usually used to access **acceleration streaming data** (for certain axes)
+- On **newer firmware**/hardware the streaming command might return **other data as well** (temperature, force, …)
+- We refer to measurement channel 1 (2 and 3) in the text below, while we previously used the term x-axis (y-axis and z-axis)
 - Requesting while streaming is possible
 - Only single stream allowed
 - Requesting stream in different format stops last stream
-- Tuple format (depending on active axis, see payload):
-  - x/y/z
-  - x/y
-  - x/z
-  - y/z
+- Tuple format (depending on active channel, see payload):
+  - 1/2/3
+  - 1/2
+  - 1/3
+  - 2/3
 
 #### Payload
 
-|           Byte 1            |                         |                                  |                                  |                                  |                                 |
-| :-------------------------: | :---------------------: | :------------------------------: | :------------------------------: | :------------------------------: | :-----------------------------: |
-|            Bit 7            |          Bit 6          |              Bit 5               |              Bit 4               |              Bit 3               |            Bit 2 – 0            |
-| [`Request`](#value:request) | [`Bytes`](#value:bytes) | X-Axis [`Active`](#value:active) | Y-Axis [`Active`](#value:active) | Z-Axis [`Active`](#value:active) | [`Data Sets`](#value:data-sets) |
+|           Byte 1            |                         |                                     |                                     |                                     |                                 |
+| :-------------------------: | :---------------------: | :---------------------------------: | :---------------------------------: | :---------------------------------: | :-----------------------------: |
+|            Bit 7            |          Bit 6          |                Bit 5                |                Bit 4                |                Bit 3                |            Bit 2 – 0            |
+| [`Request`](#value:request) | [`Bytes`](#value:bytes) | Channel 1 [`Active`](#value:active) | Channel 2 [`Active`](#value:active) | Channel 3 [`Active`](#value:active) | [`Data Sets`](#value:data-sets) |
 
 #### Acknowledgment Payload
 
@@ -581,44 +584,44 @@ Reset the specified receiver. This command has no payload.
 - Data is sent in little endian order (at least for 2 byte format)
 - Older streaming data is stored in first bytes, newer data in later bytes
 - Values are stored in first available bytes,
-  - first value 1 (`x`) (if requested),
-  - then value 2 (`y`) (if requested),
-  - then value 3 (`z`) (if requested)
+  - first measurement channel 1 (`x`) (if requested),
+  - then measurement channel 2 (`y`) (if requested),
+  - then measurement channel 3 (`z`) (if requested)
 - Data length depends on requested values and number of sets
 
 ###### Examples
 
-- Request first value (`x`)
+- Request first measurement channel
 - Single data set
 - 2 Byte format
 
-| Byte 3  |
-| :-----: |
-| x (LSB) |
+|        Byte 3         |
+| :-------------------: |
+| Value Channel 1 (LSB) |
 
-| Byte 4  |
-| :-----: |
-| x (MSB) |
+|        Byte 4         |
+| :-------------------: |
+| Value Channel 1 (MSB) |
 
-- Request second (`y`) and third value (`z`)
+- Request second and third measurement channel
 - Single data set
 - 2 Byte format
 
-| Byte 5  |
-| :-----: |
-| y (LSB) |
+|        Byte 5         |
+| :-------------------: |
+| Value Channel 2 (LSB) |
 
-| Byte 6  |
-| :-----: |
-| y (MSB) |
+|        Byte 6         |
+| :-------------------: |
+| Value Channel 2 (MSB) |
 
-| Byte 7  |
-| :-----: |
-| z (LSB) |
+|        Byte 7         |
+| :-------------------: |
+| Value Channel 3 (LSB) |
 
-| Byte 8  |
-| :-----: |
-| z (MSB) |
+|        Byte 8         |
+| :-------------------: |
+| Value Channel 3 (MSB) |
 
 <a name="command:voltage"></a>
 
