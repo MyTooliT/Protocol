@@ -406,6 +406,13 @@ Reset the specified receiver. This command has no payload.
   | <a name=command:bluetooth:17></a>`17` | Get Bluetooth MAC address                                                       |
   | <a name=command:bluetooth:18></a>`18` | Connect to device (with Bluetooth MAC address)                                  |
 
+- The [Bluetooth `Activate`](#command:bluetooth:1) command (on the STU) is required
+
+  - to **enable the advertisement** (and hence the OTA update functionality) of the STU and
+  - before you search for sensor devices.
+
+  This dual functionality is (probably) also the reason why a second STU might show up in the list of available (sensor) devices.
+
 - <a name="value:bluetooth-device-number"></a>`Device Number`: Sequential positive number assigned by STU to available STH nodes
 
   - For a single STH this number will be `0`
