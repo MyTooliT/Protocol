@@ -838,6 +838,29 @@ $$f_{clock}=38400000 Hz$$
 
 <a name="command:get-set-sensors"></a>
 
+##### Recommended Values
+
+The table below list some ADC configuration values we recommend, if you want to change the sample rate from the **default of 9524 Hz**.
+
+| Sample Rate [Hz] | Prescaler | Acquisition Time | Oversampling Rate |
+| ---------------: | --------: | ---------------: | ----------------: |
+|         **9524** |     **2** |            **8** |            **64** |
+|             9375 |         3 |                3 |                64 |
+|             8889 |         2 |               32 |                32 |
+|             6897 |         2 |               16 |                64 |
+|             4762 |         2 |                8 |               128 |
+|             3448 |         2 |               16 |               128 |
+|             2381 |         2 |                8 |               256 |
+|             1724 |         2 |               16 |               256 |
+|             1190 |         2 |                8 |               512 |
+|              862 |         2 |               16 |               512 |
+|              595 |         2 |                8 |              1024 |
+|              431 |         2 |               16 |              1024 |
+|              298 |         2 |                8 |              2048 |
+|              216 |         2 |               16 |              2048 |
+|              149 |         2 |                8 |              4096 |
+|              108 |         2 |               16 |              4096 |
+
 ### Command `Get/Set Sensors`
 
 #### Notes
