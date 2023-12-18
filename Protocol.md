@@ -84,7 +84,7 @@ The following table describes the identifier field.
 |                 Field                 | Purpose                                                                                                                                                                        |
 | :-----------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |                   V                   | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                              |
-|                Command                | Command to be executed or acknowledged                                                                                                                                         |
+|     [Command](#protocol:command)      | Command to be executed or acknowledged                                                                                                                                         |
 |                 R1/R2                 | Reserved                                                                                                                                                                       |
 |  [Sender](#protocol:network-numbers)  | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                         |
 | [Receiver](#protocol:network-numbers) | Number of the target receiver (frames may hop) <br/> • `0` broadcasts at field bus (local network) with ACK <br/> • `0x1F` broadcasts at field bus (local network) without ACK |
@@ -127,6 +127,8 @@ The following table describes the identifier field.
 |   29   | STU 13                |
 |   30   | STU 14                |
 |   31   | Broadcast Without ACK |
+
+<a name="protocol:command"></a>
 
 ### Command
 
