@@ -81,13 +81,52 @@ The
 
 The following table describes the identifier field.
 
-|  Field   | Purpose                                                                                                                                                                        |
-| :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|    V     | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                              |
-| Command  | Command to be executed or acknowledged                                                                                                                                         |
-|  R1/R2   | Reserved                                                                                                                                                                       |
-|  Sender  | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                         |
-| Receiver | Number of the target receiver (frames may hop) <br/> • `0` broadcasts at field bus (local network) with ACK <br/> • `0x1F` broadcasts at field bus (local network) without ACK |
+|                 Field                 | Purpose                                                                                                                                                                        |
+| :-----------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                   V                   | Version number <br/> • Must be `0` or the frame will be discarded                                                                                                              |
+|                Command                | Command to be executed or acknowledged                                                                                                                                         |
+|                 R1/R2                 | Reserved                                                                                                                                                                       |
+|  [Sender](#protocol:network-numbers)  | Number of the original sender (frames may hop) <br/> • `0` Not allowed                                                                                                         |
+| [Receiver](#protocol:network-numbers) | Number of the target receiver (frames may hop) <br/> • `0` broadcasts at field bus (local network) with ACK <br/> • `0x1F` broadcasts at field bus (local network) without ACK |
+
+<a name="protocol:network-numbers"></a>
+
+### Network Numbers (Sender/Receiver)
+
+| Number | Node/Purpose          |
+| :----: | --------------------- |
+|   0    | Broadcast With ACK    |
+|   1    | STH 1                 |
+|   2    | STH 2                 |
+|   3    | STH 3                 |
+|   4    | STH 4                 |
+|   5    | STH 5                 |
+|   6    | STH 6                 |
+|   7    | STH 7                 |
+|   8    | STH 8                 |
+|   9    | STH 9                 |
+|   10   | STH 10                |
+|   11   | STH 11                |
+|   12   | STH 12                |
+|   13   | STH 13                |
+|   14   | STH 14                |
+|   15   | SPU 1                 |
+|   16   | SPU 2                 |
+|   17   | STU 1                 |
+|   18   | STU 2                 |
+|   19   | STU 3                 |
+|   20   | STU 4                 |
+|   21   | STU 5                 |
+|   22   | STU 6                 |
+|   23   | STU 7                 |
+|   24   | STU 8                 |
+|   25   | STU 9                 |
+|   26   | STU 10                |
+|   27   | STU 11                |
+|   28   | STU 12                |
+|   29   | STU 13                |
+|   30   | STU 14                |
+|   31   | Broadcast Without ACK |
 
 ### Command
 
